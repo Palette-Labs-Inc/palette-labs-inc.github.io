@@ -15,4 +15,4 @@ To apply, [email mike](mailto:mike@noshdelivery.co) with a link to your GitHub /
 
 ## License
 
-See the [License File](./LICENSE.md).
+[License](./LICENSE.md)
