@@ -27,6 +27,7 @@ The TEE will interface with our [native library for passkeys](https://github.com
 
 Contact [mike](mailto:mike@noshdelivery.co) if you have questions about starting the task.
 
+___
 ### Design a Graph Theoretical Token Resolver Contract w/ the Ethereum Attestation Service
 We are introducing a graph theoretic approach to blockchain tokenomics for decentralized physical infrastructure networks.Token distributions are intended to effectively matches producers (i.e - sellers of products or services) with buyers in the context of commercial markets. This approach aims to overcome the downfalls of existing approaches to token economies for physical infrastructure networks through a self-optimized token distributions that scale dynamicaly with the state of the graph. The graph will be represented by the nodes (individual buyers or providers) and edges (previous transactions) in the [graph](https://en.wikipedia.org/wiki/Graph_theory#:~:text=In%20mathematics%2C%20graph%20theory%20is,also%20called%20links%20or%20lines)
 
@@ -39,6 +40,7 @@ This project has three components:
 
 Note, this can be a simplified proof-of-concept. You can email [mike](mailto:mike@noshdelivery.co) if you have questions about starting the task or the math required in the resolver contract. 
 
+___
 ### Network Registry Infrastructure
 We are designing a federated, server-to-server architecture for commercial markets. The design supports an interoperable network of independently hosted Provider Supporting Servers and Buyer Supporting Servers that are responsible for onboarding participants on either side of the network.
 
@@ -52,6 +54,9 @@ This project has two components:
 - A repository with the network registry contract written in solidity
 - A fork of the [EAS indexing service](https://github.com/ethereum-attestation-service/eas-indexing-service) and GraphQL resolver to index and maintain the registry infrastructure w/ [PostgreSQL bindings for the H3 Core Library](https://github.com/zachasme/h3-pg) bindings.
 
+Contact [mike](mailto:mike@noshdelivery.co) if you have questions about the structure of the registry table.
+
+___
 ## License
 
 [License](./LICENSE.md)
