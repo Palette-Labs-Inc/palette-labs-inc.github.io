@@ -11,7 +11,7 @@ We’re currently hiring engineers and researchers.
 - [Staff+ Distributed Systems Engineer](./DS_ENG.md)
 - [Staff+ Head of Product](./PRODUCT_ENG.md)
 
-To apply, [email mike](mailto:mike@noshdelivery.co) with a link to your GitHub / LinkedIn / personal website and cv.
+To apply, [email mike](mailto:mike@noshdelivery.co) with a link to your GitHub / LinkedIn / personal website or cv.
 
 
 ## Interview Challenges 

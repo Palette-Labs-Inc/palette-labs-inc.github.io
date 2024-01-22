@@ -1,5 +1,7 @@
 ## Staff+ Head of Product
 
+To apply, [email mike](mailto:mike@noshdelivery.co) with a link to your GitHub / LinkedIn / personal website or cv.
+
 ###  Our Principles
 ___ 
 
