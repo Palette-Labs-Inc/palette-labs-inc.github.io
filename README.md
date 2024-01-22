@@ -1,5 +1,3 @@
-# Easy Markdown to Github Pages
-
 ## palette labs inc
 
 **What we’re working on**
