@@ -44,11 +44,13 @@ We are designing a federated, server-to-server architecture for commercial marke
 
 The network registry is a decentralized public ledger that maintains the records of Node Operators (network servers), agents, their supported Industry Codes, and the geographical regions that they represent. The registry is queried for a Producers products or services during the search phase of a Buyers transaction lifecycle. 
 
+All registered Node Operators self-maintain a `location` field in the registry table. The location field supports an array of strings that represent a [`Hexagonal Hierarchical Spatial Index`](https://github.com/uber/h3). This index provides a precise and performant way to easily represent and query geospatial data on the blockchain. 
+
 Design the network registry, submit it to a github repository, and [deploy the registry contract to base-spolia using hardhat](https://docs.base.org/guides/deploy-smart-contracts/) 
 
 This project has two components: 
 - A repository with the network registry contract written in solidity
-- A fork of the [EAS indexing service](https://github.com/ethereum-attestation-service/eas-indexing-service) and GraphQL resolver to index and maintain the registry infrastructure in PostgreSQL.
+- A fork of the [EAS indexing service](https://github.com/ethereum-attestation-service/eas-indexing-service) and GraphQL resolver to index and maintain the registry infrastructure w/ [PostgreSQL bindings for the H3 Core Library](https://github.com/zachasme/h3-pg) bindings.
 
 ## License
 
