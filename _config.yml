@@ -1,0 +1,7 @@
+relative_links:
+  enabled: true
+  collections: true
+include:
+  - DS_ENG.md
+  - PRODUCT_ENG.md
+  - LICENSE.md
