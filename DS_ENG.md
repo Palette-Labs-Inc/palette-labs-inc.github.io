@@ -38,13 +38,6 @@ ___
 
 **Write & engage** - contribute to technical reports/papers describing the network and the overarching technical standards. Collaborate with academic research partners at leading institutions.
 
-**Customer support** - we don't shelter engineering teams. Expect to collaborate directly with stakeholders on how best to improve the protocol. 
-
-**Management** - you will oversea a team of backend and frontend developers.
-
-**Mobile + Web** - we manage 3 mobile products (iOS and Android), and 3 web products (React). Expect to oversee the development of, and directly contribute to all 6 of these products.
-
-**Product Manager** - we don't hire product managers. Which means you will be in charge of creating your own tickets and holding yourself, as well as the team, accountable. You should be comfortable managing business requirements and defining product roadmaps yourself. If you don't have enough information to make a decision, you should seek the information instead of waiting for it. You should hold the team accountable to the same standard. 
 
 ### Minimum requirements
 ___ 
