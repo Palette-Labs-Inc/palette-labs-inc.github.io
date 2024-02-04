@@ -10,7 +10,6 @@ ___
 - Don’t ask for permission - we have a [constraint culture](https://www.youtube.com/watch?v=wLQ-rq4FgQA&t=2920s), not a permission culture.
 - Own your work. Establishing your own objectives and timelines. 
 - Initiative is key; don't wait for tasks to be handed to you or rely solely on predefined roles. If you would like to be managed you should work somewhere else.
-- No middle managers - we will never have managers which means you are your manager. You will have agency in your work. 
 - Communicate directly and speak openly. 
 
 #### Focus
