@@ -2,7 +2,7 @@
 
 **What we’re working on**
 
-We are designing internet primitives for open commerce. We believe in an internet where buyers and providers across any industry are free to engage in a wide range of commercial transactions without the need to engage an intermediary.
+We are designing a new communication standard; a set of rules and technical specifications for building open e-commerce networks across which providers and their services are universally discoverable from any protocol-enabled application.
 
 We’re currently hiring engineers and researchers.
 
