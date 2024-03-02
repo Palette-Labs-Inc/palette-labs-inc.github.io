@@ -1,4 +1,4 @@
-# palette labs inc
+# Nosh
 
 **What we’re working on**
 
