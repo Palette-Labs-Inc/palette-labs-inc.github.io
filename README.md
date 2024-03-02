@@ -9,12 +9,12 @@ We’re currently hiring engineers and researchers.
 ## Jobs
 
 - [Distributed Systems Engineer](./DS_ENG.md)
-- [Staff Engineer](./PRODUCT_ENG.md)
+- [Founding Engineer](./PRODUCT_ENG.md)
 
 To apply, [email mike](mailto:mike@noshdelivery.co) with a link to your GitHub / LinkedIn / personal website or cv.
 
 
-## Interview Challenges 
+## Interview Challenges (Distributed Systems)
 
 ### Implement Key-Pair Infrastructure with Intel SGX Secure Enclaves
 Write a secure [trusted execution environment](https://en.wikipedia.org/wiki/Trusted_execution_environment) using [Intel SGX secure enclaves](https://www.intel.com/content/dam/develop/external/us/en/documents/overview-of-intel-sgx-enclave-637284.pdf). Intel SGX can be used for public-private key store infrastructure. This TEE will be used by Gateway Providers of the protocol network. The TEE will securely execute attestations for buyers and sellers in the network during their transaction lifecycle.

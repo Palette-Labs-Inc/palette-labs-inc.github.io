@@ -1,4 +1,4 @@
-## Staff Engineer
+## Founding Engineer
 
 To apply, [email mike](mailto:mike@noshdelivery.co) with a link to your GitHub / LinkedIn / personal website or cv.
 
