@@ -41,8 +41,6 @@ ___
 ### Minimum requirements
 ___ 
 
-- **6+ years of experience writing production software.**
-
 - **3+ years of experience solving complex distributed systems problems**
 
 - **Live between GMT-8 and GMT-5 (North American timezones)**
