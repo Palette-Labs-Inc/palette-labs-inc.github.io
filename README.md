@@ -41,21 +41,26 @@ This project has three components:
 Note, this can be a simplified proof-of-concept. You can email [mike](mailto:mike@noshdelivery.co) if you have questions about starting the task or the math required in the resolver contract. 
 
 ___
-### Network Registry Infrastructure
+### Network Identity Infrastructure
 We are designing a federated, server-to-server architecture for commercial markets. The design supports an interoperable network of independently hosted Provider Supporting Servers and Buyer Supporting Servers that are responsible for onboarding participants on either side of the network.
 
-The network registry is a decentralized public ledger that maintains the records of Node Operators (network servers), agents, their supported Industry Codes, and the geographical regions that they represent. The registry is queried for a Producers products or services during the search phase of a Buyers transaction lifecycle. 
+The core network architecture defines a distributed network of `Buyer` and `Provider` Servicing Nodes who onboard either side of a two-sided-market. In centralized corporate networks and federated server-to-server networks, the servers own a users identity and, as such, their relationship to the network. As the network grows, and power accumulates to central authorities, platforms begin to extract from stakeholders - usually through increasingly high take rates in commercial settings. 
 
-All registered Node Operators self-maintain a `location` field in the registry table. The location field supports an array of strings that represent a [`Hexagonal Hierarchical Spatial Index`](https://github.com/uber/h3). This index provides a precise and performant way to easily represent and query geospatial data on the blockchain. 
+To prevent such undesirable market dynamics, we develop structures for a [self-authenticating](https://en.wiktionary.org/wiki/self-authenticating) protocol. Our design grants users the ability to "switch" between managed-hosts (nodes) at will, shifting control to users, and introduces a concept of a "data-backpack" through content-addressed (vs. location addressed) data structures. 
 
-Design the network registry, submit it to a github repository, and [deploy the registry contract to base-spolia using hardhat](https://docs.base.org/guides/deploy-smart-contracts/) 
+The task for this effort is to create a fork of the [bsky personal data server (PDS)](https://github.com/bluesky-social/atproto) from the bsky monorepo and make it compatible with WebAuthN standards that use our [native library for passkeys](https://github.com/Palette-Labs-Inc/passkeys)
 
-This project has two components: 
-- A repository with the network registry contract written in solidity
-- A fork of the [EAS indexing service](https://github.com/ethereum-attestation-service/eas-indexing-service) and GraphQL resolver to index and maintain the registry infrastructure w/ [PostgreSQL bindings for the H3 Core Library](https://github.com/zachasme/h3-pg) bindings.
+The following design considerations are inherited by the bsky PDS:
+- Data portability: Users who want to switch hosting providers can transfer their data at their convenience, including to their own infrastructure. 
+- User experience: Users should be able to quickly register and authenticate
+- [Self Sovereign Identity](https://github.com/WebOfTrustInfo/self-sovereign-identity/blob/master/ThePathToSelf-SovereignIdentity.md). Control of an account is proved by a cryptographic signature from a user.
+
+Useful Resources
+- [Solid](https://solidproject.org/)
+- ATProtocol [data repositories](https://atproto.com/guides/data-repos)
+- [UCAN](https://ucan.xyz)
 
 Contact [mike](mailto:mike@noshdelivery.co) if you have questions about the structure of the registry table.
-
 ___
 ## License
 
