@@ -9,7 +9,7 @@ We’re currently hiring engineers and researchers.
 ## Jobs
 
 - [Distributed Systems Engineer](./DS_ENG.md)
-- [Founding Engineer](./PRODUCT_ENG.md)
+- [Founding Engineer, react-native / typescript](./PRODUCT_ENG.md)
 
 To apply, [email mike](mailto:mike@noshdelivery.co) with a link to your GitHub / LinkedIn / personal website or cv.
 
