@@ -44,7 +44,7 @@ ___
 ### Network Identity Infrastructure
 We are designing a federated, server-to-server architecture for commercial markets. The design supports an interoperable network of independently hosted Provider Supporting Servers and Buyer Supporting Servers that are responsible for onboarding participants on either side of the network.
 
-The core network architecture defines a distributed network of `Buyer` and `Provider` Servicing Nodes who onboard either side of a two-sided-market. In centralized corporate networks and federated server-to-server networks, the servers own a users identity and, as such, their relationship to the network. As the network grows, and power accumulates to central authorities, platforms begin to extract from stakeholders - usually through increasingly high take rates in commercial settings. 
+`Buyer` and `Provider` Servicing Nodes onboard either side of a two-sided-market. In centralized corporate networks and federated server-to-server networks, servers own and dictate users identity and, as such, their relationship to the network. As the network grows, and power accumulates to central authorities, platforms begin to extract from stakeholders - usually through increasingly high take rates in commercial settings. 
 
 To prevent such undesirable market dynamics, we develop structures for a [self-authenticating](https://en.wiktionary.org/wiki/self-authenticating) protocol. Our design grants users the ability to "switch" between managed-hosts (nodes) at will, shifting control to users, and introduces a concept of a "data-backpack" through content-addressed (vs. location addressed) data structures. 
 
