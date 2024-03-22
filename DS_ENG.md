@@ -27,7 +27,7 @@ ___
 
 ### Responsibilities
 
-**Core contribution** - develop core protocol schema, decentralized registry infrastructure (solidity), server-to-server communication standards, network Node architectures in multiple programming languages (Go, Rust, Typescript), key pair infrastructure, CLIs, and developer tools. Develop and maintain mobile libraries for private key stores, design trusted execution environment gateways using Intel SGX.
+**Core contribution** - develop core protocol schema, decentralized registry infrastructure (solidity), server-to-server communication standards, network Node architectures in multiple programming languages (Go, Rust, Typescript), key pair infrastructure, CLIs, and developer tools. Develop and maintain mobile libraries for private key stores.
 
 **Research** - build and define new cryptographic standards, cryptographic proving systems, game theoretic research, consensus algorithms, and zero knowledge applications.
 
