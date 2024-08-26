@@ -22,7 +22,3 @@
 parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd "$parent_path"
 cd ..
-
-cp images/share.png public/share.png
-cp images/thumbnail.jpg public/thumbnail.jpg
-cp images/thumbnail.png public/thumbnail.png
