@@ -1,35 +1,49 @@
-name: Deploy to GitHub Pages
+# Simple workflow for deploying static content to Pages
+name: Deploy static content to Pages
 
 on:
+  # Runs on pushes targeting the default branch
   push:
-    branches:
-      - main  # Trigger deployment on pushes to the main branch
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    - name: Install Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'  # Adjust the Node.js version if needed
+      - name: Install dependencies
+        run: npm install
 
-    - name: Install dependencies
-      run: npm install  # Using npm instead of yarn
+      - name: Build the project
+        run: npm run build  # Make sure your build script outputs to the public directory
 
-    - name: Build the project
-      run: npm run build  # This will build your project and output to the public directory
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './public'  # Serve only the public directory
 
-    - name: List files in the public directory
-      run: ls -R ./public  # Lists all files in the public directory
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.WP_TOKEN }}  # Ensure you have this secret in your repository
-        publish_branch: gh-pages
-        publish_dir: ./public
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
