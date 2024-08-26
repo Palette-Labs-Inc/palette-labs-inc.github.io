@@ -1,7 +1,6 @@
-### GNN-distill
+### Token whitepaper
 
-This is the repo for a distill post on graph neural nets
-
+This is the whitepaper for The Local Protocol economic design
 
 ### To run the demo
 
