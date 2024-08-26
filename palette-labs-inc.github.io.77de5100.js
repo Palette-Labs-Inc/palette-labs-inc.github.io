@@ -18724,7 +18724,7 @@ var _irwinHall = _interopRequireDefault(require("./irwinHall"));
 var _exponential = _interopRequireDefault(require("./exponential"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./uniform":"hmOZ","./normal":"pjsZ","./logNormal":"lZpB","./bates":"gL6I","./irwinHall":"DMHS","./exponential":"gEmS"}],"JCmq":[function(require,module,exports) {
+},{"./uniform":"hmOZ","./normal":"pjsZ","./logNormal":"lZpB","./bates":"gL6I","./irwinHall":"DMHS","./exponential":"gEmS"}],"aZlr":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -18766,7 +18766,7 @@ function initInterpolator(domain, interpolator) {
 
   return this;
 }
-},{}],"EsQw":[function(require,module,exports) {
+},{}],"lLkj":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -18778,7 +18778,7 @@ var map = array.map;
 exports.map = map;
 var slice = array.slice;
 exports.slice = slice;
-},{}],"CZHV":[function(require,module,exports) {
+},{}],"ELIM":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -18845,7 +18845,7 @@ function ordinal() {
 
   return scale;
 }
-},{"d3-collection":"qqV1","./array":"EsQw","./init":"JCmq"}],"As1k":[function(require,module,exports) {
+},{"d3-collection":"qqV1","./array":"lLkj","./init":"aZlr"}],"rJZF":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -18954,7 +18954,7 @@ function pointish(scale) {
 function point() {
   return pointish(band.apply(null, arguments).paddingInner(1));
 }
-},{"d3-array":"cBuZ","./init":"JCmq","./ordinal":"CZHV"}],"J4RT":[function(require,module,exports) {
+},{"d3-array":"cBuZ","./init":"aZlr","./ordinal":"ELIM"}],"zRWI":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -18965,7 +18965,7 @@ exports.default = _default;
 function _default(x) {
   return +x;
 }
-},{}],"ixdH":[function(require,module,exports) {
+},{}],"ZpMB":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -19108,7 +19108,7 @@ function transformer() {
 function continuous(transform, untransform) {
   return transformer()(transform, untransform);
 }
-},{"d3-array":"cBuZ","d3-interpolate":"mkGF","./array":"EsQw","./constant":"OY6d","./number":"J4RT"}],"pBrr":[function(require,module,exports) {
+},{"d3-array":"cBuZ","d3-interpolate":"mkGF","./array":"lLkj","./constant":"OY6d","./number":"zRWI"}],"m0SA":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -19153,7 +19153,7 @@ function _default(start, stop, count, specifier) {
 
   return (0, _d3Format.format)(specifier);
 }
-},{"d3-array":"cBuZ","d3-format":"gWev"}],"qHRK":[function(require,module,exports) {
+},{"d3-array":"cBuZ","d3-format":"gWev"}],"VMtl":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -19242,7 +19242,7 @@ function linear() {
 
   return linearish(scale);
 }
-},{"d3-array":"cBuZ","./continuous":"ixdH","./init":"JCmq","./tickFormat":"pBrr"}],"wPy5":[function(require,module,exports) {
+},{"d3-array":"cBuZ","./continuous":"ZpMB","./init":"aZlr","./tickFormat":"m0SA"}],"eP89":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -19282,7 +19282,7 @@ function identity(domain) {
   domain = arguments.length ? _array.map.call(domain, _number.default) : [0, 1];
   return (0, _linear.linearish)(scale);
 }
-},{"./array":"EsQw","./linear":"qHRK","./number":"J4RT"}],"dIys":[function(require,module,exports) {
+},{"./array":"lLkj","./linear":"VMtl","./number":"zRWI"}],"gRJQ":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -19307,7 +19307,7 @@ function _default(domain, interval) {
   domain[i1] = interval.ceil(x1);
   return domain;
 }
-},{}],"JQUs":[function(require,module,exports) {
+},{}],"X3YW":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -19471,7 +19471,7 @@ function log() {
 
   return scale;
 }
-},{"d3-array":"cBuZ","d3-format":"gWev","./nice":"dIys","./continuous":"ixdH","./init":"JCmq"}],"MweB":[function(require,module,exports) {
+},{"d3-array":"cBuZ","d3-format":"gWev","./nice":"gRJQ","./continuous":"ZpMB","./init":"aZlr"}],"Prec":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -19518,7 +19518,7 @@ function symlog() {
 
   return _init.initRange.apply(scale, arguments);
 }
-},{"./linear":"qHRK","./continuous":"ixdH","./init":"JCmq"}],"Nw8c":[function(require,module,exports) {
+},{"./linear":"VMtl","./continuous":"ZpMB","./init":"aZlr"}],"ysea":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -19578,7 +19578,7 @@ function pow() {
 function sqrt() {
   return pow.apply(null, arguments).exponent(0.5);
 }
-},{"./linear":"qHRK","./continuous":"ixdH","./init":"JCmq"}],"oIEm":[function(require,module,exports) {
+},{"./linear":"VMtl","./continuous":"ZpMB","./init":"aZlr"}],"fsZk":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -19645,7 +19645,7 @@ function quantile() {
 
   return _init.initRange.apply(scale, arguments);
 }
-},{"d3-array":"cBuZ","./array":"EsQw","./init":"JCmq"}],"c4tC":[function(require,module,exports) {
+},{"d3-array":"cBuZ","./array":"lLkj","./init":"aZlr"}],"Z2cL":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -19709,7 +19709,7 @@ function quantize() {
 
   return _init.initRange.apply((0, _linear.linearish)(scale), arguments);
 }
-},{"d3-array":"cBuZ","./array":"EsQw","./linear":"qHRK","./init":"JCmq"}],"b5pH":[function(require,module,exports) {
+},{"d3-array":"cBuZ","./array":"lLkj","./linear":"VMtl","./init":"aZlr"}],"odYE":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -19756,7 +19756,7 @@ function threshold() {
 
   return _init.initRange.apply(scale, arguments);
 }
-},{"d3-array":"cBuZ","./array":"EsQw","./init":"JCmq"}],"gsab":[function(require,module,exports) {
+},{"d3-array":"cBuZ","./array":"lLkj","./init":"aZlr"}],"gsab":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -21587,7 +21587,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-},{"./defaultLocale.js":"LmVV","./locale.js":"rf9h","./isoFormat.js":"UFnF","./isoParse.js":"hAdq"}],"fZ0E":[function(require,module,exports) {
+},{"./defaultLocale.js":"LmVV","./locale.js":"rf9h","./isoFormat.js":"UFnF","./isoParse.js":"hAdq"}],"QHrh":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -21717,7 +21717,7 @@ function calendar(year, month, week, day, hour, minute, second, millisecond, for
 function _default() {
   return _init.initRange.apply(calendar(_d3Time.timeYear, _d3Time.timeMonth, _d3Time.timeWeek, _d3Time.timeDay, _d3Time.timeHour, _d3Time.timeMinute, _d3Time.timeSecond, _d3Time.timeMillisecond, _d3TimeFormat.timeFormat).domain([new Date(2000, 0, 1), new Date(2000, 0, 2)]), arguments);
 }
-},{"d3-array":"cBuZ","d3-time":"F00f","d3-time-format":"zs1a","./array":"EsQw","./continuous":"ixdH","./init":"JCmq","./nice":"dIys"}],"hCNz":[function(require,module,exports) {
+},{"d3-array":"cBuZ","d3-time":"F00f","d3-time-format":"zs1a","./array":"lLkj","./continuous":"ZpMB","./init":"aZlr","./nice":"gRJQ"}],"D6Mr":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -21736,7 +21736,7 @@ var _init = require("./init");
 function _default() {
   return _init.initRange.apply((0, _time.calendar)(_d3Time.utcYear, _d3Time.utcMonth, _d3Time.utcWeek, _d3Time.utcDay, _d3Time.utcHour, _d3Time.utcMinute, _d3Time.utcSecond, _d3Time.utcMillisecond, _d3TimeFormat.utcFormat).domain([Date.UTC(2000, 0, 1), Date.UTC(2000, 0, 2)]), arguments);
 }
-},{"./time":"fZ0E","d3-time-format":"zs1a","d3-time":"F00f","./init":"JCmq"}],"qZnt":[function(require,module,exports) {
+},{"./time":"QHrh","d3-time-format":"zs1a","d3-time":"F00f","./init":"aZlr"}],"O1DZ":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -21845,7 +21845,7 @@ function sequentialPow() {
 function sequentialSqrt() {
   return sequentialPow.apply(null, arguments).exponent(0.5);
 }
-},{"./continuous":"ixdH","./init":"JCmq","./linear":"qHRK","./log":"JQUs","./symlog":"MweB","./pow":"Nw8c"}],"icZj":[function(require,module,exports) {
+},{"./continuous":"ZpMB","./init":"aZlr","./linear":"VMtl","./log":"X3YW","./symlog":"Prec","./pow":"ysea"}],"Y40z":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -21887,7 +21887,7 @@ function sequentialQuantile() {
 
   return _init.initInterpolator.apply(scale, arguments);
 }
-},{"d3-array":"cBuZ","./continuous":"ixdH","./init":"JCmq"}],"buWk":[function(require,module,exports) {
+},{"d3-array":"cBuZ","./continuous":"ZpMB","./init":"aZlr"}],"shE4":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -21996,7 +21996,7 @@ function divergingPow() {
 function divergingSqrt() {
   return divergingPow.apply(null, arguments).exponent(0.5);
 }
-},{"./continuous":"ixdH","./init":"JCmq","./linear":"qHRK","./log":"JQUs","./sequential":"qZnt","./symlog":"MweB","./pow":"Nw8c"}],"OEpC":[function(require,module,exports) {
+},{"./continuous":"ZpMB","./init":"aZlr","./linear":"VMtl","./log":"X3YW","./sequential":"O1DZ","./symlog":"Prec","./pow":"ysea"}],"ztAj":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -22202,7 +22202,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-},{"./band":"As1k","./identity":"wPy5","./linear":"qHRK","./log":"JQUs","./symlog":"MweB","./ordinal":"CZHV","./pow":"Nw8c","./quantile":"oIEm","./quantize":"c4tC","./threshold":"b5pH","./time":"fZ0E","./utcTime":"hCNz","./sequential":"qZnt","./sequentialQuantile":"icZj","./diverging":"buWk","./tickFormat":"pBrr"}],"e9Ar":[function(require,module,exports) {
+},{"./band":"rJZF","./identity":"eP89","./linear":"VMtl","./log":"X3YW","./symlog":"Prec","./ordinal":"ELIM","./pow":"ysea","./quantile":"fsZk","./quantize":"Z2cL","./threshold":"odYE","./time":"QHrh","./utcTime":"D6Mr","./sequential":"O1DZ","./sequentialQuantile":"Y40z","./diverging":"shE4","./tickFormat":"m0SA"}],"e9Ar":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28784,7 +28784,7 @@ Object.keys(_d3Zoom).forEach(function (key) {
     }
   });
 });
-},{"./dist/package.js":"hADF","d3-array":"cBuZ","d3-axis":"y9Kr","d3-brush":"TNt0","d3-chord":"cf1F","d3-collection":"qqV1","d3-color":"TJ2K","d3-contour":"cfrl","d3-dispatch":"UUCs","d3-drag":"LrBi","d3-dsv":"mQVF","d3-ease":"CFyW","d3-fetch":"hNko","d3-force":"YpA1","d3-format":"gWev","d3-geo":"LMxt","d3-hierarchy":"wNQE","d3-interpolate":"mkGF","d3-path":"dz42","d3-polygon":"QnuL","d3-quadtree":"oxc3","d3-random":"WQ4D","d3-scale":"OEpC","d3-scale-chromatic":"zd6o","d3-selection":"lm1C","d3-shape":"pWU4","d3-time":"F00f","d3-time-format":"zs1a","d3-timer":"CBES","d3-transition":"Fcbi","d3-voronoi":"AKDj","d3-zoom":"uzwd"}],"baql":[function(require,module,exports) {
+},{"./dist/package.js":"hADF","d3-array":"cBuZ","d3-axis":"y9Kr","d3-brush":"TNt0","d3-chord":"cf1F","d3-collection":"qqV1","d3-color":"TJ2K","d3-contour":"cfrl","d3-dispatch":"UUCs","d3-drag":"LrBi","d3-dsv":"mQVF","d3-ease":"CFyW","d3-fetch":"hNko","d3-force":"YpA1","d3-format":"gWev","d3-geo":"LMxt","d3-hierarchy":"wNQE","d3-interpolate":"mkGF","d3-path":"dz42","d3-polygon":"QnuL","d3-quadtree":"oxc3","d3-random":"WQ4D","d3-scale":"ztAj","d3-scale-chromatic":"zd6o","d3-selection":"lm1C","d3-shape":"pWU4","d3-time":"F00f","d3-time-format":"zs1a","d3-timer":"CBES","d3-transition":"Fcbi","d3-voronoi":"AKDj","d3-zoom":"uzwd"}],"baql":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29268,7 +29268,7 @@ function _default(key) {
     return b[key] < a[key] ? -1 : b[key] > a[key] ? 1 : b[key] >= a[key] ? 0 : NaN;
   };
 }
-},{}],"ELIM":[function(require,module,exports) {
+},{}],"s5Ov":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29331,7 +29331,7 @@ function ordinal(range) {
 
   return scale;
 }
-},{"d3-collection":"qqV1","./array":"EsQw"}],"rJZF":[function(require,module,exports) {
+},{"d3-collection":"qqV1","./array":"lLkj"}],"wrWg":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29438,7 +29438,7 @@ function pointish(scale) {
 function point() {
   return pointish(band().paddingInner(1));
 }
-},{"d3-array":"cBuZ","./ordinal":"ELIM"}],"ZpMB":[function(require,module,exports) {
+},{"d3-array":"cBuZ","./ordinal":"s5Ov"}],"KEF6":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29570,7 +29570,7 @@ function continuous(deinterpolate, reinterpolate) {
 
   return rescale();
 }
-},{"d3-array":"cBuZ","d3-interpolate":"mkGF","./array":"EsQw","./constant":"OY6d","./number":"J4RT"}],"m0SA":[function(require,module,exports) {
+},{"d3-array":"cBuZ","d3-interpolate":"mkGF","./array":"lLkj","./constant":"OY6d","./number":"zRWI"}],"jZ5o":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29617,7 +29617,7 @@ function _default(domain, count, specifier) {
 
   return (0, _d3Format.format)(specifier);
 }
-},{"d3-array":"cBuZ","d3-format":"gWev"}],"VMtl":[function(require,module,exports) {
+},{"d3-array":"cBuZ","d3-format":"gWev"}],"PDRo":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29703,7 +29703,7 @@ function linear() {
 
   return linearish(scale);
 }
-},{"d3-array":"cBuZ","d3-interpolate":"mkGF","./continuous":"ZpMB","./tickFormat":"m0SA"}],"eP89":[function(require,module,exports) {
+},{"d3-array":"cBuZ","d3-interpolate":"mkGF","./continuous":"KEF6","./tickFormat":"jZ5o"}],"SQ6V":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29738,7 +29738,7 @@ function identity() {
 
   return (0, _linear.linearish)(scale);
 }
-},{"./array":"EsQw","./linear":"VMtl","./number":"J4RT"}],"X3YW":[function(require,module,exports) {
+},{"./array":"lLkj","./linear":"PDRo","./number":"zRWI"}],"mzG5":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29888,7 +29888,7 @@ function log() {
 
   return scale;
 }
-},{"d3-array":"cBuZ","d3-format":"gWev","./constant":"OY6d","./nice":"dIys","./continuous":"ZpMB"}],"ysea":[function(require,module,exports) {
+},{"d3-array":"cBuZ","d3-format":"gWev","./constant":"OY6d","./nice":"gRJQ","./continuous":"KEF6"}],"HyvH":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29945,7 +29945,7 @@ function pow() {
 function sqrt() {
   return pow().exponent(0.5);
 }
-},{"./constant":"OY6d","./linear":"VMtl","./continuous":"ZpMB"}],"fsZk":[function(require,module,exports) {
+},{"./constant":"OY6d","./linear":"PDRo","./continuous":"KEF6"}],"JrhX":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30005,7 +30005,7 @@ function quantile() {
 
   return scale;
 }
-},{"d3-array":"cBuZ","./array":"EsQw"}],"Z2cL":[function(require,module,exports) {
+},{"d3-array":"cBuZ","./array":"lLkj"}],"Wh5k":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30058,7 +30058,7 @@ function quantize() {
 
   return (0, _linear.linearish)(scale);
 }
-},{"d3-array":"cBuZ","./array":"EsQw","./linear":"VMtl"}],"odYE":[function(require,module,exports) {
+},{"d3-array":"cBuZ","./array":"lLkj","./linear":"PDRo"}],"hXCq":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30098,7 +30098,7 @@ function threshold() {
 
   return scale;
 }
-},{"d3-array":"cBuZ","./array":"EsQw"}],"QHrh":[function(require,module,exports) {
+},{"d3-array":"cBuZ","./array":"lLkj"}],"r8pf":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30228,7 +30228,7 @@ function calendar(year, month, week, day, hour, minute, second, millisecond, for
 function _default() {
   return calendar(_d3Time.timeYear, _d3Time.timeMonth, _d3Time.timeWeek, _d3Time.timeDay, _d3Time.timeHour, _d3Time.timeMinute, _d3Time.timeSecond, _d3Time.timeMillisecond, _d3TimeFormat.timeFormat).domain([new Date(2000, 0, 1), new Date(2000, 0, 2)]);
 }
-},{"d3-array":"cBuZ","d3-interpolate":"mkGF","d3-time":"F00f","d3-time-format":"zs1a","./array":"EsQw","./continuous":"ZpMB","./nice":"dIys"}],"D6Mr":[function(require,module,exports) {
+},{"d3-array":"cBuZ","d3-interpolate":"mkGF","d3-time":"F00f","d3-time-format":"zs1a","./array":"lLkj","./continuous":"KEF6","./nice":"gRJQ"}],"zwTZ":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30245,7 +30245,7 @@ var _d3Time = require("d3-time");
 function _default() {
   return (0, _time.calendar)(_d3Time.utcYear, _d3Time.utcMonth, _d3Time.utcWeek, _d3Time.utcDay, _d3Time.utcHour, _d3Time.utcMinute, _d3Time.utcSecond, _d3Time.utcMillisecond, _d3TimeFormat.utcFormat).domain([Date.UTC(2000, 0, 1), Date.UTC(2000, 0, 2)]);
 }
-},{"./time":"QHrh","d3-time-format":"zs1a","d3-time":"F00f"}],"Tmn2":[function(require,module,exports) {
+},{"./time":"r8pf","d3-time-format":"zs1a","d3-time":"F00f"}],"R2N2":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30258,7 +30258,7 @@ function _default(s) {
     return "#" + x;
   });
 }
-},{}],"qJ0X":[function(require,module,exports) {
+},{}],"eqhP":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30273,7 +30273,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = (0, _colors.default)("1f77b4ff7f0e2ca02cd627289467bd8c564be377c27f7f7fbcbd2217becf");
 
 exports.default = _default;
-},{"./colors":"Tmn2"}],"C9nM":[function(require,module,exports) {
+},{"./colors":"R2N2"}],"cNv3":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30288,7 +30288,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = (0, _colors.default)("393b795254a36b6ecf9c9ede6379398ca252b5cf6bcedb9c8c6d31bd9e39e7ba52e7cb94843c39ad494ad6616be7969c7b4173a55194ce6dbdde9ed6");
 
 exports.default = _default;
-},{"./colors":"Tmn2"}],"Xza9":[function(require,module,exports) {
+},{"./colors":"R2N2"}],"AepT":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30303,7 +30303,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = (0, _colors.default)("3182bd6baed69ecae1c6dbefe6550dfd8d3cfdae6bfdd0a231a35474c476a1d99bc7e9c0756bb19e9ac8bcbddcdadaeb636363969696bdbdbdd9d9d9");
 
 exports.default = _default;
-},{"./colors":"Tmn2"}],"vUCQ":[function(require,module,exports) {
+},{"./colors":"R2N2"}],"KCw9":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30318,7 +30318,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = (0, _colors.default)("1f77b4aec7e8ff7f0effbb782ca02c98df8ad62728ff98969467bdc5b0d58c564bc49c94e377c2f7b6d27f7f7fc7c7c7bcbd22dbdb8d17becf9edae5");
 
 exports.default = _default;
-},{"./colors":"Tmn2"}],"pu2q":[function(require,module,exports) {
+},{"./colors":"R2N2"}],"rCah":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30345,7 +30345,7 @@ function _default(t) {
   rainbow.l = 0.8 - 0.9 * ts;
   return rainbow + "";
 }
-},{"d3-color":"TJ2K","d3-interpolate":"mkGF"}],"Kdyr":[function(require,module,exports) {
+},{"d3-color":"TJ2K","d3-interpolate":"mkGF"}],"S6jK":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30373,7 +30373,7 @@ var inferno = ramp((0, _colors.default)("00000401000501010601010802010a02020c020
 exports.inferno = inferno;
 var plasma = ramp((0, _colors.default)("0d088710078813078916078a19068c1b068d1d068e20068f2206902406912605912805922a05932c05942e05952f059631059733059735049837049938049a3a049a3c049b3e049c3f049c41049d43039e44039e46039f48039f4903a04b03a14c02a14e02a25002a25102a35302a35502a45601a45801a45901a55b01a55c01a65e01a66001a66100a76300a76400a76600a76700a86900a86a00a86c00a86e00a86f00a87100a87201a87401a87501a87701a87801a87a02a87b02a87d03a87e03a88004a88104a78305a78405a78606a68707a68808a68a09a58b0aa58d0ba58e0ca48f0da4910ea3920fa39410a29511a19613a19814a099159f9a169f9c179e9d189d9e199da01a9ca11b9ba21d9aa31e9aa51f99a62098a72197a82296aa2395ab2494ac2694ad2793ae2892b02991b12a90b22b8fb32c8eb42e8db52f8cb6308bb7318ab83289ba3388bb3488bc3587bd3786be3885bf3984c03a83c13b82c23c81c33d80c43e7fc5407ec6417dc7427cc8437bc9447aca457acb4679cc4778cc4977cd4a76ce4b75cf4c74d04d73d14e72d24f71d35171d45270d5536fd5546ed6556dd7566cd8576bd9586ada5a6ada5b69db5c68dc5d67dd5e66de5f65de6164df6263e06363e16462e26561e26660e3685fe4695ee56a5de56b5de66c5ce76e5be76f5ae87059e97158e97257ea7457eb7556eb7655ec7754ed7953ed7a52ee7b51ef7c51ef7e50f07f4ff0804ef1814df1834cf2844bf3854bf3874af48849f48948f58b47f58c46f68d45f68f44f79044f79143f79342f89441f89540f9973ff9983ef99a3efa9b3dfa9c3cfa9e3bfb9f3afba139fba238fca338fca537fca636fca835fca934fdab33fdac33fdae32fdaf31fdb130fdb22ffdb42ffdb52efeb72dfeb82cfeba2cfebb2bfebd2afebe2afec029fdc229fdc328fdc527fdc627fdc827fdca26fdcb26fccd25fcce25fcd025fcd225fbd324fbd524fbd724fad824fada24f9dc24f9dd25f8df25f8e125f7e225f7e425f6e626f6e826f5e926f5eb27f4ed27f3ee27f3f027f2f227f1f426f1f525f0f724f0f921"));
 exports.plasma = plasma;
-},{"./colors":"Tmn2"}],"O1DZ":[function(require,module,exports) {
+},{"./colors":"R2N2"}],"LXPH":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30411,7 +30411,7 @@ function sequential(interpolator) {
 
   return (0, _linear.linearish)(scale);
 }
-},{"./linear":"VMtl"}],"uY15":[function(require,module,exports) {
+},{"./linear":"PDRo"}],"gNlc":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30623,7 +30623,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-},{"./src/band":"rJZF","./src/identity":"eP89","./src/linear":"VMtl","./src/log":"X3YW","./src/ordinal":"ELIM","./src/pow":"ysea","./src/quantile":"fsZk","./src/quantize":"Z2cL","./src/threshold":"odYE","./src/time":"QHrh","./src/utcTime":"D6Mr","./src/category10":"qJ0X","./src/category20b":"C9nM","./src/category20c":"Xza9","./src/category20":"vUCQ","./src/cubehelix":"Spoc","./src/rainbow":"pu2q","./src/viridis":"Kdyr","./src/sequential":"O1DZ"}],"p0xN":[function(require,module,exports) {
+},{"./src/band":"wrWg","./src/identity":"SQ6V","./src/linear":"PDRo","./src/log":"mzG5","./src/ordinal":"s5Ov","./src/pow":"HyvH","./src/quantile":"JrhX","./src/quantize":"Wh5k","./src/threshold":"hXCq","./src/time":"r8pf","./src/utcTime":"zwTZ","./src/category10":"eqhP","./src/category20b":"cNv3","./src/category20c":"AepT","./src/category20":"KCw9","./src/cubehelix":"Spoc","./src/rainbow":"rCah","./src/viridis":"S6jK","./src/sequential":"LXPH"}],"p0xN":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30697,7 +30697,7 @@ function _default(c) {
   });
   return c;
 }
-},{"d3-axis":"y9Kr","d3-selection":"lm1C","d3-scale":"uY15"}],"M3fL":[function(require,module,exports) {
+},{"d3-axis":"y9Kr","d3-selection":"lm1C","d3-scale":"gNlc"}],"M3fL":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
