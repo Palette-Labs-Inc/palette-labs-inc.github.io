@@ -3,7 +3,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://distill.pub/template.v2.js"></script>
-<script src="https://d3js.org/d3.v7.min.js"></script>
 
 <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -13,7 +12,7 @@
 
 
 <!-- Mathjax -->
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script async="" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
@@ -23,26 +22,24 @@
 <body>
 <title>The Local Protocol</title>
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="visualizations/layerwise_trace.css">
-<link rel="stylesheet" href="visualizations/pca-layers.css">
-<link rel="stylesheet" href="visualizations/graph-description.css">
-<link rel="stylesheet" href="visualizations/graph-description-embeddings.css">
+<link rel="stylesheet" href="style.e308ff8e.css">
+<link rel="stylesheet" href="layerwise_trace.d38144f3.css">
+<link rel="stylesheet" href="pca-layers.889c7e67.css">
+<link rel="stylesheet" href="graph-description.c0d85959.css">
+<link rel="stylesheet" href="graph-description-embeddings.95e72025.css">
 
 <d-front-matter>
-  <script type="text/json">
-    {
-      "title": "Local Protocol",
-      "description": "A protocol for Decentralized Commerce",
-      "authors": [{
-        "author": "Mike Perhats",
-        "affiliations": [{
-          "name": "The Local Protocol Delivery",
-          "affiliationURL": "https://palettelabs.io"
-        }]
-      }]
-    }
-  </script>
+  <script type="text/json">module.exports = {
+  "title": "Local Protocol",
+  "description": "A protocol for Decentralized Commerce",
+  "authors": [{
+    "author": "Mike Perhats",
+    "affiliations": [{
+      "name": "The Local Protocol Delivery",
+      "affiliationURL": "https://palettelabs.io"
+    }]
+  }]
+};</script>
 </d-front-matter>
 
 <d-title>
@@ -126,7 +123,7 @@
 
 <p>While the graph defines how users will be rewarded for positive contributions to the graph, The Local Protocol also includes a provider collateral, that may be slashed to penalize dishonest service providers. For each transaction between a service provider and a buyer, an amount of collateral is locked by the provider, which is determined based on the size of the transaction, and the value to the graph of both the service provider and the buyer. This is such that well established service providers, that have already proven their honesty to the network can be required to lock smaller co
 
-<h2 id="introdeepdive">5. Introduction to the technical deep dive</h2>
+</p><h2 id="introdeepdive">5. Introduction to the technical deep dive</h2>
 <p>In the next section we will introduce the technical details of the The Local Protocol transaction graph, and measures of connectivity.</p>
 
 <p>We model commercial networks as a bipartite graph that captures the economic relationships between producers and buyers, with edges signifying the historical transactions between two nodes.</p>
@@ -153,7 +150,7 @@
 
 <p>A bipartite graph \(G = (U, V, E)\) representing producers \(U\) and buyers \(V\) as nodes, with weighted edges \(E\) capturing transactions between them. Edge weights \(w(u, v)\) track the cumulative fees contributed by producer \(u\) from transactions with buyer \(v\).</p>
 
-<figure><div id='graph-description'></div>
+<figure><div id="graph-description"></div>
     <figcaption>
     Three types of attributes we might find in a graph, hover over to highlight each attribute.
     </figcaption>
@@ -176,8 +173,8 @@
 
 <p>In this section, we show how the graph captures a node's relative influence in complex network topologies and approaches optimal token distributions. By using centrality ranks as a foundation for token allocations, we create a dynamical, self-optimizing network that unlocks a more nuanced and adaptive approach to token distributions - recognizing that value in a network is not about individual actions, but a web of relationships and influence.</p>
 
-<figure class=teaser>
-    <div id=layerwise-trace></div>
+<figure class="teaser">
+    <div id="layerwise-trace"></div>
     <figcaption>
         The diagram shows how a transaction graph evolves as nodes in the network connect by making transactions. Hover over a node to see its connections to other nodes over time and observe how the graph becomes more interconnected. As the network grows and nodes form more connections, their EC scores increase, reflecting their growing influence and importance within the network. This simple yet powerful algorithm provides the network with its incentive mechanism and it's security guarantee by rewarding nodes that contribute to connectivity while making it difficult for malicious actors to manipulate the system through fake transactions or Sybil attacks.
     </figcaption>
@@ -302,7 +299,7 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 
 <p>The inputs for the update rule in its simplest form can be represented by the following diagram. The state of a node is updated using the information from the current edge weights of all edges connected to the node. The update rule aggregates the edge weights to produce an input for the state transition.</p>
 
-<figure><div id='node-step-small'></div>
+<figure><div id="node-step-small"></div>
     <figcaption>
     Hover over a node to visualize which edges are gathered and aggregated to produce an update for a transacting node.</figcaption>
 </figure>
@@ -366,7 +363,7 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 <p>A key aspect of the update rule is the influence of adjacent nodes on the state transition of the graph. For a given node, the update rule incorporates information about its own history, as well as the attributes of neighboring nodes and the attributes of connecting edges. By modeling these recursive relationships within the network, the system maintains strong security guarantees. As the connectivity of the network increases, the cost of verifying transactions decreases while the security level increases. This is because with higher connectivity, each node has access to more information from its neighbors.
 </p>
 
-<figure><div id='node-step' style="padding-bottom: 10px;"></div>
+<figure><div id="node-step" style="padding-bottom: 10px;"></div>
     <figcaption>
     Hover over a node, to highlight adjacent nodes and visualize the state transition for the network.
     </figcaption>
@@ -573,7 +570,7 @@ where we assume the reward period \(\tau\) is short enough that we can represent
     <li>Increasing cost of fake transactions. In the simple case the cost is given by \(w(u,v)\), this is achieved by requiring fee payments to increase your graph value. If graph connectivity is taken into account, fake transactions do not help connect the user to other real users in the graph, such that fake transactions are more expensive.</li>
     <li>Alternative proof of real transactions. In some specific cases, some external proofs may be available that show evidence that the transaction is real. This effectively works by increasing the cost of a fake transaction, as one would need to manage to forge such a proof.</li>
     <li>Controlling inflation rate. A slower \(M_t\) means performing a set of fake transactions doesn't immediately translate into owning the corresponding fraction of the supply, since previous token holders still have to be rewarded. Slower inflation can be a tool against fake transactions.</li>
-    <li>Redistributing less than the total fees collected. If instead of distributing \(W_t\), a smaller fraction \(yW_t\), with \(y<1\) is given out, then recovery time becomes longer. Note that we are also free to choose \(y>1\) but this increases the profitability of fake transactions, but if we address fake transaction through any of the other approaches, this would allow us to over-incentivize as well.</li>
+    <li>Redistributing less than the total fees collected. If instead of distributing \(W_t\), a smaller fraction \(yW_t\), with \(y<1\) is="" given="" out,="" then="" recovery="" time="" becomes="" longer.="" Note="" that="" we="" are="" also="" free="" to="" choose="" \(y="">1\) but this increases the profitability of fake transactions, but if we address fake transaction through any of the other approaches, this would allow us to over-incentivize as well.</1\)></li>
 </ol>
 
 <h3 id="constraints.ec">8.2 Eigenvector centrality as a measure of realness</h3>
@@ -748,4 +745,4 @@ where all quantities now have a "j" label, one for each tick. This allows us to 
 </d-appendix>
 
 </body>
-<script src="./index.ts"></script>
+<script src="palette-labs-inc.github.io.77de5100.js"></script>
