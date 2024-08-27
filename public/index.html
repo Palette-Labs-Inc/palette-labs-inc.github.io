@@ -11,9 +11,6 @@
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@v6"></script>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.6.1/d3.min.js"></script>
-
-
 <!-- Mathjax -->
 <script async="" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
@@ -23,22 +20,22 @@
 <!-- End Mathjax -->
 </head>
 <body>
-<title>The Local Protocol</title>
+<title>Local Protocol</title>
 
-<link rel="stylesheet" href="style.e308ff8e.css">
-<link rel="stylesheet" href="layerwise_trace.d38144f3.css">
-<link rel="stylesheet" href="pca-layers.889c7e67.css">
-<link rel="stylesheet" href="graph-description.c0d85959.css">
-<link rel="stylesheet" href="graph-description-embeddings.95e72025.css">
+<link rel="stylesheet" href="/style.e308ff8e.css">
+<link rel="stylesheet" href="/layerwise_trace.d38144f3.css">
+<link rel="stylesheet" href="/pca-layers.889c7e67.css">
+<link rel="stylesheet" href="/graph-description.c0d85959.css">
+<link rel="stylesheet" href="/graph-description-embeddings.95e72025.css">
 
 <d-front-matter>
   <script type="text/json">module.exports = {
   "title": "Local Protocol",
-  "description": "A protocol for Decentralized Commerce",
+  "description": "A Protocol for Decentralized Commerce",
   "authors": [{
     "author": "Mike Perhats",
     "affiliations": [{
-      "name": "The Local Protocol Delivery",
+      "name": "Local Protocol",
       "affiliationURL": "https://palettelabs.io"
     }]
   }]
@@ -46,7 +43,7 @@
 </d-front-matter>
 
 <d-title>
-  <h1>Local Protocol</h1>
+  <h1>Local Protocol Protocol</h1>
   <br>
 </d-title>
 <d-byline>
@@ -68,12 +65,12 @@
 
 <d-article>
 
-<!-- <p><em>Local is a decentralized protocol that enables producers of goods and services to transact with buyers. The protocol is built on a transaction graph that captures the protocol state and enables rewards to be distributed to participants, creating a user-owned network. The protocol has an open and extensible architecture to be compatible with any buyer and producer market. The cryptoeconomic design facilitates robustness to Sybil attacks, and economic fairness, aligns incentives between the network and participants, and unlocks new primitives for verifiability in physical infrastructure networks.</em></p> -->
+<!-- <p><em>Local Protocol is a decentralized protocol that enables producers of goods and services to transact with buyers. The protocol is built on a transaction graph that captures the protocol state and enables rewards to be distributed to participants, creating a user-owned network. The protocol has an open and extensible architecture to be compatible with any buyer and producer market. The cryptoeconomic design facilitates robustness to Sybil attacks, and economic fairness, aligns incentives between the network and participants, and unlocks new primitives for verifiability in physical infrastructure networks.</em></p> -->
 <p><em>This paper establishes the technical and economic foundations for a trustless peer-to-peer marketplace. <br><br>
-
   A programmable and extensible architecture allows for the creation of specialized marketplaces that cater to specific markets and use cases. The protocol enables the emergence of novel services and composable markets that were previously infeasible due to trust limitations, coordination costs, and verifiability constraints. <br><br>
   
-  A self-optimizing transaction graph distributes tokens to participants, creating a user-owned network. An arbitration protocol provides service-guarantees and a resolution mechanism in the case of a dispute without requiring a trusted intermediary.</em></p>
+  A self-optimizing transaction graph distributes tokens to participants, creating a user-owned network. An arbitration protocol provides service-guarantees and a resolution mechanism in the case of a dispute without requiring a trusted intermediary
+</em></p>
 
 <h2 id="motivation">1. Motivation</h2>
 <p>Software marketplaces perform four critical functions that we aim to decentralize with an economic game:</p>
@@ -86,12 +83,12 @@
 
 <p>Internet marketplace platforms have created tremendous value in isolated settings, but they lack programmability and interoperability with external systems and increasingly fail to meet the demands of modern markets.</p>
 
-<p>Blockchains have disintermediated trusted third-parties in digital domains through cryptographic mechanisms such as consensus protocols and validity proofs, unlocking the economic benefits of permissionless networks. However, these approaches do not translate to non-digital markets due to trust limitations, coordination costs, and verifiability constraints.</p>
+<p>Blockchains have disintermediated trusted third-parties in digital domains through cryptographic mechanisms such as consensus protocols and validity proofs, unlocking the economic benefits of permissionless networks. However, these approaches do not translate to non-digital markets.</p>
 
 <p>This paper introduces a graph-theoretic framework for a peer-to-peer marketplace that addresses these challenges; providing a path forward for more markets to exist in a permissionless context.</p>
 
 <h2 id="gps">2. General Problem Statement</h2>
-<p>The Local Protocol is a <strong>general decentralized</strong> marketplace. Here we put particular emphasis on these two key words, "general" and "decentralized", because, simple solutions exist already if either word is removed.</p>
+<p>Local Protocol is a <strong>general decentralized</strong> marketplace. Here we put particular emphasis on these two key words, "general" and "decentralized", because, simple solutions exist already if either word is removed.</p>
 
 <p>By "general", here we mean that we do not need to specify the type of good or service that is being traded in the marketplace. "Decentralized" means that the marketplace is not overseen by one centralized trusted institution.</p>
 
@@ -99,7 +96,7 @@
 
 <p>On the other hand, the problem of a "General Marketplace" can be solved by introducing a centralized trusted overseeing entity. For example, marketplaces for physical services, such as ride shares and food delivery can be built on assumptions of trust on the marketplace administrator. The user trusts that the administrator performs KYC on the service providers, and is responsible for penalizing providers that underperform.</p>
 
-<p>The Local Protocol's general decentralized marketplace provides a solution for this problem, where general services can be traded, which don't necessarily have objectively measurable metrics, without relying on the assumption of a trusted market administrator.</p>
+<p>Local Protocol's general decentralized marketplace provides a solution for this problem, where general services can be traded, which don't necessarily have objectively measurable metrics, without relying on the assumption of a trusted market administrator.</p>
 
 <h2 id="challenges">3. Challenges of a general decentralized marketplace</h2>
 <p>Let's dive deeper into what are the specific challenges that make building a general decentralized marketplace so difficult.</p>
@@ -114,9 +111,9 @@
 </ul>
 
 <h2 id="shallow">4. Shallow dive into economics</h2>
-<p>Before diving into the technical details, in this section we briefly discuss the novel mechanisms The Local Protocol uses to enable a general decentralized marketplace.</p>
+<p>Before diving into the technical details, in this section we briefly discuss the novel mechanisms Local Protocol uses to enable a general decentralized marketplace.</p>
 
-<p>The backbone of The Local Protocol's tokenomics is the <strong>transaction graph</strong>. All service providers and buyers are represented as vertices in this graph. Every time a buyer transacts with a service provider, edge weights between these two vertices are added, corresponding to the transaction fees collected.</p>
+<p>The backbone of Local Protocol's tokenomics is the <strong>transaction graph</strong>. All service providers and buyers are represented as vertices in this graph. Every time a buyer transacts with a service provider, edge weights between these two vertices are added, corresponding to the transaction fees collected.</p>
 
 <p>Having transactions built into a graph means that we can now measure how much value a user contributes to the network, not just by measuring the sum of fees they have bought in, but by measuring the amount of connectivity they contributed to the graph.</p>
 
@@ -124,10 +121,10 @@
 
 <p>On the other hand, someone trying to complete fake transactions, would have to set up a set of service providers and buyers to make transactions with each other. While edge weights within this set may grow, this set will not grow real connectivity with the rest of the graph, unless they start transacting with other users, at which point they would be considered real users themselves. We therefore refer to a set of fake users only transacting with each other as an island graph, which do not connect to other larger and better connected islands.</p>
 
-<p>While the graph defines how users will be rewarded for positive contributions to the graph, The Local Protocol also includes a provider collateral, that may be slashed to penalize dishonest service providers. For each transaction between a service provider and a buyer, an amount of collateral is locked by the provider, which is determined based on the size of the transaction, and the value to the graph of both the service provider and the buyer. This is such that well established service providers, that have already proven their honesty to the network can be required to lock smaller co
+<p>While the graph defines how users will be rewarded for positive contributions to the graph, Local Protocol also includes a provider collateral, that may be slashed to penalize dishonest service providers. For each transaction between a service provider and a buyer, an amount of collateral is locked by the provider, which is determined based on the size of the transaction, and the value to the graph of both the service provider and the buyer. This is such that well established service providers, that have already proven their honesty to the network can be required to lock smaller co
 
 </p><h2 id="introdeepdive">5. Introduction to the technical deep dive</h2>
-<p>In the next section we will introduce the technical details of the The Local Protocol transaction graph, and measures of connectivity.</p>
+<p>In the next section we will introduce the technical details of the Local Protocol transaction graph, and measures of connectivity.</p>
 
 <p>We model commercial networks as a bipartite graph that captures the economic relationships between producers and buyers, with edges signifying the historical transactions between two nodes.</p>
 
@@ -222,12 +219,12 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 
 <p><strong>False negatives:</strong> In this case, the buyer may refuse to give the pin, even though the provider has completed the service. This may lead to the provider not getting paid and having their collateral slashed. It can also lead to a dispute between buyer and producer that may require external resolution. We will cover disputes and collateral slashing in Section.</p>
 
-<p>We'll cover in a later section how the The Local Protocol will address false positive and false negative disputes through the service collateral mechanism.</p>
+<p>We'll cover in a later section how we will address false positive and false negative disputes through the service collateral mechanism.</p>
 
 <h3 id="gv">6.3 The concept of graph value</h3>
 <p>Every time a buyer and a producer complete a transaction and a pin is exchanged, the metrics such as their total sum of edge weights, \(W_v\) and \(W_u\), and their eigenvector centralities, \(x_v\) and \(x_u\) are updated.</p>
 
-<p>The <strong>graph value</strong> \(G_u\) for a given producer (or \(G_v\) for a buyer) is a metric that uses the information in the graph to determine the amount of value the user has added to the The Local Protocol network. The main use of such a metric is to allocate rewards to network participants, proportional to the amount of value they have added to the network.</p>
+<p>The <strong>graph value</strong> \(G_u\) for a given producer (or \(G_v\) for a buyer) is a metric that uses the information in the graph to determine the amount of value the user has added to the Local Protocol network. The main use of such a metric is to allocate rewards to network participants, proportional to the amount of value they have added to the network.</p>
 
 <p>The graph value of a given user, \(G_u\) can be thought of as an update rule with the following basic structure.</p>
 <ol>
@@ -251,7 +248,7 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 
 <p>The outline of the mechanics of the reputation score is as follows:</p>
 <ol>
-    <li>When producer \(u\) and buyer \(v\) begin participating in the The Local Protocol network, they begin with a lowest possible reputation score \(r_{\text{min}}\). Note that it is important that the minimum value is not set to zero, or else as we'll see, this would drive all graph values to zero.</li>
+    <li>When producer \(u\) and buyer \(v\) begin participating in the Local Protocol network, they begin with a lowest possible reputation score \(r_{\text{min}}\). Note that it is important that the minimum value is not set to zero, or else as we'll see, this would drive all graph values to zero.</li>
     <li>Every time each user completes a transaction with another user, they mutually provide a review for each other, within the range \((r_{\text{min}}, r_{\text{max}})\).</li>
     <li>Suppose producer \(u\) has completed \(N_u\) transactions, and buyer \(v\) has completed \(N_v\) transactions before \(u\) and \(v\) transact with each other. Their current graph values are \(G_u\) and \(G_v\) respectively.</li>
     <li>Producer \(u\) gives buyer \(v\) a review of \(r_{uv}\), and buyer \(v\) gives the producer a review of \(r_{vu}\).</li>
@@ -402,18 +399,18 @@ That is, the network's goal is to maximize the sum of graph values of all users,
 
 <h2 id="git">7. Graph Interactions with Tokenomics</h2>
 <h3 id="git.tv">7.1 Token Valuation Function</h3>
-<p>So far we have discussed how to measure the value of active users in the The Local Protocol network through the notion of graph value. Any monetary rewards the network wants to give to users could be then made following the distribution of graph value.</p>
+<p>So far we have discussed how to measure the value of active users in the Local Protocol network through the notion of graph value. Any monetary rewards the network wants to give to users could be then made following the distribution of graph value.</p>
 
 <p>Here we address the questions, what if a user no longer wishes to be an active user and would rather sell some of the graph value they have accumulated? What if an active user would rather sell a fraction of their accumulated graph value for immediate liquidity? What if a user wishes to purchase some additional graph value?</p>
 
-<p>These features can be enabled by introducing the The Local Protocol token, and by having a mapping between graph value and a The Local Protocol token. We want this token to have the following features:</p>
+<p>These features can be enabled by introducing the Local Protocol token, and by having a mapping between graph value and a Local Protocol token. We want this token to have the following features:</p>
 <ol>
-    <li>Graph value can be exchanged for an appropriate amount of The Local Protocol tokens.</li>
-    <li>The Local Protocol tokens are fungible and can be freely exchanged and traded.</li>
-    <li>The Local Protocol token can be used to buy an appropriate amount of graph value.</li>
+    <li>Graph value can be exchanged for an appropriate amount of Local Protocol tokens.</li>
+    <li>Local Protocol tokens are fungible and can be freely exchanged and traded.</li>
+    <li>Local Protocol token can be used to buy an appropriate amount of graph value.</li>
 </ol>
 
-<p>We therefore introduce the <strong>Token valuation function</strong>, \(M_t\) for producers, and \(N_t\) for buyers, which are functions that inform the exchange rate between graph value and The Local Protocol token.</p>
+<p>We therefore introduce the <strong>Token valuation function</strong>, \(M_t\) for producers, and \(N_t\) for buyers, which are functions that inform the exchange rate between graph value and Local Protocol token.</p>
 
 <h4 id="git.tv">7.1.1 Cashing out and buying in graph value</h4>
 <p>The token valuation function provides a mapping between the amount of graph value a producer has, and how much token they could exchange for this.</p>
@@ -445,9 +442,9 @@ That is, the network's goal is to maximize the sum of graph values of all users,
 <p>We have so far established such a valuation function \(M_t\) must exist, and how this allows a user to buy or sell graph value. But what principles should govern the monetary policy for \(M_t\)?</p>
 
 <h3 id="git.if">7.2 Inflationary monetary policy</h3>
-<p>Given we know how graph value translates to the amount of tokens, our choice of \(M_t\) and \(N_t\) control the The Local Protocol token monetary policy. We then need to address questions such as: should these functions increase or decrease over time? at what rate? What should be the ratio between \(M_t\) and \(N_t\)?</p>
+<p>Given we know how graph value translates to the amount of tokens, our choice of \(M_t\) and \(N_t\) control the Local Protocol token monetary policy. We then need to address questions such as: should these functions increase or decrease over time? at what rate? What should be the ratio between \(M_t\) and \(N_t\)?</p>
 
-<p>Let us define a few more necessary quantities. We can define the ratio between the valuation for buyers vs. producers as \(a_t \equiv N_t / M_t\). If \(a_t\) is large, this means the The Local Protocol network values buyers more than it values producers, and if \(a_t\) is smaller, then it values producers more than buyers. If \(a_t = 0\) this means that only producers are valued by the The Local Protocol network.</p>
+<p>Let us define a few more necessary quantities. We can define the ratio between the valuation for buyers vs. producers as \(a_t \equiv N_t / M_t\). If \(a_t\) is large, this means the Local Protocol network values buyers more than it values producers, and if \(a_t\) is smaller, then it values producers more than buyers. If \(a_t = 0\) this means that only producers are valued by the Local Protocol network.</p>
 
 <p>One reason for having a non-zero \(a_t\) is that the network may want to incentivize buyer side demand. This is similar to offering coupons to consumers to encourage more transactions.</p>
 
@@ -499,7 +496,7 @@ and we can solve for \(m\) as
 Given we have a target ownership ratio, \(R\), this is a simple model to take in real data on network growth and expiration rate, and use this to fix the inflation rate.</p>
 
 <h3 id="git.if">7.3 Distributing Rewards</h3>
-<p>Once we have defined how to distribute The Local Protocol tokens amongst network participants, we can use this distribution as a guide to distributing rewards.</p>
+<p>Once we have defined how to distribute Local Protocol tokens amongst network participants, we can use this distribution as a guide to distributing rewards.</p>
 
 <p><strong>Total network revenue:</strong> We define \(W^t\) as the total amount of revenue the network collected from time \(t-\tau\) to time \(t\). This is given by
 \begin{equation}
@@ -519,8 +516,8 @@ The period \(\tau\) is some network parameter, which controls how often rewards 
 \end{equation}
 </p>
 
-<h3 id="git.value">7.4 Value of the The Local Protocol Token</h3>
-<p>Holding \(s\) The Local Protocol tokens is intrinsically valuable because this entitles you to a permanent stream of rewards of the form,
+<h3 id="git.value">7.4 Value of the Local Protocol Token</h3>
+<p>Holding \(s\) Local Protocol tokens is intrinsically valuable because this entitles you to a permanent stream of rewards of the form,
   \begin{equation}
       z^t = W^t \left(\frac{s}{S_t}\right) = W^t \left(\frac{s}{T_t + M_t \left(\sum_{u \in U} G_u + a_t \sum_{v \in V} G_v\right)}\right)
   \end{equation}
@@ -532,19 +529,19 @@ The period \(\tau\) is some network parameter, which controls how often rewards 
   
   <p>Furthermore, for a user to understand how valuable this permanent stream of rewards is to them, they must have an idea of their (annual) discount factor, \(\mu\), which measures the value of money in the present versus the value of having money in one year from now. The value of money decays by a factor of \((1 - \mu)\) for every year in the future for which the money is delayed.</p>
   
-  <p>For a given user, then the value of holding \(s\) The Local Protocol tokens at time \(t_0\) is given by,
+  <p>For a given user, then the value of holding \(s\) Local Protocol tokens at time \(t_0\) is given by,
   \begin{equation}
       Z_{t_0} = \int_{t_0}^\infty (1 - \mu)^{t/1yr} W^t \left(\frac{s}{T_t + M_t \left(\sum_{u \in U} G_u + a_t \sum_{v \in V} G_v\right)}\right) dt.
   \end{equation}
   </p>
   
-  <p>This principle should dictate a minimum value for which The Local Protocol tokens should be traded for rational token holders.</p>
+  <p>This principle should dictate a minimum value for which Local Protocol tokens should be traded for rational token holders.</p>
   
 
 <h2 id="constraints">8. Constraints on rewards and real usage</h2>
 <p>In this section we will cover the subject of fake transactions, and how our proposed reward mechanism works to minimize their risk.</p>
 
-<p>To simply define the problem, suppose a user completes a transaction, for which they pay a fee to the network of \(w\). If corresponding to this, the network gives the user a reward that is greater than \(w\) then this encourages abuse of the network through fake transactions. So how much reward can The Local Protocol actually give to users while avoiding abuse risk?</p>
+<p>To simply define the problem, suppose a user completes a transaction, for which they pay a fee to the network of \(w\). If corresponding to this, the network gives the user a reward that is greater than \(w\) then this encourages abuse of the network through fake transactions. So how much reward can Local Protocol actually give to users while avoiding abuse risk?</p>
 
 
 <h3 id="constraints">8.1 Simple Example G_u = W_u</h3>
@@ -554,7 +551,7 @@ The period \(\tau\) is some network parameter, which controls how often rewards 
 
 <p>This means the highest reward that can be given to the producer corresponding to this transaction is \(\frac{w_{uv}}{1+a_t}\) and to the buyer, it is \(\frac{w_{uv}a_t}{1+a_t}\).</p>
 
-<p><strong>Recovery time:</strong> While we have now understood how much rewards can be given corresponding to a specific transaction, this is not exactly how the The Local Protocol network works. Completing a transaction gives users an amount of graph value. That graph value entitles the user to a fraction of rewards in perpetuity.</p>
+<p><strong>Recovery time:</strong> While we have now understood how much rewards can be given corresponding to a specific transaction, this is not exactly how the Local Protocol network works. Completing a transaction gives users an amount of graph value. That graph value entitles the user to a fraction of rewards in perpetuity.</p>
 
 <p>So the relevant question in matters of disincentivizing fake transactions is, how much time does it take the user to recover the cost of their fake transaction?</p>
 
@@ -626,7 +623,7 @@ The EC can then be computed by solving the eigenvalue problem.</p>
 <h3 id="service.collateral">9.2 Provider collateral as a service guarantee</h3>
 <p>When a buyer requests a service from a producer, what guarantees do they have that the service will actually be provided?</p>
 
-<p>In a centralized market, this guarantee can be based on the trust that the buyer places on the provider. However, in The Local Protocol's decentralized platform, we want to allow small providers to be able to participate, and still be able to provide a guarantee to buyers that their service will be provided.</p>
+<p>In a centralized market, this guarantee can be based on the trust that the buyer places on the provider. However, in Local Protocol's decentralized platform, we want to allow small providers to be able to participate, and still be able to provide a guarantee to buyers that their service will be provided.</p>
 
 <p>For this reason, every transaction between provider \(u\) and buyer \(v\) will require a <strong>provider collateral</strong>, \(l_{uv}\), to be locked in a contract which has the following flow:</p>
 <ol>
@@ -657,17 +654,17 @@ where \(f(x)\) is a monotonically increasing function of \(x\).</p>
 
 <p>While a malicious buyer may be able to occasionally produce a false negative and cause harm to a provider, this formula ensures that a malicious buyer cannot repeatedly do so. Once a buyer repeatedly causes disputes, their reputation score will drop, and this will consequently drive their provider collaterals they can demand close to zero. In a similar way, a new buyer who has just joined the network, cannot be trusted and may be malicious, so they cannot demand provider collateral until they gain some reputation.</p>
 
-<h2 id="em">10. Emergent Markets on The Local Protocol</h2>
-<p>The Local Protocol is in essence a decentralized marketplace that connects producers and buyers without a need for trusted third parties. Despite this narrow definition, given the mechanisms we have presented, there exists an opportunity for different kinds of markets and services to emerge on top of the fundamental The Local Protocol economy. Here we present a few examples.</p>
+<h2 id="em">10. Emergent Markets on Local Protocol</h2>
+<p>Local Protocol is in essence a decentralized marketplace that connects producers and buyers without a need for trusted third parties. Despite this narrow definition, given the mechanisms we have presented, there exists an opportunity for different kinds of markets and services to emerge on top of the fundamental Local Protocol economy. Here we present a few examples.</p>
 
 <h3 id="em.auim">10.1 Active user investment markets</h3>
-<p>To be an owner of the The Local Protocol network, and be entitled to any rewards given, one must either hold The Local Protocol token, or have some amount of active graph value.</p>
+<p>To be an owner of the Local Protocol network, and be entitled to any rewards given, one must either hold Local Protocol token, or have some amount of active graph value.</p>
 
-<p>We have stated, however, that The Local Protocol can implement an inflationary policy, which would bias the ownership towards active producers and buyers.</p>
+<p>We have stated, however, that Local Protocol can implement an inflationary policy, which would bias the ownership towards active producers and buyers.</p>
 
-<p>This means that if one simply holds The Local Protocol token, there is a significant opportunity cost over investing that token in active graph value.</p>
+<p>This means that if one simply holds Local Protocol token, there is a significant opportunity cost over investing that token in active graph value.</p>
 
-<p>Given that The Local Protocol allows the option to use The Local Protocol token to purchase graph value, a liquidity providing market can emerge that is mutually beneficial to The Local Protocol token holders and active producers.</p>
+<p>Given that Local Protocol allows the option to use Local Protocol token to purchase graph value, a liquidity providing market can emerge that is mutually beneficial to Local Protocol token holders and active producers.</p>
 
 <p>This market would connect token holders, who would lend their token to active users, who would then incorporate this into their graph value. This would make the tokens no longer subject to inflation, and thus accrue rewards at a higher rate. The rewards can be split between the token provider and the active users. When the token provider wishes to retrieve their liquidity, the active user can extract the corresponding amount from their graph value, which will have now grown according to the growth of the token valuation function.</p>
 
@@ -685,9 +682,10 @@ where \(f(x)\) is a monotonically increasing function of \(x\).</p>
 To make a profit, the insurance provider must charge a fee that is greater than this cost.</p>
 
 <h3 id="em.ex">10.3 Example insurance market: Insurance automated market maker</h3>
+
 <p>The key to establishing a profitable insurance service is having an accurate risk model, such that the fees for taking on the risk can be correctly priced.</p>
 
-<p>While different insurance providers can come up with many ways to model this, and a variety of insurance provider models would benefit the The Local Protocol economy, we discuss here a possible service that can be established to connect token holders who wish to provide liquidity to use as insurance, and providers who need to externalize their risk.</p>
+<p>While different insurance providers can come up with many ways to model this, and a variety of insurance provider models would benefit the Local Protocol economy, we discuss here a possible service that can be established to connect token holders who wish to provide liquidity to use as insurance, and providers who need to externalize their risk.</p>
 
 <p>We call this model an <strong>insurance automatic market maker (IAMM)</strong>, in analogy to automated market makers for decentralized exchanges, who work with a similar underlying mechanism.</p>
 
@@ -748,4 +746,4 @@ where all quantities now have a "j" label, one for each tick. This allows us to 
 </d-appendix>
 
 </body>
-<script src="palette-labs-inc.github.io.77de5100.js"></script>
+<script src="/palette-labs-inc.github.io.77de5100.js"></script>
