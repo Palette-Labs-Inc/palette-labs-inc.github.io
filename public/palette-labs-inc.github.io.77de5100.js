@@ -39536,189 +39536,6 @@ function () {
 }();
 
 exports.GraphDescriptionEmbeddings = GraphDescriptionEmbeddings;
-},{"d3":"node_modules/d3/index.js","../utils":"utils.ts"}],"visualizations/iamm.ts":[function(require,module,exports) {
-"use strict";
-/**
- * @license
- * Copyright 2018 Google LLC. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * =============================================================================
- */
-
-var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  Object.defineProperty(o, k2, {
-    enumerable: true,
-    get: function get() {
-      return m[k];
-    }
-  });
-} : function (o, m, k, k2) {
-  if (k2 === undefined) k2 = k;
-  o[k2] = m[k];
-});
-
-var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
-  Object.defineProperty(o, "default", {
-    enumerable: true,
-    value: v
-  });
-} : function (o, v) {
-  o["default"] = v;
-});
-
-var __importStar = this && this.__importStar || function (mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) {
-    if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-  }
-
-  __setModuleDefault(result, mod);
-
-  return result;
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.GraphDescription = void 0;
-
-var d3 = __importStar(require("d3"));
-
-var utils_1 = require("../utils");
-
-var GraphDescription =
-/** @class */
-function () {
-  function GraphDescription() {
-    this.parent = d3.select('#iammVisualization');
-    this.svg = this.parent.append('svg');
-    this.numNodes = 5;
-
-    var _a = utils_1.makeGraph(this.numNodes, this.numNodes * 2),
-        nodes = _a[0],
-        links = _a[1];
-
-    this.showGraph(nodes, links);
-    this.showText();
-  }
-
-  GraphDescription.prototype.showGraph = function (nodes, links) {
-    var _this = this;
-
-    var localOffset = 0.6;
-    var localScale = 200;
-
-    var pos = function pos(x) {
-      return (x + localOffset) * localScale;
-    };
-
-    var graphHolder = this.svg.append('g'); // Make global box
-
-    graphHolder.append('rect').attr('width', 250).attr('height', 250).attr('x', 0).attr('y', -10).attr('rx', 20).attr('fill', '#fff').attr('stroke', '#ddd').style("stroke-width", 2).attr('stroke-dasharray', "4, 4").on('mouseover', function () {
-      return _this.highlightGlobal();
-    }).on('mouseout', function () {
-      return _this.unhighlightAll();
-    }); // Make edges 
-
-    graphHolder.selectAll('line.vis').data(links).enter().append('line').classed('vis', true).style("stroke", "#bbb").style("stroke-width", 1).attr("x1", function (d) {
-      return pos(d.a.x);
-    }).attr("x2", function (d) {
-      return pos(d.b.x);
-    }).attr("y1", function (d) {
-      return pos(d.a.y);
-    }).attr("y2", function (d) {
-      return pos(d.b.y);
-    });
-    graphHolder.selectAll('line.target').data(links).enter().append('line').classed('target', true).style("stroke", "rgba(0, 0, 0, 0").style("stroke-width", 20).attr("x1", function (d) {
-      return pos(d.a.x);
-    }).attr("x2", function (d) {
-      return pos(d.b.x);
-    }).attr("y1", function (d) {
-      return pos(d.a.y);
-    }).attr("y2", function (d) {
-      return pos(d.b.y);
-    }).on('mouseover', function () {
-      return _this.highlightEdges();
-    }).on('mouseout', function () {
-      return _this.unhighlightAll();
-    }); // Make nodes
-
-    graphHolder.selectAll('circle').data(nodes).enter().append('circle').attr('r', 10).attr('cx', function (d) {
-      return pos(d.x);
-    }).attr('cy', function (d) {
-      return pos(d.y);
-    }).style('fill', '#fff').style("stroke-width", '1px').style("stroke", '#bbb').on('mouseover', function () {
-      return _this.highlightNodes();
-    }).on('mouseout', function () {
-      return _this.unhighlightAll();
-    });
-  };
-
-  GraphDescription.prototype.showText = function () {
-    var _this = this;
-
-    var textHolder = this.parent.append('div').classed('line-holder', true);
-
-    var makeLine = function makeLine(letter, desc, eg, mouseover) {
-      var div = textHolder.append('div').classed('line-holder', true).attr('id', letter);
-      div.append('div').text(letter).classed('letter', true);
-      div.append('div').text(desc).classed('desc', true);
-      div.append('div').text(eg).classed('eg', true);
-      div.on('mouseover', mouseover);
-      div.on('mouseout', function () {
-        return _this.unhighlightAll();
-      });
-    };
-
-    makeLine('U', 'Vertex (or node) attributes', 'e.g., producer', function () {
-      return _this.highlightNodes();
-    });
-    makeLine('E', 'Edge (or link) weighted transactions', 'e.g., edge weight', function () {
-      return _this.highlightEdges();
-    });
-    makeLine('G', 'Global attributes', 'e.g., number of nodes', function () {
-      return _this.highlightGlobal();
-    });
-  };
-
-  GraphDescription.prototype.highlightEdges = function () {
-    this.parent.select('#E').classed('selected', true);
-    this.parent.selectAll('line.vis').style("stroke", "#000").style("stroke-width", 10);
-  };
-
-  GraphDescription.prototype.highlightNodes = function () {
-    this.parent.select('#U').classed('selected', true);
-    this.parent.selectAll('circle').style("stroke-width", 6).style("stroke", '#000').attr("r", 11);
-  };
-
-  GraphDescription.prototype.highlightGlobal = function () {
-    this.parent.select('#G').classed('selected', true);
-    this.parent.selectAll('rect').style("stroke", '#000').style("stroke-width", 8);
-  };
-
-  GraphDescription.prototype.unhighlightAll = function () {
-    this.parent.selectAll('*').classed('selected', false);
-    this.parent.selectAll('line.vis').style("stroke", "#bbb").style("stroke-width", '1px');
-    this.parent.selectAll('circle').style("stroke-width", '1px').style("stroke", '#aaa').attr("r", 10);
-    this.parent.selectAll('rect').style("stroke-width", 2).style("stroke", '#ddd');
-  };
-
-  return GraphDescription;
-}();
-
-exports.GraphDescription = GraphDescription;
 },{"d3":"node_modules/d3/index.js","../utils":"utils.ts"}],"index.ts":[function(require,module,exports) {
 "use strict";
 /**
@@ -39807,9 +39624,6 @@ var graph_description_1 = require("./visualizations/graph-description"); // simp
 
 var graph_description_embeddings_1 = require("./visualizations/graph-description-embeddings");
 
-var iamm_1 = require("./visualizations/iamm"); // Import iammVisualization
-
-
 window.onload = function () {
   pca_layers_1.pcaLayers();
   node_step_small_1.nodeStepSmall();
@@ -39819,7 +39633,6 @@ window.onload = function () {
   new layerwise_trace_1.LayerwiseTrace();
   new graph_description_1.GraphDescription();
   new graph_description_embeddings_1.GraphDescriptionEmbeddings();
-  iamm_1.iammVisualization(); // Call iammVisualization
 };
-},{"d3":"node_modules/d3/index.js","d3-jetpack":"node_modules/d3-jetpack/index.js","./visualizations/graph-level":"visualizations/graph-level.js","./visualizations/layerwise_trace":"visualizations/layerwise_trace.ts","./visualizations/node-level":"visualizations/node-level.js","./visualizations/pca-layers":"visualizations/pca-layers.ts","./visualizations/node-step":"visualizations/node-step.js","./visualizations/node-step-small":"visualizations/node-step-small.js","./visualizations/graph-description":"visualizations/graph-description.ts","./visualizations/graph-description-embeddings":"visualizations/graph-description-embeddings.ts","./visualizations/iamm":"visualizations/iamm.ts"}]},{},["index.ts"], null)
+},{"d3":"node_modules/d3/index.js","d3-jetpack":"node_modules/d3-jetpack/index.js","./visualizations/graph-level":"visualizations/graph-level.js","./visualizations/layerwise_trace":"visualizations/layerwise_trace.ts","./visualizations/node-level":"visualizations/node-level.js","./visualizations/pca-layers":"visualizations/pca-layers.ts","./visualizations/node-step":"visualizations/node-step.js","./visualizations/node-step-small":"visualizations/node-step-small.js","./visualizations/graph-description":"visualizations/graph-description.ts","./visualizations/graph-description-embeddings":"visualizations/graph-description-embeddings.ts"}]},{},["index.ts"], null)
 //# sourceMappingURL=/palette-labs-inc.github.io.77de5100.js.map
