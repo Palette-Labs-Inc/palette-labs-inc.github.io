@@ -39136,6 +39136,376 @@ if (module.hot) {
   nodeStepSmall();
   module.hot.accept();
 }
+},{"d3":"node_modules/d3/index.js","d3-jetpack":"node_modules/d3-jetpack/index.js","underscore":"node_modules/underscore/modules/index-all.js","../third_party/swoopy-drag":"third_party/swoopy-drag.js","../utils":"utils.ts"}],"visualizations/node-attributes.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.nodeAttributes = nodeAttributes;
+
+var d3 = _interopRequireWildcard(require("d3"));
+
+var d3_jp = _interopRequireWildcard(require("d3-jetpack"));
+
+var _ = _interopRequireWildcard(require("underscore"));
+
+var _swoopyDrag = require("../third_party/swoopy-drag");
+
+var _utils = require("../utils");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function nodeAttributes() {
+  var width = 150;
+  var barWidth = 100;
+  var xOffset = 0;
+  var height = 200;
+  var margin = {
+    left: 20,
+    top: 40,
+    right: 20,
+    bottom: 20
+  };
+  var numEmbed = 8;
+  var sel = d3.select('#node-attributes').html('');
+  var nodes = window.stepNodes = window.stepNodes || d3.range(5).map(function (v, i) {
+    var color = ["#f2b200", "#c69700", "#ffeaa9", "#ffd255", "#d19f00", "#edc949", "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab"][i];
+    var rv = {
+      v: v,
+      i: i,
+      isNode: true,
+      color: d3.color(color),
+      neighbors: []
+    };
+    rv.embed = d3.range(numEmbed).map(function (d) {
+      return .05 + Math.random() * .95;
+    }).map(function (v, i) {
+      return {
+        node: rv,
+        v: v,
+        i: i
+      };
+    });
+    rv.outembed = d3.range(numEmbed).map(function (d) {
+      return .05 + Math.random() * .95;
+    }).map(function (v, i) {
+      return {
+        node: rv,
+        v: v,
+        i: i
+      };
+    });
+    return rv;
+  });
+  var n = nodes.length;
+  var links = window.stepLinks = window.stepLinks || d3.cross(nodes, nodes).map(function (_ref) {
+    var _ref2 = _slicedToArray(_ref, 2),
+        a = _ref2[0],
+        b = _ref2[1];
+
+    var _ref3 = [a.i, b.i],
+        i = _ref3[0],
+        j = _ref3[1];
+    if (i <= j) return;
+    var linkId = i + ' ' + j;
+    var v = _utils.random[i] < .3 ? 1 : 0;
+
+    if (v) {
+      nodes[i].neighbors.push(nodes[j]);
+      nodes[j].neighbors.push(nodes[i]);
+    }
+
+    return {
+      a: a,
+      b: b,
+      linkId: linkId,
+      v: v
+    };
+  }).filter(function (d) {
+    return d;
+  });
+  var renderFns = [];
+
+  function render() {
+    renderFns.forEach(function (d) {
+      return d();
+    });
+  }
+
+  var c = d3.conventions({
+    sel: sel.append('div').st({
+      margin: '0px auto'
+    }),
+    width: 250,
+    height: 250,
+    margin: {
+      top: 70
+    }
+  });
+
+  function drawGraph(isSecond) {
+    var g = c.svg.append('g').translate(function (d) {
+      return [width / 2 + xOffset, height / 2 - 60];
+    });
+    var r = Math.min(width, height) / 2;
+    nodes.forEach(function (d) {
+      d.pos = [Math.cos(Math.PI / 6 + d.i / n * Math.PI * 2) * r, Math.sin(Math.PI / 6 + d.i / n * Math.PI * 2) * r];
+    });
+    links.forEach(function (d) {
+      d.pathStr = 'M' + [d.a, d.b].map(function (d) {
+        return d.pos;
+      }).join('L');
+    });
+    var linkSel = g.append('g').appendMany('path.link', links.filter(function (d) {
+      return d.a.i > d.b.i;
+    })).at({
+      d: function d(_d2) {
+        return _d2.pathStr;
+      },
+      strokeWidth: 2
+    });
+    var nodeSel = g.appendMany('circle.node', nodes).translate(function (d) {
+      return d.pos;
+    }).at({
+      r: 10
+    });
+    renderFns.push(function () {
+      nodeSel.at({
+        fill: function fill(d) {
+          return d.hover ? d.color.darker(isSecond ? 1 : 0) : 'white';
+        },
+        stroke: function stroke(d) {
+          return d.color.darker(isSecond ? 1 : 0);
+        },
+        strokeWidth: function strokeWidth(d) {
+          return 6;
+        }
+      });
+      linkSel.at({
+        stroke: function stroke(d) {
+          return d.hover && !isSecond ? '#000' : '#ccc';
+        },
+        strokeWidth: function strokeWidth(d) {
+          return d.v ? 1 : 0;
+        }
+      }).filter(function (d) {
+        return d.hover;
+      }).raise();
+    });
+    xOffset += width + 60;
+  }
+
+  var bw = Math.floor(barWidth / numEmbed);
+  var bh = bw * 1;
+  var bpad = 10;
+
+  function drawAdditionCol() {
+    var g = c.svg.append('g').translate([xOffset, 40.5]);
+
+    var allEmbeds = _.flatten(nodes.map(function (d) {
+      return d.embed;
+    }));
+
+    allEmbeds.forEach(function (d) {
+      d.height = Math.round(d.v * bh);
+    });
+    var botSel = g.append('g').translate((bh + bpad) * (nodes.length - 1), 1);
+    var seperateSel = g.appendMany('rect', allEmbeds);
+    var stackSel = botSel.append('g').translate(bpad * 2, 1).appendMany('rect', allEmbeds);
+    botSel.append('path').at({
+      d: "M 0 ".concat(bpad, " H ").concat(bw * numEmbed),
+      stroke: '#000'
+    });
+    botSel.append('text').text('+').at({
+      fontSize: 25,
+      x: -25,
+      fontWeight: 100,
+      dy: '.33em',
+      y: -bpad
+    }).st({
+      fontSize: 25
+    });
+    renderFns.push(function () {
+      _.sortBy(nodes, function (d) {
+        return d.hover ? 2 : d.neighbor ? 1 : 0;
+      }).forEach(function (d, i) {
+        return d.stackIndex = i;
+      });
+
+      seperateSel.at({
+        x: function x(d) {
+          return d.i * bw;
+        },
+        width: bw - 1,
+        height: function height(d) {
+          return d.height;
+        },
+        y: function y(d) {
+          return (bh + bpad) * d.node.stackIndex - d.height;
+        },
+        fill: function fill(d) {
+          return d.node.color;
+        },
+        opacity: function opacity(d) {
+          return d.node.neighbor ? 1 : 0;
+        }
+      });
+      d3.nestBy(_.sortBy(allEmbeds, function (d) {
+        return -d.node.stackIndex;
+      }), function (d) {
+        return d.i;
+      }).forEach(function (col) {
+        var prev = 0;
+        col.forEach(function (d) {
+          d.prev = prev;
+          prev += d.height;
+        });
+      });
+      stackSel.at({
+        x: function x(d) {
+          return d.i * bw;
+        },
+        width: bw - 1,
+        height: function height(d) {
+          return d.height;
+        },
+        y: function y(d) {
+          return d.prev - d.height * 0;
+        },
+        fill: function fill(d) {
+          return d.node.color;
+        },
+        opacity: function opacity(d) {
+          return d.node.neighbor ? 1 : 0;
+        }
+      });
+    });
+    xOffset += width + 0;
+  }
+
+  function drawFunctionColumn() {
+    var g = c.svg.append('g').translate([xOffset, 70.5 + (bh + bpad) * (nodes.length - 1)]);
+    xOffset += width + 50;
+  }
+
+  function addAnnotations() {
+    var isDrag = 0; // Enable to edit annotations
+    // if (!isDrag) annotations.forEach(d => d.text = d.html ? '' : d.text)
+    // if (isDrag){
+    //   d3.select('#sections').st({pointerEvents: 'none'})
+    // }
+    // copy('window.annotations = ' + JSON.stringify(annotations, null, 2))
+
+    window.annotations = [{
+      "text": "Aggregate information from adjacent nodes",
+      "textOffset": [189, 228]
+    }, {
+      "path": "M 138,55 A 34.298 34.298 0 0 1 189,35",
+      "srcIndex": 0
+    }, {
+      "path": "M 67,133 A 83.886 83.886 0 0 0 183,142",
+      "srcIndex": 1
+    }, {
+      "path": "M -8,68 A 109.522 109.522 0 0 0 191,151",
+      "srcIndex": 2
+    }, {
+      "path": "M 58,-38 A 114.015 114.015 0 0 1 219,15",
+      "srcIndex": 3
+    }, {
+      "path": "M 147,-13 A 198.21 198.21 0 0 1 204,26",
+      "srcIndex": 4
+    }];
+    var swoopy = (0, _swoopyDrag.swoopyDrag)().x(function (d) {
+      return 0;
+    }).y(function (d) {
+      return 0;
+    }).draggable(isDrag).annotations(annotations); // var htmlAnnoSel = divSel.appendMany('div.annotation', annotations.filter(d => d.html))
+    //   .translate(d => [c.x(d.x), c.y(d.y)]).st({position: 'absolute', opacity: 0})
+    //   .append('div')
+    //   .translate(d => d.textOffset)
+    //   .html(d => d.html)
+    //   .st({width: 150})
+
+    var swoopySel = c.svg.append('g.annotations').call(swoopy);
+    swoopySel.selectAll('path').attr('marker-end', 'url(#arrow)').st({
+      'opacity': function opacity(d) {
+        return d.path == 'M 0 0' ? 0 : 1;
+      }
+    });
+    swoopySel.selectAll('text').each(function (d) {
+      d3.select(this).text('') //clear existing text
+      .tspans(d3.wordwrap(d.text, d.width || 20), 16); //wrap after 20 char
+    });
+    var outSwoops = swoopySel.selectAll('g').filter(function (d) {
+      return isFinite(d.outIndex);
+    });
+    var srcSwoops = swoopySel.selectAll('g').filter(function (d) {
+      return isFinite(d.srcIndex);
+    });
+    renderFns.push(function (d) {
+      outSwoops.st({
+        display: function display(d) {
+          return d.outIndex == hoverNode.i ? '' : 'none';
+        }
+      });
+      srcSwoops.st({
+        display: function display(d) {
+          return nodes[d.srcIndex].neighbor ? '' : 'none';
+        }
+      });
+    });
+  }
+
+  function setHover(d) {
+    nodes.forEach(function (e) {
+      e.hover = false;
+      e.neighbor = false;
+    });
+    d.hover = true;
+    d.neighbor = true;
+    d.neighbors.forEach(function (e) {
+      e.neighbor = true;
+    });
+    window.hoverNode = d;
+    links.forEach(function (l) {
+      l.hover = l.a == d || l.b == d;
+    });
+
+    if (!d.isNode) {
+      links.forEach(function (e) {
+        return e.hover = e.linkId == d.linkId;
+      });
+    }
+
+    render();
+  }
+
+  drawGraph(0);
+  drawAdditionCol();
+  addAnnotations();
+  sel.selectAll('.node').on('mouseover', setHover);
+  setHover(nodes[0]);
+}
+
+if (module.hot) {
+  nodeStep();
+  module.hot.accept();
+}
 },{"d3":"node_modules/d3/index.js","d3-jetpack":"node_modules/d3-jetpack/index.js","underscore":"node_modules/underscore/modules/index-all.js","../third_party/swoopy-drag":"third_party/swoopy-drag.js","../utils":"utils.ts"}],"visualizations/graph-description.ts":[function(require,module,exports) {
 "use strict";
 /**
@@ -39619,6 +39989,9 @@ var node_step_1 = require("./visualizations/node-step"); // update rule state tr
 var node_step_small_1 = require("./visualizations/node-step-small"); // update rule simple
 
 
+var node_attributes_1 = require("./visualizations/node-attributes"); // update rule simple
+
+
 var graph_description_1 = require("./visualizations/graph-description"); // simple nodes and edges visual definition
 
 
@@ -39627,6 +40000,7 @@ var graph_description_embeddings_1 = require("./visualizations/graph-description
 window.onload = function () {
   pca_layers_1.pcaLayers();
   node_step_small_1.nodeStepSmall();
+  node_attributes_1.nodeAttributes();
   node_level_1.nodeLevel();
   graph_level_1.graphLevel();
   node_step_1.nodeStep();
@@ -39634,5 +40008,5 @@ window.onload = function () {
   new graph_description_1.GraphDescription();
   new graph_description_embeddings_1.GraphDescriptionEmbeddings();
 };
-},{"d3":"node_modules/d3/index.js","d3-jetpack":"node_modules/d3-jetpack/index.js","./visualizations/graph-level":"visualizations/graph-level.js","./visualizations/layerwise_trace":"visualizations/layerwise_trace.ts","./visualizations/node-level":"visualizations/node-level.js","./visualizations/pca-layers":"visualizations/pca-layers.ts","./visualizations/node-step":"visualizations/node-step.js","./visualizations/node-step-small":"visualizations/node-step-small.js","./visualizations/graph-description":"visualizations/graph-description.ts","./visualizations/graph-description-embeddings":"visualizations/graph-description-embeddings.ts"}]},{},["index.ts"], null)
+},{"d3":"node_modules/d3/index.js","d3-jetpack":"node_modules/d3-jetpack/index.js","./visualizations/graph-level":"visualizations/graph-level.js","./visualizations/layerwise_trace":"visualizations/layerwise_trace.ts","./visualizations/node-level":"visualizations/node-level.js","./visualizations/pca-layers":"visualizations/pca-layers.ts","./visualizations/node-step":"visualizations/node-step.js","./visualizations/node-step-small":"visualizations/node-step-small.js","./visualizations/node-attributes":"visualizations/node-attributes.js","./visualizations/graph-description":"visualizations/graph-description.ts","./visualizations/graph-description-embeddings":"visualizations/graph-description-embeddings.ts"}]},{},["index.ts"], null)
 //# sourceMappingURL=/palette-labs-inc.github.io.77de5100.js.map

@@ -31,6 +31,7 @@ import {nodeLevel} from './visualizations/node-level';
 import {pcaLayers} from './visualizations/pca-layers'; // needed for styles
 import {nodeStep} from './visualizations/node-step'; // update rule state transition
 import {nodeStepSmall} from './visualizations/node-step-small'; // update rule simple
+import {nodeAttributes} from './visualizations/node-attributes'; // update rule simple
 import { GraphDescription } from './visualizations/graph-description'; // simple nodes and edges visual definition
 
 import { GraphDescriptionEmbeddings } from './visualizations/graph-description-embeddings';
@@ -38,6 +39,7 @@ import { GraphDescriptionEmbeddings } from './visualizations/graph-description-e
 window.onload = function() {
   pcaLayers();
   nodeStepSmall();
+  nodeAttributes();
   nodeLevel();
   graphLevel();
   nodeStep();
