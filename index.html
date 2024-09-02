@@ -225,7 +225,7 @@ and we identify the components \(x_u\), \(x_v\) as the EC of a given producer an
 \end{equation}
 where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. This normalized version is a number between 0 and 1, where 1 is assigned to the top scoring user.</p>
 
-<h3 id="pex">6.3 Pin exchange and proofs of service</h3>
+<h3 id="pex">6.2 Pin exchange and proofs of service</h3>
 <p>While for some specific services, we may be able to prove that the service was completed, we can't assume proofs of performed service are available in general. The most general proxy for a service proof, we have available across different marketplaces is a proof of pin exchange.</p>
 
 <p>A pin exchange provides a proof that the buyer and the provider agree that the service was completed. This means payments and collateral may also be put in escrow until both parties agree service was completed.</p>
@@ -239,7 +239,7 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 <p>We'll cover in a later section how we will address false positive and false negative disputes through the service collateral mechanism.</p>
 
 
-<h3 id="gv">6.4 The concept of graph value</h3>
+<h3 id="gv">6.3 The concept of graph value</h3>
 <p>Every time a buyer and a producer complete a transaction and a pin is exchanged, the metrics such as their total sum of edge weights, \(W_v\) and \(W_u\), and their eigenvector centralities, \(x_v\) and \(x_u\) are updated.</p>
 
 <p>The <strong>graph value</strong> \(G_u\) for a given producer (or \(G_v\) for a buyer) is a metric that uses the information in the graph to determine the amount of value the user has added to the Local Protocol network. The main use of such a metric is to allocate rewards to network participants, proportional to the amount of value they have added to the network.</p>
@@ -257,7 +257,7 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 
 <p>We will soon explore in more detail what the graph value update amount looks like, but first consider one last factor, the reputation score, that will also contribute to the graph value.</p>
 
-<h3 id="rep">6.5 Reputation Score</h3>
+<h3 id="rep">6.4 Reputation Score</h3>
 <p>Apart from the objective information given in the graph, of the edge weights and the eigenvector centrality (EC), we would like to incorporate a measure of subjective "peer evaluation".</p>
 
 <p>For this reason, we introduce a Reputation score, \(r_u\) for producers and \(r_v\) for buyers. The principle is that a user's reputation score is given by the peer evaluation of themselves by other <strong>real users</strong> who they interact with.</p>
@@ -292,7 +292,7 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 
 <p>The justification for incorporating the reputation score into the graph value is that this adds a layer of social regulation of dishonest and malicious actors. If there is any other malicious behavior that cannot be captured by connectivity metrics, we rely on the peer evaluation of other well-connected and high-reputation users.</p>
 
-<h3 id="rep">6.6 Mature and Immature Markets</h3>
+<h3 id="rep">6.5 Mature and Immature Markets</h3>
 <p>In a mature market, there is already an established set of providers, and it is difficult for a new provider to join the market and climb to the highest rank. This means that for a given producer \(u\), it is already difficult to increase their graph value \(G_u\) by increasing their eigenvector centrality ranking.</p>
 
 <p>In such a mature market, it is more valuable to the network to focus more on a provider's total edge weights \(W_u\), than on their connectivity, \(x_u\). These established providers have already proven to be real through their connectivity, and incentivizing them to work even more on their connectivity may centralize power even more, since it is harder for competitors to overtake them in terms of connectivity.</p>
@@ -303,7 +303,7 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 
 <p>A key element of our graph value function must then be that it is able to distinguish between mature and immature markets, and incentivize users to work on different metrics. This can be achieved by having a graph value formula proportional to \(W_u^{\bar{x}_u} x_u^{(1-\bar{x}_u)}\). Here we can see for new, not established users, which have \(\bar{x}_u\) close to zero, they are incentivized to focus on improving their graph connectivity. For established users dominating the market with \(\bar{x}_u\) close to 1, these users are incentivized to work on increasing their edge weights, while still not completely neglecting their connectivity, as if they do, another user may overtake them.</p>
 
-<h3 id="implicit-referral">6.8 Centrality as an Implicit Referral Mechanism</h3>
+<h3 id="implicit-referral">6.6 Centrality as an Implicit Referral Mechanism</h3>
 <p>Our centrality rankings implicitly capture what other networks attempt to achieve through imprecise mechanisms like referral rewards or marketing incentives. In our graph, "referrals" are not enshrined as a concept; they are just the optimal strategy to maximize personal rewards.</p>
 
 <p>Users are therefore unknowingly participating in a complex, multi-agent optimization process where the optimal strategy is:</p>
@@ -318,7 +318,7 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 
 <p>This brings us to the core of our token distribution mechanism: the graph value update rule. This rule encapsulates how we measure and reward the value each participant adds to the network, taking into account not just their direct contributions, but also their role in expanding and strengthening the network as a whole.</p>
 
-<h3 id="gvur">6.9 The graph value update rule</h3>
+<h3 id="gvur">6.7 The graph value update rule</h3>
 <p>Now we have all the elements required to define our graph value update rule.</p>
 
 <p>Here are some design principles that guide how our update rule is chosen:</p>
@@ -394,7 +394,7 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 <p>A key aspect of the update rule is the influence of adjacent nodes on the state transition of the graph. For a given node, the update rule incorporates information about its own history, as well as the attributes of neighboring nodes and the attributes of connecting edges. By modeling these recursive relationships within the network, the system maintains strong security guarantees. As the connectivity of the network increases, the cost of verifying transactions decreases while the security level increases. This is because with higher connectivity, each node has access to more information from its neighbors.
 </p>
 
-<h3 id="generalizing-networks">6.7 Generalizing to Various Networks</h3>
+<h3 id="generalizing-networks">6.8 Generalizing to Various Networks</h3>
 <p>Our graph-based approach allows markets to self-optimize token distributions across various commercial contexts. Nodes in the network can fine-tune to dynamically align incentives, eliminating the need for us (network designers) to make naive assumptions about the unpredictable behavior of participants in different economic settings.</p>
 
 <p>Optimal token distributions are "discovered" based on the pricing power of producers in different sub-networks. This adaptive mechanism ensures that tokens are allocated in a way that reflects the true value of services provided, fostering a competitive and balanced network that reaches a comfortable equilibrium as the network matures.</p>
@@ -404,7 +404,7 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 <p>This adaptive incentive system ensures that the token economy remains responsive to changes in dynamic markets, and different networks automatically adapt without manual recalibration, minimizing governance. This more expressive and dynamic design naturally overcomes the demand side challenges present in the last generation of DePIN projects.</p>
 
 
-<h3 id="gvur">6.10 Incentive alignment and dominant strategies</h3>
+<h3 id="gvur">6.9 Incentive alignment and dominant strategies</h3>
 <p>Given our definition of the graph value update rule, we can then analyze what user behavior this incentivizes, and how it aligns with the network's goals.</p>
 
 <p>First, we want to examine under which assumptions it is not rational for a producer to fake a transaction. Suppose a producer, \(u\) has normalized EC of \(\bar x_u\).</p>
