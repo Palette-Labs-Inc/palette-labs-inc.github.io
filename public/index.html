@@ -43,7 +43,7 @@
 </d-front-matter>
 
 <d-title>
-  <h1>Local Protocol Protocol</h1>
+  <h1>Local Protocol</h1>
   <br>
 </d-title>
 <d-byline>
@@ -53,9 +53,12 @@
 <h3>Affiliations</h3>
 <p class="author"><a class="name" href="">Mike Perhats</a></p>
 <p class="affiliation"><span class="affiliation">Palette Labs, Inc.</span></p>
-
+<p class="author"><a class="name" href="">Matheus Venturyne Xavier Ferreira</a></p>
+<p class="affiliation"><span class="affiliation">University of Virginia</span></p>
+<p class="author"><a class="name" href="">Axel Cortés Cubero</a></p>
+<p class="affiliation"><span class="affiliation">Protocol Labs Research</span></p>
 </div>
-<div><h3>Published</h3><p>August 23, 2024</p></div>
+<div><h3>Published</h3><p>August 28, 2024</p></div>
 <!-- <div>
   <h3>DOI</h3>
   <p><a href="https://doi.org/10.23915/distill.00033">10.23915/distill.00033</a></p>
@@ -73,6 +76,8 @@
 </em></p>
 
 <h2 id="motivation">1. Motivation</h2>
+<p>Internet marketplace platforms have created tremendous value in isolated settings, but they lack programmability and interoperability with external systems and increasingly fail to meet the demands of modern markets.</p>
+
 <p>Software marketplaces perform four critical functions that we aim to decentralize with an economic game:</p>
 <ul>
   <li>Initialize a network of sellers</li>
@@ -81,11 +86,21 @@
   <li>Arbitration of disputes</li>
 </ul>
 
-<p>Internet marketplace platforms have created tremendous value in isolated settings, but they lack programmability and interoperability with external systems and increasingly fail to meet the demands of modern markets.</p>
+<p>Blockchains have disintermediated trusted third-parties in digital domains through cryptographic mechanisms such as consensus protocols and validity proofs, unlocking the economic benefits of permissionless networks. However, these approaches to verification do not translate to non-digital markets.</p>
 
-<p>Blockchains have disintermediated trusted third-parties in digital domains through cryptographic mechanisms such as consensus protocols and validity proofs, unlocking the economic benefits of permissionless networks. However, these approaches do not translate to non-digital markets.</p>
+<p>Traditional token networks often rely on simplistic metrics like transaction volume, geography, or predefined roles within a network to define their distributions. While these methods drive certain behaviors, they fall short in maximally aligning incentives within complex, interconnected networks. Moreover, they struggle to adapt to the varying needs of markets at different stages of maturity and are subject to the Oracle problem. These limitations restrict the expressivity required to leverage local knowledge in permissionless networks. Permissionless networks that rigidly define a set of behaviors undermine their own potential.</p>
 
-<p>This paper introduces a graph-theoretic framework for a peer-to-peer marketplace that addresses these challenges; providing a path forward for more markets to exist in a permissionless context.</p>
+<p>We recognize the need for a more adaptive approach to token distributions that can:</p>
+<ul>
+  <li>Naturally align incentives with network growth</li>
+  <li>Resist manipulation and Sybil attacks</li>
+  <li>Dynamically adapt to evolving market conditions</li>
+  <li>Implicitly reward behaviors that strengthen network effects</li>
+  <li>Balance the needs of both new and established participants</li>
+  <li>Function across a spectrum of verifiability capacities in different markets</li>
+</ul>
+
+<p>This paper introduces a cryptoeconomic framework for designing a new generation of peer-to-peer marketplaces that address these challenges and provides a path forward for more markets to exist in a token-incentivized, permissionless context.</p>
 
 <h2 id="gps">2. General Problem Statement</h2>
 <p>Local Protocol is a <strong>general decentralized</strong> marketplace. Here we put particular emphasis on these two key words, "general" and "decentralized", because, simple solutions exist already if either word is removed.</p>
@@ -208,7 +223,7 @@ and we identify the components \(x_u\), \(x_v\) as the EC of a given producer an
 \end{equation}
 where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. This normalized version is a number between 0 and 1, where 1 is assigned to the top scoring user.</p>
 
-<h3 id="pex">6.2 Pin exchange and proofs of service</h3>
+<h3 id="pex">6.3 Pin exchange and proofs of service</h3>
 <p>While for some specific services, we may be able to prove that the service was completed, we can't assume proofs of performed service are available in general. The most general proxy for a service proof, we have available across different marketplaces is a proof of pin exchange.</p>
 
 <p>A pin exchange provides a proof that the buyer and the provider agree that the service was completed. This means payments and collateral may also be put in escrow until both parties agree service was completed.</p>
@@ -221,7 +236,8 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 
 <p>We'll cover in a later section how we will address false positive and false negative disputes through the service collateral mechanism.</p>
 
-<h3 id="gv">6.3 The concept of graph value</h3>
+
+<h3 id="gv">6.4 The concept of graph value</h3>
 <p>Every time a buyer and a producer complete a transaction and a pin is exchanged, the metrics such as their total sum of edge weights, \(W_v\) and \(W_u\), and their eigenvector centralities, \(x_v\) and \(x_u\) are updated.</p>
 
 <p>The <strong>graph value</strong> \(G_u\) for a given producer (or \(G_v\) for a buyer) is a metric that uses the information in the graph to determine the amount of value the user has added to the Local Protocol network. The main use of such a metric is to allocate rewards to network participants, proportional to the amount of value they have added to the network.</p>
@@ -239,7 +255,7 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 
 <p>We will soon explore in more detail what the graph value update amount looks like, but first consider one last factor, the reputation score, that will also contribute to the graph value.</p>
 
-<h3 id="rep">6.4 Reputation Score</h3>
+<h3 id="rep">6.5 Reputation Score</h3>
 <p>Apart from the objective information given in the graph, of the edge weights and the eigenvector centrality (EC), we would like to incorporate a measure of subjective "peer evaluation".</p>
 
 <p>For this reason, we introduce a Reputation score, \(r_u\) for producers and \(r_v\) for buyers. The principle is that a user's reputation score is given by the peer evaluation of themselves by other <strong>real users</strong> who they interact with.</p>
@@ -274,7 +290,7 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 
 <p>The justification for incorporating the reputation score into the graph value is that this adds a layer of social regulation of dishonest and malicious actors. If there is any other malicious behavior that cannot be captured by connectivity metrics, we rely on the peer evaluation of other well-connected and high-reputation users.</p>
 
-<h3 id="rep">6.5 Mature and Immature Markets</h3>
+<h3 id="rep">6.6 Mature and Immature Markets</h3>
 <p>In a mature market, there is already an established set of providers, and it is difficult for a new provider to join the market and climb to the highest rank. This means that for a given producer \(u\), it is already difficult to increase their graph value \(G_u\) by increasing their eigenvector centrality ranking.</p>
 
 <p>In such a mature market, it is more valuable to the network to focus more on a provider's total edge weights \(W_u\), than on their connectivity, \(x_u\). These established providers have already proven to be real through their connectivity, and incentivizing them to work even more on their connectivity may centralize power even more, since it is harder for competitors to overtake them in terms of connectivity.</p>
@@ -285,7 +301,22 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 
 <p>A key element of our graph value function must then be that it is able to distinguish between mature and immature markets, and incentivize users to work on different metrics. This can be achieved by having a graph value formula proportional to \(W_u^{\bar{x}_u} x_u^{(1-\bar{x}_u)}\). Here we can see for new, not established users, which have \(\bar{x}_u\) close to zero, they are incentivized to focus on improving their graph connectivity. For established users dominating the market with \(\bar{x}_u\) close to 1, these users are incentivized to work on increasing their edge weights, while still not completely neglecting their connectivity, as if they do, another user may overtake them.</p>
 
-<h3 id="gvur">6.6 The graph value update rule</h3>
+<h3 id="implicit-referral">6.8 Centrality as an Implicit Referral Mechanism</h3>
+<p>Our centrality rankings implicitly capture what other networks attempt to achieve through imprecise mechanisms like referral rewards or marketing incentives. In our graph, "referrals" are not enshrined as a concept; they are just the optimal strategy to maximize personal rewards.</p>
+
+<p>Users are therefore unknowingly participating in a complex, multi-agent optimization process where the optimal strategy is:</p>
+<ol>
+  <li>Contribute as much revenue as possible</li>
+  <li>Recruit your neighbors to contribute as much revenue as possible</li>
+</ol>
+
+<p>This approach results in a more mathematically precise referral mechanism. The aggregated behavior of countless self-interested actions drives behaviors that tend towards maximizing total network value.</p>
+
+<p>We hypothesize that this collective action of self-interested agents, each seeking to maximize their individual earnings, will develop more effective solution concepts to maximize network value compared to a single centralized actor. Through this alignment of incentives, we create a system that encourages fast, self-reinforcing network growth, effectively "outsourcing acquisition and retention" to the network participants themselves.</p>
+
+<p>This brings us to the core of our token distribution mechanism: the graph value update rule. This rule encapsulates how we measure and reward the value each participant adds to the network, taking into account not just their direct contributions, but also their role in expanding and strengthening the network as a whole.</p>
+
+<h3 id="gvur">6.9 The graph value update rule</h3>
 <p>Now we have all the elements required to define our graph value update rule.</p>
 
 <p>Here are some design principles that guide how our update rule is chosen:</p>
@@ -303,7 +334,6 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
     <figcaption>
     Hover over a node to visualize which edges are gathered and aggregated to produce an update for a transacting node.</figcaption>
 </figure>
-
 
 
 <p>Before introducing the final form of the graph value update rule, let us elaborate more on the subject of economic fairness.</p>
@@ -356,7 +386,6 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 
 <p>Note that for every user that is performing exactly the same as the average, their graph value update would be of the form \(G_u = G_u + \Delta W_u\), which ensures the economic fairness property between new and established users.</p>
 
-
 <p>The final form of the update rule can be visualized in the following diagram. The state of the graph at the next time step is updated using the information from the current graph, including the edge weights and any node attributes (e.g., identity proofs) or edge attributes (e.g., service proofs). Formally, the state transition for the network can be expressed as a function that takes the current graph state, edge weights, node attributes, and edge attributes as inputs and outputs the updated graph state.
 </p>
 
@@ -369,9 +398,17 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
     </figcaption>
 </figure>
 
+<h3 id="generalizing-networks">6.7 Generalizing to Various Networks</h3>
+<p>Our graph-based approach allows markets to self-optimize token distributions across various commercial contexts. Nodes in the network can fine-tune to dynamically align incentives, eliminating the need for us (network designers) to make naive assumptions about the unpredictable behavior of participants in different economic settings.</p>
+
+<p>Optimal token distributions are "discovered" based on the pricing power of producers in different sub-networks. This adaptive mechanism ensures that tokens are allocated in a way that reflects the true value of services provided, fostering a competitive and balanced network that reaches a comfortable equilibrium as the network matures.</p>
+
+<p>In markets with unique, high-demand producers, most of the reward for a given transaction is likely to accrue to the producer. Conversely, in markets where producers sell goods with many substitutes, the reward will be distributed in favor of the buyer (the producer will use their rewards as marketing capital).</p>
+
+<p>This adaptive incentive system ensures that the token economy remains responsive to changes in dynamic markets, and different networks automatically adapt without manual recalibration, minimizing governance. This more expressive and dynamic design naturally overcomes the demand side challenges present in the last generation of DePIN projects.</p>
 
 
-<h3 id="gvur">6.7 Incentive alignment and dominant strategies</h3>
+<h3 id="gvur">6.10 Incentive alignment and dominant strategies</h3>
 <p>Given our definition of the graph value update rule, we can then analyze what user behavior this incentivizes, and how it aligns with the network's goals.</p>
 
 <p>First, we want to examine under which assumptions it is not rational for a producer to fake a transaction. Suppose a producer, \(u\) has normalized EC of \(\bar x_u\).</p>
@@ -397,9 +434,16 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 \end{equation}
 That is, the network's goal is to maximize the sum of graph values of all users, which represents the sum of the value of real transactions. We have included a parameter \(g_v\), which allows us to weigh service provider and buyer contributions differently. Our formulation of graph value results in an incentive alignment: the strategy of selfish rational users, seeking to maximize their own reward, leads to maximizing the network's objectives.</p>
 
+
 <h2 id="git">7. Graph Interactions with Tokenomics</h2>
+<p>Many decentralized networks mint tokens based on a simple exponential decay model, generating a large number of tokens per unit of work early as a bootstrapping incentive, with rewards rapidly decreasing over time. While this design has been successful at bootstrapping supply, it often leads to imbalanced services, potential token supply issues, and supply-side churn due to diminishing returns as the network matures.</p>
+
+<p>Our graph-based model allows for a more adaptive and dynamical approach to rewards, maximizing overall utility across the network's adoption lifecycle. Token rewards can scale gracefully based on the state of the graph and can be recursively re-balanced with consumer demand. This creates a system that successfully bootstraps both sides of the network without creating undue harm to the treasury or future earning potential of suppliers.</p>
+
+<p>By optimizing for connectivity in immature markets and gradually shifting focus to economic output as the market matures, our approach maintains a healthy balance between growing supply and demand throughout the network's growth lifecycle.</p>
+
 <h3 id="git.tv">7.1 Token Valuation Function</h3>
-<p>So far we have discussed how to measure the value of active users in the Local Protocol network through the notion of graph value. Any monetary rewards the network wants to give to users could be then made following the distribution of graph value.</p>
+<p>So far we have discussed how to measure the value of active users in the Local Protocol network through the notion of graph value.</p>
 
 <p>Here we address the questions, what if a user no longer wishes to be an active user and would rather sell some of the graph value they have accumulated? What if an active user would rather sell a fraction of their accumulated graph value for immediate liquidity? What if a user wishes to purchase some additional graph value?</p>
 
@@ -588,8 +632,54 @@ where we assume the reward period \(\tau\) is short enough that we can represent
 
 <p>Therefore, the mechanism works because of the principle that real transactions connect users to real islands in the graph, and will lead to greater increases in EC per amount of fee \(w_{uv}\), and fake transactions will lead to lower increases in EC for the same fee. This means that real users will have a better performance in terms of bare graph value change per amount of fee. <strong>If the average user is an honest user performing real transactions, then fake transactions will have below-average performance, and therefore the reward obtained will be lower than the fee paid</strong>.</p>
 
+<h3 id="spectrum-of-verifiability">8.3 A Spectrum of Verifiability</h3>
 
-<h3 id="constraints.ep">8.3 External proofs and graph value boosts</h3>
+<p>In real-world applications, different types of services and transactions present varying levels of verifiability. This spectrum of verifiability presents a significant limitation in the type of network that can be simaltaneously permissionless and token-incentivized. Typical work-arounds to limitations in verification require a trusted third-party, expensive service proofs, or strict permissions to participate in the network. These restrictions are all limitations that limit the design space available to build truly robust, sustainable, and decentralized networks at a global scale.</p>
+
+<p>We might visualize a framework where all projects fall somewhere on this spectrum of proof availability:</p>
+
+<pre>
+   Hard to Create/Expensive
+           |
+           |
+    III    |    IV
+           |
+-----------+----------- Cheap/Expensive
+           |
+     II    |     I
+           |
+           |
+  Easy to Create/Cheap
+</pre>
+
+<ul>
+  <li><strong>Quadrant I: Easy to Create (weak-guarantee) and Cheap</strong><br>
+  Simple randomized pin exchanges: Users and drivers exchange simple PINs to verify or mutually attest to service completion.</li>
+  
+  <li><strong>Quadrant II: Easy to Create (weak-guarantee) and Expensive</strong><br>
+  Basic location sharing: Sharing the user's location through GPS, which can be easily manipulated but is straightforward to implement.</li>
+  
+  <li><strong>Quadrant III: Hard to Create (strong-guarantee) and Cheap</strong><br>
+  On-chain Reputation-based systems: take a long time to develop but can be cheap and robust at scale.</li>
+  
+  <li><strong>Quadrant IV: Hard to Create (strong-guarantee) and Expensive</strong><br>
+  Advanced location proofs: ZkTLS with cell tower or trusted hardware. Either computationally expensive or requires hardware.</li>
+</ul>
+
+<p>Networks trying to bootstrap adoption often face challenges when relying on verification methods that fall into Quadrant IV (Hard to Create and Expensive). These methods, while robust, can hinder growth due to their complexity and cost. Conversely, using methods from Quadrant I (Easy to Create and Cheap) may lead to increased vulnerability to attacks such as self-dealing and collusion.</p>
+
+<p>Eigenvector Centrality (EC) rankings can help mitigate issues in each of these networks by propagating trust assumptions through the graph. In networks with weak or expensive service proofs, EC rankings become particularly valuable. The underlying assumption is that collusion becomes increasingly difficult as the number of nodes in the network increases.</p>
+
+<p>For networks bootstrapping trust, EC rankings can help establish trust vectors for nodes through a combination of service proofs and identity proofs. As the network grows and trust is established, the reliance on expensive service-proofs can be gradually reduced with a dampening factor over time.</p>
+
+<p>By leveraging EC rankings, networks can strike a balance between security and costs depending on their needs. As trust propagates through the network, the need for expensive and complex verification methods decreases, enabling the network to scale more efficiently without compromising security.</p>
+
+<p>While the spectrum of verifiability provides a framework for understanding the challenges in different types of networks, it's important to consider how we can incorporate external proofs when they are available. These proofs not only enhance security but also unlock capital formation mechanisms, expanding the potential of the network to create utility across a broader range of commercial settings.</p>
+
+<h3 id="constraints.ep">8.4 External proofs and graph value boosts</h3>
+<p>In some particular markets, there may exist external proofs or evidence that users or transactions are real. Here we present two different ways in which external proofs could be incorporated into the current graph value model.</p>
+
+<h3 id="constraints.ep">8.4 External proofs and graph value boosts</h3>
 <p>In some particular markets, there may exist external proofs or evidence that users or transactions are real. Here we present two different ways in which external proofs could be incorporated into the current graph value model.</p>
 
 <p><strong>Identity proofs:</strong> We may have external evidence that a given producer or user is a real, identifiable and unique entity. For instance, this can be the case that users verify their identity through submitting government issued IDs.</p>
@@ -611,6 +701,7 @@ The doping vector doesn't only affect \(u\), but it affects neighboring users th
     \Delta A_{uv} = w_{uv} + b.
 \end{equation}
 The EC can then be computed by solving the eigenvalue problem.</p>
+
 
 <h2 id="service">9. Service guarantees</h2>
 <h3 id="service.pex">9.1 Pin Exchange as proof of agreement of service</h3>
