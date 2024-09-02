@@ -330,14 +330,10 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 
 <p>The inputs for the update rule in its simplest form can be represented by the following diagram. The state of a node is updated using the information from the current edge weights of all edges connected to the node. The update rule aggregates the edge weights to produce an input for the state transition.</p>
 
-<figure><div id="node-step-small"></div>
+<figure><div id="node-step" style="padding-bottom: 10px;"></div>
     <figcaption>
-    Hover over a node to visualize which edges are gathered and aggregated to produce an update for a transacting node.</figcaption>
-</figure>
-
-<figure><div id="node-attributes"></div>
-    <figcaption>
-    Hover over a node to visualize which nodes are gathered and aggregated to produce an update for a transacting node.</figcaption>
+    Hover over a node, to highlight adjacent nodes and visualize the state transition for the network.
+    </figcaption>
 </figure>
 
 <p>Before introducing the final form of the graph value update rule, let us elaborate more on the subject of economic fairness.</p>
@@ -395,12 +391,6 @@ where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. Thi
 
 <p>A key aspect of the update rule is the influence of adjacent nodes on the state transition of the graph. For a given node, the update rule incorporates information about its own history, as well as the attributes of neighboring nodes and the attributes of connecting edges. By modeling these recursive relationships within the network, the system maintains strong security guarantees. As the connectivity of the network increases, the cost of verifying transactions decreases while the security level increases. This is because with higher connectivity, each node has access to more information from its neighbors.
 </p>
-
-<figure><div id="node-step" style="padding-bottom: 10px;"></div>
-    <figcaption>
-    Hover over a node, to highlight adjacent nodes and visualize the state transition for the network.
-    </figcaption>
-</figure>
 
 <h3 id="generalizing-networks">6.7 Generalizing to Various Networks</h3>
 <p>Our graph-based approach allows markets to self-optimize token distributions across various commercial contexts. Nodes in the network can fine-tune to dynamically align incentives, eliminating the need for us (network designers) to make naive assumptions about the unpredictable behavior of participants in different economic settings.</p>
@@ -680,13 +670,18 @@ where we assume the reward period \(\tau\) is short enough that we can represent
 
 <p>While the spectrum of verifiability provides a framework for understanding the challenges in different types of networks, it's important to consider how we can incorporate external proofs when they are available. These proofs not only enhance security but also unlock capital formation mechanisms, expanding the potential of the network to create utility across a broader range of commercial settings.</p>
 
-<h3 id="constraints.ep">8.4 External proofs and graph value boosts</h3>
-<p>In some particular markets, there may exist external proofs or evidence that users or transactions are real. Here we present two different ways in which external proofs could be incorporated into the current graph value model.</p>
 
 <h3 id="constraints.ep">8.4 External proofs and graph value boosts</h3>
 <p>In some particular markets, there may exist external proofs or evidence that users or transactions are real. Here we present two different ways in which external proofs could be incorporated into the current graph value model.</p>
 
 <p><strong>Identity proofs:</strong> We may have external evidence that a given producer or user is a real, identifiable and unique entity. For instance, this can be the case that users verify their identity through submitting government issued IDs.</p>
+
+<figure>
+  <div id="node-attributes"></div>
+  <figcaption>
+    Hover over a node to visualize how identity proofs can boost the confidence in a node's realness and affect neighboring nodes. The arrows originating from the hovered node and its neighbors point to the aggregated node information, representing the propagation of the identity proof's effect.
+  </figcaption>
+</figure>
 
 <p>Suppose we can estimate how much confidence this provides us that this is a unique real user. Our previous measure of unique realness was the EC value for the user. We would then need to have a mapping, where submitting an identity proof is equivalent to a boost of \(b\) in eigenvector centrality for that user.</p>
 
@@ -700,13 +695,18 @@ The doping vector doesn't only affect \(u\), but it affects neighboring users th
 
 <p><strong>Transaction proofs:</strong> A different type of proofs may boost confidence that a certain transaction was a real transaction. This could be accounted for by introducing a corresponding boost in the graph, such that the corresponding edge weight is larger, as far as the EC calculation is concerned.</p>
 
+<figure>
+  <div id="node-step-small"></div>
+  <figcaption>
+    Hover over a node to visualize how transaction proofs can boost the confidence in the realness of a transaction. The arrows originating from the hovered node's edges point to the aggregated edge information, representing the incorporation of the transaction proof into the graph value calculation.
+  </figcaption>
+</figure>
+
 <p>Suppose producer \(u\) and buyer \(v\) complete a transaction of edge weight \(w_{uv}\), and they submit a transaction proof. This proof can be accounted by giving the adjacency matrix for EC calculations a boost of the form,
 \begin{equation}
     \Delta A_{uv} = w_{uv} + b.
 \end{equation}
 The EC can then be computed by solving the eigenvalue problem.</p>
-
-
 <h2 id="service">9. Service guarantees</h2>
 <h3 id="service.pex">9.1 Pin Exchange as proof of agreement of service</h3>
 <p>We have covered how the graph value update rule, and EC allows us to address fake transactions. Fake transactions can be understood as "false positives", where a signal is given from the producer and the buyer that a real transaction has been completed, but a real transaction did not happen.</p>
