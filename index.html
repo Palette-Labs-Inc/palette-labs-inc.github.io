@@ -1,45 +1,47 @@
 <!doctype html>
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://distill.pub/template.v2.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://distill.pub/template.v2.js"></script>
 
-<meta property="og:title" content="Local Protocol" />
-<meta property="og:description" content="A general decentralized marketplace protocol" />
-<meta property="og:image" content="https://palette-labs-inc.github.io/images/nosh.png" />
+    <meta property="og:title" content="Local Protocol" />
+    <meta property="og:description" content="A general decentralized marketplace protocol" />
+    <meta property="og:image" content="https://palette-labs-inc.github.io/images/nosh.png" />
 
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Local Protocol" />
-<meta name="twitter:description" content="A decentralized marketplace protocol" />
-<meta name="twitter:image" content="https://palette-labs-inc.github.io/images/nosh.png" />
-<meta name="twitter:creator" content="@mike_perhats" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Local Protocol" />
+    <meta name="twitter:description" content="A decentralized marketplace protocol" />
+    <meta name="twitter:image" content="https://palette-labs-inc.github.io/images/nosh.png" />
+    <meta name="twitter:creator" content="@mike_perhats" />
 
-<!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
-<!-- Import vega-embed -->
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@v6"></script>
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+    <!-- Import vega-embed -->
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@v6"></script>
 
 
-<!-- Mathjax -->
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">
+    <!-- Mathjax -->
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
 
-<!-- End Mathjax -->
+    <!-- End Mathjax -->
 </head>
+
 <body>
-<title>Local Protocol</title>
+    <title>Local Protocol</title>
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="visualizations/layerwise_trace.css">
-<link rel="stylesheet" href="visualizations/pca-layers.css">
-<link rel="stylesheet" href="visualizations/graph-description.css">
-<link rel="stylesheet" href="visualizations/graph-description-embeddings.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="visualizations/layerwise_trace.css">
+    <link rel="stylesheet" href="visualizations/pca-layers.css">
+    <link rel="stylesheet" href="visualizations/graph-description.css">
+    <link rel="stylesheet" href="visualizations/graph-description-embeddings.css">
 
-<d-front-matter>
-  <script type="text/json">
+    <d-front-matter>
+        <script type="text/json">
     {
       "title": "Local Protocol",
       "description": "A Protocol for Decentralized Commerce",
@@ -52,601 +54,984 @@
       }]
     }
   </script>
-</d-front-matter>
+    </d-front-matter>
 
-<d-title>
-  <h1>Local Protocol</h1>
-  <br>
-</d-title>
-<d-byline>
-<div class="byline grid">
-<div class="authors-affiliations grid">
-<h3>Authors</h3>
-<h3>Affiliations</h3>
-<p class="author"><a class="name" href="">Mike Perhats</a></p>
-<p class="affiliation"><span class="affiliation">Palette Labs, Inc.</span></p>
-<p class="author"><a class="name" href="">Matheus Venturyne Xavier Ferreira</a></p>
-<p class="affiliation"><span class="affiliation">University of Virginia</span></p>
-<p class="author"><a class="name" href="">Axel Cortés Cubero</a></p>
-<p class="affiliation"><span class="affiliation">Protocol Labs Research</span></p>
-<p class="author"><a class="name" href="">Kiran Karra</a></p>
-<p class="affiliation"><span class="affiliation">Protocol Labs Research</span></p>
-</div>
-<div><h3>Published</h3><p>September 10, 2024</p></div>
-<!-- <div>
+    <d-title>
+        <h1>Local Protocol</h1>
+        <br>
+    </d-title>
+    <d-byline>
+        <div class="byline grid">
+            <div class="authors-affiliations grid">
+                <h3>Authors</h3>
+                <h3>Affiliations</h3>
+                <p class="author"><a class="name" href="">Mike Perhats</a></p>
+                <p class="affiliation"><span class="affiliation">Palette Labs, Inc.</span></p>
+                <p class="author"><a class="name" href="">Matheus Venturyne Xavier Ferreira</a></p>
+                <p class="affiliation"><span class="affiliation">University of Virginia</span></p>
+                <p class="author"><a class="name" href="">Axel Cortés Cubero</a></p>
+                <p class="affiliation"><span class="affiliation">Protocol Labs Research</span></p>
+                <p class="author"><a class="name" href="">Kiran Karra</a></p>
+                <p class="affiliation"><span class="affiliation">Protocol Labs Research</span></p>
+            </div>
+            <div>
+                <h3>Published</h3>
+                <p>September 10, 2024</p>
+            </div>
+            <!-- <div>
   <h3>DOI</h3>
   <p><a href="https://doi.org/10.23915/distill.00033">10.23915/distill.00033</a></p>
 </div> -->
-</div>
-</d-byline>
-
-<d-article>
-
-<!-- <p><em>Local Protocol is a decentralized protocol that enables producers of goods and services to transact with buyers. The protocol is built on a transaction graph that captures the protocol state and enables rewards to be distributed to participants, creating a user-owned network. The protocol has an open and extensible architecture to be compatible with any buyer and producer market. The cryptoeconomic design facilitates robustness to Sybil attacks, and economic fairness, aligns incentives between the network and participants, and unlocks new primitives for verifiability in physical infrastructure networks.</em></p> -->
-<p><em>This paper establishes the technical and economic foundations for a trustless peer-to-peer marketplace. <br><br>
-  A programmable and extensible architecture allows for the creation of specialized marketplaces that cater to specific markets and use cases. The protocol enables the emergence of novel services and composable markets that were previously infeasible due to trust limitations, coordination costs, and verifiability constraints. <br><br>
-  
-  A self-optimizing transaction graph distributes tokens to participants, creating a user-owned network. An arbitration protocol provides service-guarantees and a resolution mechanism in the case of a dispute without requiring a trusted intermediary
-</em></p>
-
-<h2 id="motivation">1. Motivation</h2>
-<p>Internet marketplace platforms have created tremendous value in isolated settings, but they lack programmability and interoperability with external systems and increasingly fail to meet the demands of modern markets.</p>
-
-<p>Software marketplaces perform four critical functions that we aim to decentralize with an economic game:</p>
-<ul>
-  <li>Initialize a network of sellers</li>
-  <li>Initialize a network of buyers</li>
-  <li>Counterparty discovery</li>
-  <li>Arbitration of disputes</li>
-</ul>
-
-<p>Blockchains have disintermediated trusted third-parties in digital domains through cryptographic mechanisms such as consensus protocols and validity proofs, unlocking the economic benefits of permissionless networks. However, these approaches to verification do not translate to non-digital markets.</p>
-
-<p>Traditional token networks often rely on simplistic metrics like transaction volume, geography, or predefined roles within a network to define their distributions. While these methods drive certain behaviors, they fall short in maximally aligning incentives within complex, interconnected networks. Moreover, they struggle to adapt to the varying needs of markets at different stages of maturity and are subject to the Oracle problem. These limitations restrict the expressivity required to leverage local knowledge in permissionless networks. Permissionless networks that rigidly define a set of behaviors undermine their own potential.</p>
-
-<p>We recognize the need for a more adaptive approach to token distributions that can:</p>
-<ul>
-  <li>Naturally align incentives with network growth</li>
-  <li>Resist manipulation and Sybil attacks</li>
-  <li>Dynamically adapt to evolving market conditions</li>
-  <li>Implicitly reward behaviors that strengthen network effects</li>
-  <li>Balance the needs of both new and established participants</li>
-  <li>Function across a spectrum of verifiability capacities in different markets</li>
-</ul>
-
-<p>This paper introduces a cryptoeconomic framework for designing a new generation of peer-to-peer marketplaces that address these challenges and provides a path forward for more markets to exist in a token-incentivized, permissionless context.</p>
-
-<h2 id="gps">2. General Problem Statement</h2>
-<p>Local Protocol is a <strong>general decentralized</strong> marketplace. Here we put particular emphasis on these two key words, "general" and "decentralized", because, simple solutions exist already if either word is removed.</p>
-
-<p>By "general", here we mean that we do not need to specify the type of good or service that is being traded in the marketplace. "Decentralized" means that the marketplace is not overseen by one centralized trusted institution.</p>
-
-<p>Decentralized marketplaces have been designed for specific services, particularly digital ones, where objective proofs of the service having been provided are available. For example, one can design a data storage market, where the service providers can prove cryptographically that a specific piece of data has been stored, and therefore can be objectively rewarded by a decentralized protocol (cite Filecoin and others). In a decentralized protocol, there is no authority to vet or trust any set of service providers, therefore metrics of service must be objectively quantifiable.</p>
-
-<p>On the other hand, the problem of a "General Marketplace" can be solved by introducing a centralized trusted overseeing entity. For example, marketplaces for physical services, such as ride shares and food delivery can be built on assumptions of trust on the marketplace administrator. The user trusts that the administrator performs KYC on the service providers, and is responsible for penalizing providers that underperform.</p>
-
-<p>Local Protocol's general decentralized marketplace provides a solution for this problem, where general services can be traded, which don't necessarily have objectively measurable metrics, without relying on the assumption of a trusted market administrator.</p>
-
-<h2 id="challenges">3. Challenges of a general decentralized marketplace</h2>
-<p>Let's dive deeper into what are the specific challenges that make building a general decentralized marketplace so difficult.</p>
-
-<p>There are a few key elements that needed to be solved to arrive at a general decentralized market place. We list them here:</p>
-<ul>
-    <li>The first challenge to be solved is in providing users a guarantee that if they have made a payment, then the service will be provided. How do service providers show a commitment to completing the service once they have agreed to it? In a centralized marketplace, the administrator ensures the service providers are reliable, and will have to enforce consequences if they are not.</li>
-    <li>How does the network prevent fake transactions? Or if this cannot be solved, a softer version of the problem is how does the network discourage fake transactions? The network must ensure that it is at least not profitable to submit a fake transaction.</li>
-    <li>Since ownership of the network is decentralized, how do we fairly reward all contributors who added value to the network, in a way that does not rely on an assessment of value by a centralized trusted authority, and that cannot be easily cheated to gain rewards greater than actual value added.</li>
-    <li>How can we use rewards to bootstrap the formation of a network of service providers at early stages? If needed, could we give out a greater amount of rewards than the total revenue collected in this bootstraping phase? This has to be done in a way that cannot be abused by dishonest service providers.</li>
-    <li>Since there is no centralized trusted party that can validate whether a service provider is honest or not, can the service provider's reputation and trust be built by performing real transactions that add value to the network?</li>
-</ul>
-
-<h2 id="shallow">4. Shallow dive into economics</h2>
-<p>Before diving into the technical details, in this section we briefly discuss the novel mechanisms Local Protocol uses to enable a general decentralized marketplace.</p>
-
-<p>The backbone of Local Protocol's tokenomics is the <strong>transaction graph</strong>. All service providers and buyers are represented as vertices in this graph. Every time a buyer transacts with a service provider, edge weights between these two vertices are added, corresponding to the transaction fees collected.</p>
-
-<p>Having transactions built into a graph means that we can now measure how much value a user contributes to the network, not just by measuring the sum of fees they have bought in, but by measuring the amount of connectivity they contributed to the graph.</p>
-
-<p>The transaction graph then acts as a mechanism to reward real transactions, which contribute real connectivity to the graph. When a real service provider transacts with a real buyer, that buyer also transacts with other real service providers, which transact with other real buyers, and so on.</p>
-
-<p>On the other hand, someone trying to complete fake transactions, would have to set up a set of service providers and buyers to make transactions with each other. While edge weights within this set may grow, this set will not grow real connectivity with the rest of the graph, unless they start transacting with other users, at which point they would be considered real users themselves. We therefore refer to a set of fake users only transacting with each other as an island graph, which do not connect to other larger and better connected islands.</p>
-
-<p>While the graph defines how users will be rewarded for positive contributions to the graph, Local Protocol also includes a provider collateral, that may be slashed to penalize dishonest service providers. For each transaction between a service provider and a buyer, an amount of collateral is locked by the provider, which is determined based on the size of the transaction, and the value to the graph of both the service provider and the buyer. This is such that well established service providers, that have already proven their honesty to the network can be required to lock smaller co
-
-<h2 id="introdeepdive">5. Introduction to the technical deep dive</h2>
-<p>In the next section we will introduce the technical details of the Local Protocol transaction graph, and measures of connectivity.</p>
-
-<p>We model commercial networks as a bipartite graph that captures the economic relationships between producers and buyers, with edges signifying the historical transactions between two nodes.</p>
-
-<p>We introduce a modified eigenvector centrality ranking that takes advantage of the graph's attributes to discover optimal token distributions between supply and demand in heterogeneous commercial settings without relying on <em>a priori</em> assumptions about participant behavior, market characteristics, or information from external oracles.</p>
-
-<p>We argue that eigenvector centrality rankings unlock an adaptive approach to aligning the incentives of network participants in a wide range of markets in different states (producer favored markets, buyer favored markets, mature vs. immature markets, markets with high and low connectivity, markets constrained by geography, etc.).</p>
-
-<p>We introduce a solution concept that we define as unprofitable <em>island graphs</em> that shows how eigenvector centrality provides an algorithmic mechanism to protect against self-dealing and collusion risks in the absence of hard cryptographic <em>proofs-of-service</em>.</p>
-
-<p>The same algorithm that aligns the incentives of the network's participants, provides the network with its security guarantee. As each node acts selfishly to improve their individual economic outcomes, they inadvertently contribute to the network’s overall robustness against adversarial threats.</p>
-
-<p>We discuss how the lack of robust <em>proof-of-service</em> mechanisms are a constraint for the mass adoption of permissionless commercial networks.</p>
-
-<p>We present an inhomogeneous eigenvalue formulation for integrating proofs into local sub-graphs, treating verification as a probability density function as opposed to a binary outcome.</p>
-
-<p>The graph allows us to propagate trust assumptions across the network with the strength of the trust assumption decaying with an increasing path length from a trusted source node. This concept of <em>trust propagation</em> provides a path forward for networks that may not have access to definitive or cost-effective service proofs.</p>
-
-<p>Finally, we propose a mechanism for a decentralized insurance market maker that prices the risk of disputed services between untrusted transacting parties. Insurance can be purchased by transacting parties and liquidity providers cover the downside risk of a disputed service. Insurance is purchased with the network token.</p>
-
-<h2 id="graph">6. The Transaction Graph</h2>
-
-<p>The Dynamic Transaction Graph is a bipartite graph that captures the economic relationships between producers and buyers, with weighted edges representing the cumulative fees from their past transactions. The graph allows the network to dynamically adjust token incentives based on the actual economic activity and pricing power of participants, ensuring a fair and efficient allocation of rewards that adapts to the unique properties of each market, whether location-dependent or location-independent.</p>
-
-<p>A bipartite graph \(G = (U, V, E)\) representing producers \(U\) and buyers \(V\) as nodes, with weighted edges \(E\) capturing transactions between them. Edge weights \(w(u, v)\) track the cumulative fees contributed by producer \(u\) from transactions with buyer \(v\).</p>
-
-<figure><div id='graph-description'></div>
-    <figcaption>
-    Three types of attributes we might find in a graph, hover over to highlight each attribute.
-    </figcaption>
-</figure>
-
-<p>We introduce some convenient notation, to denote the sum of the set of edge weights of a given producer,</p>
-<p>\[
-    W_u=\sum_{v \in V} w(u,v),
-\]</p>
-<p>and similarly for a given buyer,</p>
-<p>\[
-    W_v=\sum_{u \in U} w(u,v).
-\]</p>
-
-<p>These metrics, \(W_u\) and \(W_v\), already give us a sense of the total monetary value that a given producer or buyer adds to the network.</p>
-
-<h3 id="ec">6.1 Eigenvector Centrality</h3>
-
-<p>Traditional approaches to token design might allocate tokens based on transaction volume, geography, predefined roles within a network, referrals etc. While these methods do drive certain behaviors, they fall short in maximally aligning incentives within a complex, interconnected network.</p>
-
-<p>In this section, we show how the graph captures a node's relative influence in complex network topologies and approaches optimal token distributions. By using centrality ranks as a foundation for token allocations, we create a dynamical, self-optimizing network that unlocks a more nuanced and adaptive approach to token distributions - recognizing that value in a network is not about individual actions, but a web of relationships and influence.</p>
-
-<figure class=teaser>
-    <div id=layerwise-trace></div>
-    <figcaption>
-        The diagram shows how a transaction graph evolves as nodes in the network connect by making transactions. Hover over a node to see its connections to other nodes over time and observe how the graph becomes more interconnected. As the network grows and nodes form more connections, their EC scores increase, reflecting their growing influence and importance within the network. This simple yet powerful algorithm provides the network with its incentive mechanism and it's security guarantee by rewarding nodes that contribute to connectivity while making it difficult for malicious actors to manipulate the system through fake transactions or Sybil attacks.
-    </figcaption>
-</figure>
-
-<p>The advantage of having transactions on a graph is that we can obtain other valuable metrics, rather than just the sum of fees collected. Having a transaction graph allows us to think about the connectivity of providers and users.</p>
-
-<p>In this sense, we can evaluate whether a provider that collected 100 dollars in fees by transacting with one buyer is different from one that collected the same fees by transacting with 100 distinct buyers. The latter provider, for instance, provided a larger amount of connectivity to the network, for the same amount of fees.</p>
-
-<p>A good measure of a provider's (buyer's) connectivity is given by their eigenvector centrality (EC). This can be understood by re-defining the graph as an Adjacency matrix, \(A_{ij}\), where \(A_{uv} = A_{vu} = w(u,v)\), and \(A_{u,u'} = A_{v,v'} = 0\), for \(u,u' \in U\) and \(v,v' \in V\), and the indices \(i,j\) run over all \(U\) and \(V\).</p>
-
-<p>The eigenvector centrality for user \(i\), is defined as the \(i\)-th component of the eigenvector corresponding to the largest eigenvalue of matrix \(A\). The eigenvector, \(x\), is given by solving the equation
-\begin{equation}
-    Ax = \lambda_{\text{max}} x
-\end{equation}
-and we identify the components \(x_u\), \(x_v\) as the EC of a given producer and buyer.</p>
-
-<p>An important aspect of the EC that captures an individual's contribution to connectivity in the graph, is its recursive nature. Producer \(u\)'s EC is proportional to the EC of every buyer they have interacted with. The EC of each of those buyers is proportional to the EC of every producer they have interacted with, and so on.</p>
-
-<p>This means that for a producer (buyer) to gain any amount of EC, they have to interact with <strong>real</strong> buyers (producers) which themselves interact with others.</p>
-
-<p>This means that, unlike the plain edge weight \(W_u\), EC is hard to boost through fake transactions, as it is difficult to boost one's EC without connecting to other well-connected users.</p>
-
-<p>We therefore use EC as a proxy for determining real transactions for general markets, when we can't assume other proofs of real services exist.</p>
-
-<p>The reliance on EC as a measure of realness can be eased for specific markets where we have more proofs available that a real service was completed (for instance, location proofs can be used for a ride-share market).</p>
-
-<p>We will introduce the related concept <strong>Normalized EC</strong>, given by,
-\begin{equation}
-    \bar{x}_u = \frac{x_u}{x_{\text{max}}},
-\end{equation}
-where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. This normalized version is a number between 0 and 1, where 1 is assigned to the top scoring user.</p>
-
-<h3 id="pex">6.2 Pin exchange and proofs of service</h3>
-<p>While for some specific services, we may be able to prove that the service was completed, we can't assume proofs of performed service are available in general. The most general proxy for a service proof, we have available across different marketplaces is a proof of pin exchange.</p>
-
-<p>A pin exchange provides a proof that the buyer and the provider agree that the service was completed. This means payments and collateral may also be put in escrow until both parties agree service was completed.</p>
-
-<p>Using a pin exchange as sole service proofs means that while the true positives and negatives (case where buyer and provider agree service was completed or not completed) are covered, there exists the possibility of false positives and false negatives.</p>
-
-<p><strong>False positives:</strong> means that a pin was exchanged even though no service was provided. This could be done if the buyer and producer are colluding (or are the same person) and want to increase their contributions to the graph without providing real services. This is partly addressed by using the EC as a measure of "realness" of the participants.</p>
-
-<p><strong>False negatives:</strong> In this case, the buyer may refuse to give the pin, even though the provider has completed the service. This may lead to the provider not getting paid and having their collateral slashed. It can also lead to a dispute between buyer and producer that may require external resolution. We will cover disputes and collateral slashing in Section.</p>
-
-<p>We'll cover in a later section how we will address false positive and false negative disputes through the service collateral mechanism.</p>
-
-
-<h3 id="gv">6.3 The concept of graph value</h3>
-<p>Every time a buyer and a producer complete a transaction and a pin is exchanged, the metrics such as their total sum of edge weights, \(W_v\) and \(W_u\), and their eigenvector centralities, \(x_v\) and \(x_u\) are updated.</p>
-
-<p>The <strong>graph value</strong> \(G_u\) for a given producer (or \(G_v\) for a buyer) is a metric that uses the information in the graph to determine the amount of value the user has added to the Local Protocol network. The main use of such a metric is to allocate rewards to network participants, proportional to the amount of value they have added to the network.</p>
-
-<p>The graph value of a given user, \(G_u\) can be thought of as an update rule with the following basic structure.</p>
-<ol>
-    <li>User \(u\) has a graph value of \(G_u\), and total sum of edge weights, \(W_u\) and EC of \(x_u\).</li>
-    <li>User \(u\) completes a transaction that changes their graph by \(\Delta W_u\) and \(\Delta x_u\).</li>
-    <li>A corresponding graph value update amount \(\Delta G_u(\Delta W_u, \Delta x_u)\), and the graph value is updated as,
-    \begin{equation}
-        G_u = G_u + \Delta G_u(\Delta W_u, \Delta x_u)
-    \end{equation}
-    </li>
-</ol>
-
-<p>We will soon explore in more detail what the graph value update amount looks like, but first consider one last factor, the reputation score, that will also contribute to the graph value.</p>
-
-<h3 id="rep">6.4 Reputation Score</h3>
-<p>Apart from the objective information given in the graph, of the edge weights and the eigenvector centrality (EC), we would like to incorporate a measure of subjective "peer evaluation".</p>
-
-<p>For this reason, we introduce a Reputation score, \(r_u\) for producers and \(r_v\) for buyers. The principle is that a user's reputation score is given by the peer evaluation of themselves by other <strong>real users</strong> who they interact with.</p>
-
-<p><strong>Real</strong> is a key word here. The evaluation a user can give another user after completing a transaction is weighted by how confident we are that the user is a real user, which is in turn based on their graph value.</p>
-
-<p>The outline of the mechanics of the reputation score is as follows:</p>
-<ol>
-    <li>When producer \(u\) and buyer \(v\) begin participating in the Local Protocol network, they begin with a lowest possible reputation score \(r_{\text{min}}\). Note that it is important that the minimum value is not set to zero, or else as we'll see, this would drive all graph values to zero.</li>
-    <li>Every time each user completes a transaction with another user, they mutually provide a review for each other, within the range \((r_{\text{min}}, r_{\text{max}})\).</li>
-    <li>Suppose producer \(u\) has completed \(N_u\) transactions, and buyer \(v\) has completed \(N_v\) transactions before \(u\) and \(v\) transact with each other. Their current graph values are \(G_u\) and \(G_v\) respectively.</li>
-    <li>Producer \(u\) gives buyer \(v\) a review of \(r_{uv}\), and buyer \(v\) gives the producer a review of \(r_{vu}\).</li>
-    <li>Their reputation scores are updated as follows:
-    <ul>
-        <li>
-            \[
-            r_u = \frac{N_u r_u + G_v r_{uv}}{N_u + 1},
-            \]
-        </li>
-        <li>
-            \[
-            r_v = \frac{N_v r_v + G_u r_{vu}}{N_v + 1}.
-            \]
-        </li>
-    </ul>
-    </li>
-</ol>
-
-<p>The key feature of the reputation update rule is that reviews by other users will only have a high impact if the other users have a large graph value.</p>
-
-<p>Note that the reputation factor will play a role in the definition of the graph value itself, introducing some recursive nature to the definition.</p>
-
-<p>The justification for incorporating the reputation score into the graph value is that this adds a layer of social regulation of dishonest and malicious actors. If there is any other malicious behavior that cannot be captured by connectivity metrics, we rely on the peer evaluation of other well-connected and high-reputation users.</p>
-
-<h3 id="rep">6.5 Mature and Immature Markets</h3>
-<p>In a mature market, there is already an established set of providers, and it is difficult for a new provider to join the market and climb to the highest rank. This means that for a given producer \(u\), it is already difficult to increase their graph value \(G_u\) by increasing their eigenvector centrality ranking.</p>
-
-<p>In such a mature market, it is more valuable to the network to focus more on a provider's total edge weights \(W_u\), than on their connectivity, \(x_u\). These established providers have already proven to be real through their connectivity, and incentivizing them to work even more on their connectivity may centralize power even more, since it is harder for competitors to overtake them in terms of connectivity.</p>
-
-<p>In an immature market, there are no established leaders, and there can be free active competition to try to become the leader. This competition is welcome and beneficial to reach market maturity. It then makes sense in immature markets to incentivize the service providers to increase their connectivity, over increasing their edge weights. At this stage, any producer that dominates could still be overtaken by a competitor, so the risk of excessively concentrating power is not as large as in a mature market.</p>
-
-<p>Connectivity is difficult to manufacture through fake transactions. If one producer sets up a set of fake buyers that they will transact with, this graph of the producer with its fake buyers will still be disconnected from the rest of the graph. The only way to increase connectivity is to generate transactions from real buyers who themselves also complete transactions with other producers, who themselves complete transactions with other buyers...</p>
-
-<p>A key element of our graph value function must then be that it is able to distinguish between mature and immature markets, and incentivize users to work on different metrics. This can be achieved by having a graph value formula proportional to \(W_u^{\bar{x}_u} x_u^{(1-\bar{x}_u)}\). Here we can see for new, not established users, which have \(\bar{x}_u\) close to zero, they are incentivized to focus on improving their graph connectivity. For established users dominating the market with \(\bar{x}_u\) close to 1, these users are incentivized to work on increasing their edge weights, while still not completely neglecting their connectivity, as if they do, another user may overtake them.</p>
-
-<h3 id="implicit-referral">6.6 Centrality as an Implicit Referral Mechanism</h3>
-<p>Our centrality rankings implicitly capture what other networks attempt to achieve through imprecise mechanisms like referral rewards or marketing incentives. In our graph, "referrals" are not enshrined as a concept; they are just the optimal strategy to maximize personal rewards.</p>
-
-<p>Users are therefore unknowingly participating in a complex, multi-agent optimization process where the optimal strategy is:</p>
-<ol>
-  <li>Contribute as much revenue as possible</li>
-  <li>Recruit your neighbors to contribute as much revenue as possible</li>
-</ol>
-
-<p>This approach results in a more mathematically precise referral mechanism. The aggregated behavior of countless self-interested actions drives behaviors that tend towards maximizing total network value.</p>
-
-<p>We hypothesize that this collective action of self-interested agents, each seeking to maximize their individual earnings, will develop more effective solution concepts to maximize network value compared to a single centralized actor. Through this alignment of incentives, we create a system that encourages fast, self-reinforcing network growth, effectively "outsourcing acquisition and retention" to the network participants themselves.</p>
-
-<p>This brings us to the core of our token distribution mechanism: the graph value update rule. This rule encapsulates how we measure and reward the value each participant adds to the network, taking into account not just their direct contributions, but also their role in expanding and strengthening the network as a whole.</p>
-
-<h3 id="gvur">6.7 The graph value update rule</h3>
-<p>Now we have all the elements required to define our graph value update rule.</p>
-
-<p>Here are some design principles that guide how our update rule is chosen:</p>
-<ol>
-    <li>New users can't be trusted to be real users. Users build more trust when their transactions form real connections with other real users. Therefore, we want to encourage new users to focus on improving their EC.</li>
-    <li>The highest performing users, regarding EC, have already proven to be a "real" user, and we can encourage them to bring in higher fees.</li>
-    <li>To summarize the above, when user \(u\) completes a transaction that updates their total edge weights and EC by \(\Delta W_u\) and \(\Delta x_u\), respectively, if \(\bar x_u\) is close to 0, the \(\Delta x_u\) should have a higher impact on their graph value update, and if \(\bar x_u\) is close to 1, then \(\Delta W_u\) should have a higher impact.</li>
-    <li>There should be "economic fairness" between new and established users, as long as they are doing what they are supposed to do. That is, new users that are working on improving their EC, should earn comparable rewards, relative to their contributions to the network, to established users who are focusing on improving their edge weights.</li>
-    <li>Getting positive peer evaluations, and high reputation scores should enable users to obtain higher rewards.</li>
-</ol>
-
-<p>The inputs for the update rule in its simplest form can be represented by the following diagram. The state of a node is updated using the information from the current edge weights of all edges connected to the node. The update rule aggregates the edge weights to produce an input for the state transition.</p>
-
-<figure><div id='node-step' style="padding-bottom: 10px;"></div>
-    <figcaption>
-    Hover over a node, to highlight adjacent nodes and visualize the state transition for the network.
-    </figcaption>
-</figure>
-
-<p>Before introducing the final form of the graph value update rule, let us elaborate more on the subject of economic fairness.</p>
-
-<p>If the progress of new users is measured mainly by \(\Delta x_u\), and that of established users by  \(\Delta W_u\), these are quantities that scale with different magnitudes, and generally we expect  \(\Delta W_u > \Delta x_u\), for the same transaction. Therefore established users would be over-rewarded.</p>
-
-<p>Suppose user \(u\) has a total sum of edge weights, \(W_u\), eigenvector centrality, \(x_u\) and reputation factor \(r_u\). They perform a transaction that changes these quantities by the amounts \(\Delta W_u\), \(\Delta x_u\) and \(\Delta r_u\), respectively. Let's define the <strong>bare graph value change</strong> as,
-\begin{equation}
-    \Delta G_u = (W_u + \Delta W_u)^{\bar x_u} (x_u + \Delta x_u)^{(1 - \bar x_u)} (r_u + \Delta r_u) - W_u^{\bar x_u} x_u^{(1 - \bar x_u)} r_u
-\end{equation}
-</p>
-
-<p>Notice that the exponential weights work to enforce principle number 3. Enforcing this principle, however, means that principle 4 is violated. We therefore need another mechanism to ensure both principles are enforced.</p>
-
-<p>Suppose user \(u_1\) is a new user, with \(\bar x_{u_1}\) close to zero, and \(u_2\) is an established user with \(\bar x_{u_2}\) close to one. User \(u_1\) works on improving their EC, and does a better job at this than its peers, so has an above-average increase in EC. User \(u_2\) also performs above average relative to their peers, by focusing on increasing their edge weights. Both users have performed above average relative to their peers, but user \(u_2\) will get a higher reward under the established formula. Can we fix this?</p>
-
-<p>To do this, we would need to have some notion of what the average performance is for a given level of \(\bar x_u\), then give rewards based on above or below performance at this level.</p>
-
-<p>The first step is to gather information on the average performance so we can compare to it. For a given level of \(\bar x_u\) we need to know for an average user, what bare graph value increase \(\Delta G_u\) did they achieve per transaction of cost \(\Delta W_u\). We define this empirical distribution, as a function of \(\bar x_u\) as,  \(\overline{\frac{\Delta G_u}{\Delta W_u}}(\bar x_u)\).</p>
-
-<p>With this empirical distribution, we can now define, for a given transaction, with \(\Delta G_u\) and \(\Delta W_u\), how much this deviates from the average, for instance by computing a percentage of difference:
-\begin{equation}
-    b_u = 2\frac{\frac{\Delta G_u}{\Delta W_u} - \overline{\frac{\Delta G_u}{\Delta W_u}}(\bar x_u)}{\left\vert \frac{\Delta G_u}{\Delta W_u} \right\vert + \left\vert \overline{\frac{\Delta G_u}{\Delta W_u}}(\bar x_u) \right\vert}.
-\end{equation}
-</p>
-<p>We can then compute a factor \(\alpha_u = \text{Max}(0,1 + b_u)\), which would inform how much better or worse user \(u\) performed than the average, for their level of \(\bar x_u\). We put a lower bound of \(\alpha_u\) at zero, to avoid actually removing graph value from an underperforming user. We can then define a <strong>dressed graph value change</strong> as \(\alpha_u \Delta G_u\).</p>
-
-<p>We are now ready to fully define the graph value update rule, through the following steps:</p>
-<ol>
-    <li>User \(u\) has a graph value of \(G_u\), and total sum of edge weights, \(W_u\), EC of \(x_u\), and reputation score of \(r_u\).</li>
-    <li>User \(u\) completes a transaction that changes their graph by \(\Delta W_u\) and \(\Delta x_u\).</li>
-    <li>User \(u\)'s bare graph value change is computed as
-    \begin{equation}
-    \Delta G_u = (W_u + \Delta W_u)^{\bar x_u}(x_u + \Delta x_u)^{(1 - \bar x_u)}(r_u + \Delta r_u) - W_u^{\bar x_u} x_u^{(1 - \bar x_u)} r_u.
-    \end{equation}
-    </li>
-    <li>Their performance against the average user at their level is measured as,
-    \begin{equation}
-        \alpha_u = \text{Max}\left(0,1+2\frac{\frac{\Delta G_u}{\Delta W_u} - \overline{\frac{\Delta G_u}{\Delta W_u}}(\bar x_u)}{\left\vert\frac{\Delta G_u}{\Delta W_u}\right\vert +
-        \left\vert\overline{\frac{\Delta G_u}{\Delta W_u}}(\bar x_u)\right\vert}\right)
-    \end{equation}
-    </li>
-    <li>The user's bare graph value change is used to update the empirical distribution \(\overline{\frac{\Delta G_u}{\Delta W_u}}(\bar x_u)\).</li>
-    <li>The user's graph value is updated as,
-    \begin{equation}
-        G_u = G_u + \alpha_u \Delta G_u.
-    \end{equation}
-    </li>
-</ol>
-
-<p>Note that for every user that is performing exactly the same as the average, their graph value update would be of the form \(G_u = G_u + \Delta W_u\), which ensures the economic fairness property between new and established users.</p>
-
-<p>The final form of the update rule can be visualized in the following diagram. The state of the graph at the next time step is updated using the information from the current graph, including the edge weights and any node attributes (e.g., identity proofs) or edge attributes (e.g., service proofs). Formally, the state transition for the network can be expressed as a function that takes the current graph state, edge weights, node attributes, and edge attributes as inputs and outputs the updated graph state.
-</p>
-
-<p>A key aspect of the update rule is the influence of adjacent nodes on the state transition of the graph. For a given node, the update rule incorporates information about its own history, as well as the attributes of neighboring nodes and the attributes of connecting edges. By modeling these recursive relationships within the network, the system maintains strong security guarantees. As the connectivity of the network increases, the cost of verifying transactions decreases while the security level increases. This is because with higher connectivity, each node has access to more information from its neighbors.
-</p>
-
-<h3 id="generalizing-networks">6.8 Generalizing to Various Networks</h3>
-<p>Our graph-based approach allows markets to self-optimize token distributions across various commercial contexts. Nodes in the network can fine-tune to dynamically align incentives, eliminating the need for us (network designers) to make naive assumptions about the unpredictable behavior of participants in different economic settings.</p>
-
-<p>Optimal token distributions are "discovered" based on the pricing power of producers in different sub-networks. This adaptive mechanism ensures that tokens are allocated in a way that reflects the true value of services provided, fostering a competitive and balanced network that reaches a comfortable equilibrium as the network matures.</p>
-
-<p>In markets with unique, high-demand producers, most of the reward for a given transaction is likely to accrue to the producer. Conversely, in markets where producers sell goods with many substitutes, the reward will be distributed in favor of the buyer (the producer will use their rewards as marketing capital).</p>
-
-<p>This adaptive incentive system ensures that the token economy remains responsive to changes in dynamic markets, and different networks automatically adapt without manual recalibration, minimizing governance. This more expressive and dynamic design naturally overcomes the demand side challenges present in the last generation of DePIN projects.</p>
-
-
-<h3 id="gvur">6.9 Incentive alignment and dominant strategies</h3>
-<p>Given our definition of the graph value update rule, we can then analyze what user behavior this incentivizes, and how it aligns with the network's goals.</p>
-
-<p>First, we want to examine under which assumptions it is not rational for a producer to fake a transaction. Suppose a producer, \(u\) has normalized EC of \(\bar x_u\).</p>
-
-<p>The user has an amount \(X\) of funds to spend on a fake transaction. For the average user with the same normalized EC, the amount of graph value they obtain for a transaction of this size is \(\overline{\Delta G_u} = X\), whereas the user will obtain an amount \(\Delta G_u = \alpha_u X\).</p>
-
-<p>The user should not submit the fake transaction if \(\alpha_u < 1\). This is true under the following assumptions:</p>
-<ol>
-    <li>There exists a real and large graph, built from real transactions.</li>
-    <li>The real island is large enough that it is expensive for a malicious user to build an equally large fake island graph.</li>
-    <li>Some of the transactions of other users with the same normalized EC are real, and connect to the real large graph.</li>
-    <li>A transaction that connects to the larger island graph increases the user's EC more than one that connects the user to a smaller island graph.</li>
-    <li>Since some of the users submit real transactions, the average user performs better than a malicious user, therefore \(\alpha_u\) would be less than 1 for a malicious fake transaction.</li>
-</ol>
-
-<p>Under these conditions, then, there is no incentive to submit fake transactions. This would mean that only real transactions are rational to submit, which would in turn build an even stronger real graph, which would further make it even less rational to submit fake transactions.</p>
-
-<p>In these conditions, then rational users are incentivized to act in a way that aligns with the network's goals: to maximize the quantity of <strong>real</strong> transactions.</p>
-
-<p>We can then define formally the main objective function of the network as:
-\begin{equation}
-    L = \sum_{u \in U} G_u + g_v \sum_{v \in V} G_v.
-\end{equation}
-That is, the network's goal is to maximize the sum of graph values of all users, which represents the sum of the value of real transactions. We have included a parameter \(g_v\), which allows us to weigh service provider and buyer contributions differently. Our formulation of graph value results in an incentive alignment: the strategy of selfish rational users, seeking to maximize their own reward, leads to maximizing the network's objectives.</p>
-
-
-<h2 id="git">7. Graph Interactions with Tokenomics</h2>
-<p>Many decentralized networks mint tokens based on a simple exponential decay model, generating a large number of tokens per unit of work early as a bootstrapping incentive, with rewards rapidly decreasing over time. While this design has been successful at bootstrapping supply, it often leads to imbalanced services, potential token supply issues, and supply-side churn due to diminishing returns as the network matures.</p>
-
-<p>Our graph-based model allows for a more adaptive and dynamical approach to rewards, maximizing overall utility across the network's adoption lifecycle. Token rewards can scale gracefully based on the state of the graph and can be recursively re-balanced with consumer demand. This creates a system that successfully bootstraps both sides of the network without creating undue harm to the treasury or future earning potential of suppliers.</p>
-
-<p>By optimizing for connectivity in immature markets and gradually shifting focus to economic output as the market matures, our approach maintains a healthy balance between growing supply and demand throughout the network's growth lifecycle.</p>
-
-<h3 id="git.tv">7.1 Token Valuation Function</h3>
-<p>So far we have discussed how to measure the value of active users in the Local Protocol network through the notion of graph value.</p>
-
-<p>Here we address the questions, what if a user no longer wishes to be an active user and would rather sell some of the graph value they have accumulated? What if an active user would rather sell a fraction of their accumulated graph value for immediate liquidity? What if a user wishes to purchase some additional graph value?</p>
-
-<p>These features can be enabled by introducing the Local Protocol token, and by having a mapping between graph value and a Local Protocol token. We want this token to have the following features:</p>
-<ol>
-    <li>Graph value can be exchanged for an appropriate amount of Local Protocol tokens.</li>
-    <li>Local Protocol tokens are fungible and can be freely exchanged and traded.</li>
-    <li>Local Protocol token can be used to buy an appropriate amount of graph value.</li>
-</ol>
-
-<p>We therefore introduce the <strong>Token valuation function</strong>, \(M_t\) for producers, and \(N_t\) for buyers, which are functions that inform the exchange rate between graph value and Local Protocol token.</p>
-
-<h4 id="git.tv">7.1.1 Cashing out and buying in graph value</h4>
-<p>The token valuation function provides a mapping between the amount of graph value a producer has, and how much token they could exchange for this.</p>
-
-<p>The mechanism for cashing out some of this cash value is as follows:</p>
-<ol>
-    <li>At time \(t\), the producer \(u\) has a graph value of \(G_u\), and the token valuation function is \(M_t\).</li>
-    <li>The producer can extract a given amount of token in the range \(m_u \in (0, M_t \cdot G_u)\).</li>
-    <li>Once the producer extracts an amount of tokens \(m_u\), their graph value is updated to,
-    \begin{equation}
-        G_u = G_u - \frac{m_u}{M_t}.
-    \end{equation}
-    </li>
-</ol>
-
-<p>In a similar way, the producer can purchase some amount of tokens, and use them to boost their graph value:</p>
-<ol>
-    <li>At time \(t\), the producer \(u\) has a graph value of \(G_u\), and the token valuation function is \(M_t\).</li>
-    <li>The producer buys in the market an amount of tokens \(m_u\).</li>
-    <li>The producer can use those tokens to boost their graph value, which is updated as 
-    \begin{equation}
-        G_u = G_u + \frac{m_u}{M_t}.
-    \end{equation}
-    </li>
-</ol>
-
-<p>The same cashing out and buying in mechanisms apply to buyers as well, but with the token valuation function \(N_t\).</p>
-
-<p>We have so far established such a valuation function \(M_t\) must exist, and how this allows a user to buy or sell graph value. But what principles should govern the monetary policy for \(M_t\)?</p>
-
-<h3 id="git.if">7.2 Inflationary monetary policy</h3>
-<p>Given we know how graph value translates to the amount of tokens, our choice of \(M_t\) and \(N_t\) control the Local Protocol token monetary policy. We then need to address questions such as: should these functions increase or decrease over time? at what rate? What should be the ratio between \(M_t\) and \(N_t\)?</p>
-
-<p>Let us define a few more necessary quantities. We can define the ratio between the valuation for buyers vs. producers as \(a_t \equiv N_t / M_t\). If \(a_t\) is large, this means the Local Protocol network values buyers more than it values producers, and if \(a_t\) is smaller, then it values producers more than buyers. If \(a_t = 0\) this means that only producers are valued by the Local Protocol network.</p>
-
-<p>One reason for having a non-zero \(a_t\) is that the network may want to incentivize buyer side demand. This is similar to offering coupons to consumers to encourage more transactions.</p>
-
-<p>Next we define the <strong>Total token supply</strong>, \(T_t\) as the amount of tokens that exist in the market at time \(t\).</p>
-
-<p>We then define the <strong>Circulating supply</strong>, \(S_t\), as the total token supply, as well as the token value of all the graph value in the network,
-\begin{equation}
-    S_t = T_t + M_t \left(\sum_{u \in U} G_u + a_t \sum_{v \in V} G_v\right)
-\end{equation}
-</p>
-
-<p>With this definition of the circulating supply, we can state that <strong>the primary mandate of the token valuation function \(M_t\) is to target that a certain amount of the circulating supply be owned by active users, or equivalently target that a certain amount be locked as graph value.</strong></p>
-
-<p>Following this principle, if we want the majority of the supply to be owned by active users, then \(M_t\) should be inflationary, and should increase with time fast enough to ensure this property.</p>
-
-<h4 id="git.target">7.2.1 Targeting a specific Ownership Ratio</h4>
-<p>Let us specify a mechanism through which the inflation rate can be fixed.</p>
-
-<p>This mechanism will be inspired by examining a simple model of network growth, and then applying the results to the observed levels of growth.</p>
-
-<p>Suppose the network is launched at time \(t=0\), we can define the effective network size, \(D_t\), as,
-\begin{equation}
-    D_t = \sum_{u \in U} G_u + a_t \sum_{v \in V} G_v.
-\end{equation}
-Let's assume a model where this network size grows linearly with a rate of \(d\), but also decreases through cashing out of tokens at a rate of \(\epsilon\). This means in our model,
-\begin{equation}
-    D_t = D_0 + (d - \epsilon)t,\,\,\,\,\,T_t = \epsilon \int_0^t M_t^\prime dt^\prime
-\end{equation}
-</p>
-
-<p>Now for instance, we can choose an exponential token valuation function, 
-\begin{equation}
-    M_t = M_0 e^{mt},
-\end{equation}
-such that,
-\begin{equation}
-    \epsilon \int_0^t M_t^\prime dt^\prime = \frac{\epsilon M_0}{m} \left(e^{mt} - 1\right).
-\end{equation}
-</p>
-
-<p>With these inputs, suppose we want to target at late times a specific ratio \(R = \frac{M_t D_t}{S_t}\) (fraction of the circulating supply owned by active users). At late times, we obtain,
-\begin{equation}
-    R = \frac{D_t}{D_t + \frac{\epsilon}{m}},
-\end{equation}
-and we can solve for \(m\) as
-\begin{equation}
-    m = \frac{\epsilon}{\frac{D_t}{R} - D_t}.
-\end{equation}
-Given we have a target ownership ratio, \(R\), this is a simple model to take in real data on network growth and expiration rate, and use this to fix the inflation rate.</p>
-
-<h3 id="git.if">7.3 Distributing Rewards</h3>
-<p>Once we have defined how to distribute Local Protocol tokens amongst network participants, we can use this distribution as a guide to distributing rewards.</p>
-
-<p><strong>Total network revenue:</strong> We define \(W^t\) as the total amount of revenue the network collected from time \(t-\tau\) to time \(t\). This is given by
-\begin{equation}
-    W^t = \sum_{u \in U, t^\prime \in (t-\tau, t)} W_u
-\end{equation}
-The period \(\tau\) is some network parameter, which controls how often rewards are given out.</p>
-
-<p><strong>Producer rewards:</strong> Suppose there is a producer \(u\) who has a graph value of \(G_u\) and holds \(s_u\) tokens. We define \(z^t_u\) as the rewards the user will receive at time \(t\) for the period between \(t-\tau\) and \(t\). These rewards are given by,
-\begin{equation}
-    z^t_u = W^t \left(\frac{s_u + M_t G_u}{S_t}\right).
-\end{equation}
-</p>
-
-<p><strong>Buyer rewards:</strong> A similar formula applies to buyer rewards,
-\begin{equation}
-    z^t_v = W^t \left(\frac{s_v + a_t M_t G_v}{S_t}\right).
-\end{equation}
-</p>
-
-<h3 id="git.value">7.4 Value of the Local Protocol Token</h3>
-<p>Holding \(s\) Local Protocol tokens is intrinsically valuable because this entitles you to a permanent stream of rewards of the form,
-  \begin{equation}
-      z^t = W^t \left(\frac{s}{S_t}\right) = W^t \left(\frac{s}{T_t + M_t \left(\sum_{u \in U} G_u + a_t \sum_{v \in V} G_v\right)}\right)
-  \end{equation}
-  </p>
-  
-  <p>It is important to note that this stream of rewards is set to decay over time for two reasons. First, the network may keep growing over time, leading to the sum of graph value growing larger over time. Second, even if the network stays the same size, the valuation function \(M_t\) is set to increase over time.</p>
-  
-  <p>Therefore, while the stream of rewards is permanent, it also decays over time, such that the sum of rewards given over all time per token may turn out to be finite.</p>
-  
-  <p>Furthermore, for a user to understand how valuable this permanent stream of rewards is to them, they must have an idea of their (annual) discount factor, \(\mu\), which measures the value of money in the present versus the value of having money in one year from now. The value of money decays by a factor of \((1 - \mu)\) for every year in the future for which the money is delayed.</p>
-  
-  <p>For a given user, then the value of holding \(s\) Local Protocol tokens at time \(t_0\) is given by,
-  \begin{equation}
-      Z_{t_0} = \int_{t_0}^\infty (1 - \mu)^{t/1yr} W^t \left(\frac{s}{T_t + M_t \left(\sum_{u \in U} G_u + a_t \sum_{v \in V} G_v\right)}\right) dt.
-  \end{equation}
-  </p>
-  
-  <p>This principle should dictate a minimum value for which Local Protocol tokens should be traded for rational token holders.</p>
-  
-
-<h2 id="constraints">8. Constraints on rewards and real usage</h2>
-<p>In this section we will cover the subject of fake transactions, and how our proposed reward mechanism works to minimize their risk.</p>
-
-<p>To simply define the problem, suppose a user completes a transaction, for which they pay a fee to the network of \(w\). If corresponding to this, the network gives the user a reward that is greater than \(w\) then this encourages abuse of the network through fake transactions. So how much reward can Local Protocol actually give to users while avoiding abuse risk?</p>
-
-
-<h3 id="constraints">8.1 Simple Example \(G_u = W_u\)</h3>
-<p>Suppose we had chosen the graph value of the producer to be \(G_u=W_u\) and \(G_v=W_v\). How much rewards can the network give out in this case.</p>
-
-<p>Suppose the producer and the buyer complete a transaction with a fee \(w_{uv}\). If this was a fake transaction, it means \(u\) and \(v\) are colluding (or are the same person), and it cost them \(w_{uv}\) to fake this transaction. The total reward given corresponding to this transaction must be equal to or lower than \(w_{uv}\).</p>
-
-<p>This means the highest reward that can be given to the producer corresponding to this transaction is \(\frac{w_{uv}}{1+a_t}\) and to the buyer, it is \(\frac{w_{uv}a_t}{1+a_t}\).</p>
-
-<p><strong>Recovery time:</strong> While we have now understood how much rewards can be given corresponding to a specific transaction, this is not exactly how the Local Protocol network works. Completing a transaction gives users an amount of graph value. That graph value entitles the user to a fraction of rewards in perpetuity.</p>
-
-<p>So the relevant question in matters of disincentivizing fake transactions is, how much time does it take the user to recover the cost of their fake transaction?</p>
-
-<p>We define the recovery time \(RT_u\) as the time it takes the user to recover the cost of their fake transactions through rewards. For this given fake transaction of cost \(w_{uv}\), the recovery time would be given by,
-\begin{equation}
-w_{uv} = \int_0^{RT_u} \frac{W_t w_{uv}}{S_t} dt,
-\end{equation}
-or,
-\begin{equation}
-1 = \int_0^{RT_u} \frac{W_t}{S_t} dt,
-\end{equation}
-where we assume the reward period \(\tau\) is short enough that we can represent rewards as a continuous integral.</p>
-
-<p>The goal is then to ensure the recovery time for fake transactions is large, this can be addressed with the following approaches:</p>
-<ol>
-    <li>Increasing cost of fake transactions. In the simple case the cost is given by \(w(u,v)\), this is achieved by requiring fee payments to increase your graph value. If graph connectivity is taken into account, fake transactions do not help connect the user to other real users in the graph, such that fake transactions are more expensive.</li>
-    <li>Alternative proof of real transactions. In some specific cases, some external proofs may be available that show evidence that the transaction is real. This effectively works by increasing the cost of a fake transaction, as one would need to manage to forge such a proof.</li>
-    <li>Controlling inflation rate. A slower \(M_t\) means performing a set of fake transactions doesn't immediately translate into owning the corresponding fraction of the supply, since previous token holders still have to be rewarded. Slower inflation can be a tool against fake transactions.</li>
-    <li>Redistributing less than the total fees collected. If instead of distributing \(W_t\), a smaller fraction \(yW_t\), with \(y < 1\) is given out, then recovery time becomes longer. Note that we are also free to choose \(y > 1\) but this increases the profitability of fake transactions, but if we address fake transaction through any of the other approaches, this would allow us to over-incentivize as well.</li>
-</ol>
-
-<h3 id="constraints.ec">8.2 Eigenvector centrality as a measure of realness</h3>
-<p>It would be ideal to have external proofs that transactions are real, that apply to every type of market. This is, however, not always available. So in general, the only evidence we have available for whether a transaction is real or not, is how it increases the user's EC.</p>
-
-<p>How does this actually work, and how does our formulation of graph value increase the cost of fake transactions?</p>
-
-<p>Suppose producer \(u\) and buyer \(v\) are relatively new users, with \(\bar x_u\) and \(\bar x_v\) closer to zero than to one. These users perform a transaction with edge weight \(w_{uv}\). How does the corresponding reward vary between real and fake transactions?</p>
-
-<p>If the transaction is fake, meaning that \(u\) and \(v\) are the same entity and are wash trading, while the cost of the transaction was \(w_{uv}\), the reward for that transaction was an increase in graph value dictated by the update rule described in previous sections. A fake transaction means that the new edge weight will not contribute to connecting the user to other real users in the graph, but will only connect them to themselves.</p>
-
-<p>A fake user could create a "fake island" in the graph, where they create a set of fake producers and buyers that all transact with each other, but the island does not connect to a "main island" of other real users interacting with each other.</p>
-
-<p>In a real transaction between users \(u\) and \(v\), the assumption is that the two are separate entities, and that \(v\) also interacts with other producers, and \(u\) also interacts with other buyers. The real transaction therefore creates a real connection into the "main island" for the users.</p>
-
-<p>Therefore, the mechanism works because of the principle that real transactions connect users to real islands in the graph, and will lead to greater increases in EC per amount of fee \(w_{uv}\), and fake transactions will lead to lower increases in EC for the same fee. This means that real users will have a better performance in terms of bare graph value change per amount of fee. <strong>If the average user is an honest user performing real transactions, then fake transactions will have below-average performance, and therefore the reward obtained will be lower than the fee paid</strong>.</p>
-
-<h3 id="spectrum-of-verifiability">8.3 A Spectrum of Verifiability</h3>
-
-<p>In real-world applications, different types of services and transactions present varying levels of verifiability. This spectrum of verifiability presents a significant limitation in the type of network that can be simaltaneously permissionless and token-incentivized. Typical work-arounds to limitations in verification require a trusted third-party, expensive service proofs, or strict permissions to participate in the network. These restrictions are all limitations that limit the design space available to build truly robust, sustainable, and decentralized networks at a global scale.</p>
-
-<p>We might visualize a framework where all projects fall somewhere on this spectrum of proof availability:</p>
-
-<pre>
+        </div>
+    </d-byline>
+
+    <d-article>
+
+        <!-- <p><em>Local Protocol is a decentralized protocol that enables producers of goods and services to transact with buyers. The protocol is built on a transaction graph that captures the protocol state and enables rewards to be distributed to participants, creating a user-owned network. The protocol has an open and extensible architecture to be compatible with any buyer and producer market. The cryptoeconomic design facilitates robustness to Sybil attacks, and economic fairness, aligns incentives between the network and participants, and unlocks new primitives for verifiability in physical infrastructure networks.</em></p> -->
+        <p><em>This paper establishes the technical and economic foundations for a trustless peer-to-peer marketplace.
+                <br><br>
+                A programmable and extensible architecture allows for the creation of specialized marketplaces that
+                cater to specific markets and use cases. The protocol enables the emergence of novel services and
+                composable markets that were previously infeasible due to trust limitations, coordination costs, and
+                verifiability constraints. <br><br>
+
+                A self-optimizing transaction graph distributes tokens to participants, creating a user-owned network.
+                An arbitration protocol provides service-guarantees and a resolution mechanism in the case of a dispute
+                without requiring a trusted intermediary
+            </em></p>
+
+        <h2 id="motivation">1. Motivation</h2>
+        <p>Internet marketplace platforms have created tremendous value in isolated settings, but they lack
+            programmability and interoperability with external systems and increasingly fail to meet the demands of
+            modern markets.</p>
+
+        <p>Software marketplaces perform four critical functions that we aim to decentralize with an economic game:</p>
+        <ul>
+            <li>Initialize a network of sellers</li>
+            <li>Initialize a network of buyers</li>
+            <li>Counterparty discovery</li>
+            <li>Arbitration of disputes</li>
+        </ul>
+
+        <p>Blockchains have disintermediated trusted third-parties in digital domains through cryptographic mechanisms
+            such as consensus protocols and validity proofs, unlocking the economic benefits of permissionless networks.
+            However, these approaches to verification do not translate to non-digital markets.</p>
+
+        <p>Traditional token networks often rely on simplistic metrics like transaction volume, geography, or predefined
+            roles within a network to define their distributions. While these methods drive certain behaviors, they fall
+            short in maximally aligning incentives within complex, interconnected networks. Moreover, they struggle to
+            adapt to the varying needs of markets at different stages of maturity and are subject to the Oracle problem.
+            These limitations restrict the expressivity required to leverage local knowledge in permissionless networks.
+            Permissionless networks that rigidly define a set of behaviors undermine their own potential.</p>
+
+        <p>We recognize the need for a more adaptive approach to token distributions that can:</p>
+        <ul>
+            <li>Naturally align incentives with network growth</li>
+            <li>Resist manipulation and Sybil attacks</li>
+            <li>Dynamically adapt to evolving market conditions</li>
+            <li>Implicitly reward behaviors that strengthen network effects</li>
+            <li>Balance the needs of both new and established participants</li>
+            <li>Function across a spectrum of verifiability capacities in different markets</li>
+        </ul>
+
+        <p>This paper introduces a cryptoeconomic framework for designing a new generation of peer-to-peer marketplaces
+            that address these challenges and provides a path forward for more markets to exist in a token-incentivized,
+            permissionless context.</p>
+
+        <h2 id="gps">2. General Problem Statement</h2>
+        <p>Local Protocol is a <strong>general decentralized</strong> marketplace. Here we put particular emphasis on
+            these two key words, "general" and "decentralized", because, simple solutions exist already if either word
+            is removed.</p>
+
+        <p>By "general", here we mean that we do not need to specify the type of good or service that is being traded in
+            the marketplace. "Decentralized" means that the marketplace is not overseen by one centralized trusted
+            institution.</p>
+
+        <p>Decentralized marketplaces have been designed for specific services, particularly digital ones, where
+            objective proofs of the service having been provided are available. For example, one can design a data
+            storage market, where the service providers can prove cryptographically that a specific piece of data has
+            been stored, and therefore can be objectively rewarded by a decentralized protocol (cite Filecoin and
+            others). In a decentralized protocol, there is no authority to vet or trust any set of service providers,
+            therefore metrics of service must be objectively quantifiable.</p>
+
+        <p>On the other hand, the problem of a "General Marketplace" can be solved by introducing a centralized trusted
+            overseeing entity. For example, marketplaces for physical services, such as ride shares and food delivery
+            can be built on assumptions of trust on the marketplace administrator. The user trusts that the
+            administrator performs KYC on the service providers, and is responsible for penalizing providers that
+            underperform.</p>
+
+        <p>Local Protocol's general decentralized marketplace provides a solution for this problem, where general
+            services can be traded, which don't necessarily have objectively measurable metrics, without relying on the
+            assumption of a trusted market administrator.</p>
+
+        <h2 id="challenges">3. Challenges of a general decentralized marketplace</h2>
+        <p>Let's dive deeper into what are the specific challenges that make building a general decentralized
+            marketplace so difficult.</p>
+
+        <p>There are a few key elements that needed to be solved to arrive at a general decentralized market place. We
+            list them here:</p>
+        <ul>
+            <li>The first challenge to be solved is in providing users a guarantee that if they have made a payment,
+                then the service will be provided. How do service providers show a commitment to completing the service
+                once they have agreed to it? In a centralized marketplace, the administrator ensures the service
+                providers are reliable, and will have to enforce consequences if they are not.</li>
+            <li>How does the network prevent fake transactions? Or if this cannot be solved, a softer version of the
+                problem is how does the network discourage fake transactions? The network must ensure that it is at
+                least not profitable to submit a fake transaction.</li>
+            <li>Since ownership of the network is decentralized, how do we fairly reward all contributors who added
+                value to the network, in a way that does not rely on an assessment of value by a centralized trusted
+                authority, and that cannot be easily cheated to gain rewards greater than actual value added.</li>
+            <li>How can we use rewards to bootstrap the formation of a network of service providers at early stages? If
+                needed, could we give out a greater amount of rewards than the total revenue collected in this
+                bootstraping phase? This has to be done in a way that cannot be abused by dishonest service providers.
+            </li>
+            <li>Since there is no centralized trusted party that can validate whether a service provider is honest or
+                not, can the service provider's reputation and trust be built by performing real transactions that add
+                value to the network?</li>
+        </ul>
+
+        <h2 id="shallow">4. Shallow dive into economics</h2>
+        <p>Before diving into the technical details, in this section we briefly discuss the novel mechanisms Local
+            Protocol uses to enable a general decentralized marketplace.</p>
+
+        <p>The backbone of Local Protocol's tokenomics is the <strong>transaction graph</strong>. All service providers
+            and buyers are represented as vertices in this graph. Every time a buyer transacts with a service provider,
+            edge weights between these two vertices are added, corresponding to the transaction fees collected.</p>
+
+        <p>Having transactions built into a graph means that we can now measure how much value a user contributes to the
+            network, not just by measuring the sum of fees they have bought in, but by measuring the amount of
+            connectivity they contributed to the graph.</p>
+
+        <p>The transaction graph then acts as a mechanism to reward real transactions, which contribute real
+            connectivity to the graph. When a real service provider transacts with a real buyer, that buyer also
+            transacts with other real service providers, which transact with other real buyers, and so on.</p>
+
+        <p>On the other hand, someone trying to complete fake transactions, would have to set up a set of service
+            providers and buyers to make transactions with each other. While edge weights within this set may grow, this
+            set will not grow real connectivity with the rest of the graph, unless they start transacting with other
+            users, at which point they would be considered real users themselves. We therefore refer to a set of fake
+            users only transacting with each other as an island graph, which do not connect to other larger and better
+            connected islands.</p>
+
+        <p>While the graph defines how users will be rewarded for positive contributions to the graph, Local Protocol
+            also includes a provider collateral, that may be slashed to penalize dishonest service providers. For each
+            transaction between a service provider and a buyer, an amount of collateral is locked by the provider, which
+            is determined based on the size of the transaction, and the value to the graph of both the service provider
+            and the buyer. This is such that well established service providers, that have already proven their honesty
+            to the network can be required to lock smaller co
+
+        <h2 id="introdeepdive">5. Introduction to the technical deep dive</h2>
+        <p>In the next section we will introduce the technical details of the Local Protocol transaction graph, and
+            measures of connectivity.</p>
+
+        <p>We model commercial networks as a bipartite graph that captures the economic relationships between producers
+            and buyers, with edges signifying the historical transactions between two nodes.</p>
+
+        <p>We introduce a modified eigenvector centrality ranking that takes advantage of the graph's attributes to
+            discover optimal token distributions between supply and demand in heterogeneous commercial settings without
+            relying on <em>a priori</em> assumptions about participant behavior, market characteristics, or information
+            from external oracles.</p>
+
+        <p>We argue that eigenvector centrality rankings unlock an adaptive approach to aligning the incentives of
+            network participants in a wide range of markets in different states (producer favored markets, buyer favored
+            markets, mature vs. immature markets, markets with high and low connectivity, markets constrained by
+            geography, etc.).</p>
+
+        <p>We introduce a solution concept that we define as unprofitable <em>island graphs</em> that shows how
+            eigenvector centrality provides an algorithmic mechanism to protect against self-dealing and collusion risks
+            in the absence of hard cryptographic <em>proofs-of-service</em>.</p>
+
+        <p>The same algorithm that aligns the incentives of the network's participants, provides the network with its
+            security guarantee. As each node acts selfishly to improve their individual economic outcomes, they
+            inadvertently contribute to the network’s overall robustness against adversarial threats.</p>
+
+        <p>We discuss how the lack of robust <em>proof-of-service</em> mechanisms are a constraint for the mass adoption
+            of permissionless commercial networks.</p>
+
+        <p>We present an inhomogeneous eigenvalue formulation for integrating proofs into local sub-graphs, treating
+            verification as a probability density function as opposed to a binary outcome.</p>
+
+        <p>The graph allows us to propagate trust assumptions across the network with the strength of the trust
+            assumption decaying with an increasing path length from a trusted source node. This concept of <em>trust
+                propagation</em> provides a path forward for networks that may not have access to definitive or
+            cost-effective service proofs.</p>
+
+        <p>Finally, we propose a mechanism for a decentralized insurance market maker that prices the risk of disputed
+            services between untrusted transacting parties. Insurance can be purchased by transacting parties and
+            liquidity providers cover the downside risk of a disputed service. Insurance is purchased with the network
+            token.</p>
+
+        <h2 id="graph">6. The Transaction Graph</h2>
+
+        <p>The Dynamic Transaction Graph is a bipartite graph that captures the economic relationships between producers
+            and buyers, with weighted edges representing the cumulative fees from their past transactions. The graph
+            allows the network to dynamically adjust token incentives based on the actual economic activity and pricing
+            power of participants, ensuring a fair and efficient allocation of rewards that adapts to the unique
+            properties of each market, whether location-dependent or location-independent.</p>
+
+        <p>A bipartite graph \(G = (U, V, E)\) representing producers \(U\) and buyers \(V\) as nodes, with weighted
+            edges \(E\) capturing transactions between them. Edge weights \(w(u, v)\) track the cumulative fees
+            contributed by producer \(u\) from transactions with buyer \(v\).</p>
+
+        <figure>
+            <div id='graph-description'></div>
+            <figcaption>
+                Three types of attributes we might find in a graph, hover over to highlight each attribute.
+            </figcaption>
+        </figure>
+
+        <p>We introduce some convenient notation, to denote the sum of the set of edge weights of a given producer,</p>
+        <p>\[
+            W_u=\sum_{v \in V} w(u,v),
+            \]</p>
+        <p>and similarly for a given buyer,</p>
+        <p>\[
+            W_v=\sum_{u \in U} w(u,v).
+            \]</p>
+
+        <p>These metrics, \(W_u\) and \(W_v\), already give us a sense of the total monetary value that a given producer
+            or buyer adds to the network.</p>
+
+        <h3 id="ec">6.1 Eigenvector Centrality</h3>
+
+        <p>Traditional approaches to token design might allocate tokens based on transaction volume, geography,
+            predefined roles within a network, referrals etc. While these methods do drive certain behaviors, they fall
+            short in maximally aligning incentives within a complex, interconnected network.</p>
+
+        <p>In this section, we show how the graph captures a node's relative influence in complex network topologies and
+            approaches optimal token distributions. By using centrality ranks as a foundation for token allocations, we
+            create a dynamical, self-optimizing network that unlocks a more nuanced and adaptive approach to token
+            distributions - recognizing that value in a network is not about individual actions, but a web of
+            relationships and influence.</p>
+
+        <figure class=teaser>
+            <div id=layerwise-trace></div>
+            <figcaption>
+                The diagram shows how a transaction graph evolves as nodes in the network connect by making
+                transactions. Hover over a node to see its connections to other nodes over time and observe how the
+                graph becomes more interconnected. As the network grows and nodes form more connections, their EC scores
+                increase, reflecting their growing influence and importance within the network. This simple yet powerful
+                algorithm provides the network with its incentive mechanism and it's security guarantee by rewarding
+                nodes that contribute to connectivity while making it difficult for malicious actors to manipulate the
+                system through fake transactions or Sybil attacks.
+            </figcaption>
+        </figure>
+
+        <p>The advantage of having transactions on a graph is that we can obtain other valuable metrics, rather than
+            just the sum of fees collected. Having a transaction graph allows us to think about the connectivity of
+            providers and users.</p>
+
+        <p>In this sense, we can evaluate whether a provider that collected 100 dollars in fees by transacting with one
+            buyer is different from one that collected the same fees by transacting with 100 distinct buyers. The latter
+            provider, for instance, provided a larger amount of connectivity to the network, for the same amount of
+            fees.</p>
+
+        <p>A good measure of a provider's (buyer's) connectivity is given by their eigenvector centrality (EC). This can
+            be understood by re-defining the graph as an Adjacency matrix, \(A_{ij}\), where \(A_{uv} = A_{vu} =
+            w(u,v)\), and \(A_{u,u'} = A_{v,v'} = 0\), for \(u,u' \in U\) and \(v,v' \in V\), and the indices \(i,j\)
+            run over all \(U\) and \(V\).</p>
+
+        <p>The eigenvector centrality for user \(i\), is defined as the \(i\)-th component of the eigenvector
+            corresponding to the largest eigenvalue of matrix \(A\). The eigenvector, \(x\), is given by solving the
+            equation
+            \begin{equation}
+            Ax = \lambda_{\text{max}} x
+            \end{equation}
+            and we identify the components \(x_u\), \(x_v\) as the EC of a given producer and buyer.</p>
+
+        <p>An important aspect of the EC that captures an individual's contribution to connectivity in the graph, is its
+            recursive nature. Producer \(u\)'s EC is proportional to the EC of every buyer they have interacted with.
+            The EC of each of those buyers is proportional to the EC of every producer they have interacted with, and so
+            on.</p>
+
+        <p>This means that for a producer (buyer) to gain any amount of EC, they have to interact with
+            <strong>real</strong> buyers (producers) which themselves interact with others.</p>
+
+        <p>This means that, unlike the plain edge weight \(W_u\), EC is hard to boost through fake transactions, as it
+            is difficult to boost one's EC without connecting to other well-connected users.</p>
+
+        <p>We therefore use EC as a proxy for determining real transactions for general markets, when we can't assume
+            other proofs of real services exist.</p>
+
+        <p>The reliance on EC as a measure of realness can be eased for specific markets where we have more proofs
+            available that a real service was completed (for instance, location proofs can be used for a ride-share
+            market).</p>
+
+        <p>We will introduce the related concept <strong>Normalized EC</strong>, given by,
+            \begin{equation}
+            \bar{x}_u = \frac{x_u}{x_{\text{max}}},
+            \end{equation}
+            where \(x_{\text{max}}\) is the EC of the highest scoring user in the graph. This normalized version is a
+            number between 0 and 1, where 1 is assigned to the top scoring user.</p>
+
+        <h3 id="pex">6.2 Pin exchange and proofs of service</h3>
+        <p>While for some specific services, we may be able to prove that the service was completed, we can't assume
+            proofs of performed service are available in general. The most general proxy for a service proof, we have
+            available across different marketplaces is a proof of pin exchange.</p>
+
+        <p>A pin exchange provides a proof that the buyer and the provider agree that the service was completed. This
+            means payments and collateral may also be put in escrow until both parties agree service was completed.</p>
+
+        <p>Using a pin exchange as sole service proofs means that while the true positives and negatives (case where
+            buyer and provider agree service was completed or not completed) are covered, there exists the possibility
+            of false positives and false negatives.</p>
+
+        <p><strong>False positives:</strong> means that a pin was exchanged even though no service was provided. This
+            could be done if the buyer and producer are colluding (or are the same person) and want to increase their
+            contributions to the graph without providing real services. This is partly addressed by using the EC as a
+            measure of "realness" of the participants.</p>
+
+        <p><strong>False negatives:</strong> In this case, the buyer may refuse to give the pin, even though the
+            provider has completed the service. This may lead to the provider not getting paid and having their
+            collateral slashed. It can also lead to a dispute between buyer and producer that may require external
+            resolution. We will cover disputes and collateral slashing in Section.</p>
+
+        <p>We'll cover in a later section how we will address false positive and false negative disputes through the
+            service collateral mechanism.</p>
+
+
+        <h3 id="gv">6.3 The concept of graph value</h3>
+        <p>Every time a buyer and a producer complete a transaction and a pin is exchanged, the metrics such as their
+            total sum of edge weights, \(W_v\) and \(W_u\), and their eigenvector centralities, \(x_v\) and \(x_u\) are
+            updated.</p>
+
+        <p>The <strong>graph value</strong> \(G_u\) for a given producer (or \(G_v\) for a buyer) is a metric that uses
+            the information in the graph to determine the amount of value the user has added to the Local Protocol
+            network. The main use of such a metric is to allocate rewards to network participants, proportional to the
+            amount of value they have added to the network.</p>
+
+        <p>The graph value of a given user, \(G_u\) can be thought of as an update rule with the following basic
+            structure.</p>
+        <ol>
+            <li>User \(u\) has a graph value of \(G_u\), and total sum of edge weights, \(W_u\) and EC of \(x_u\).</li>
+            <li>User \(u\) completes a transaction that changes their graph by \(\Delta W_u\) and \(\Delta x_u\).</li>
+            <li>A corresponding graph value update amount \(\Delta G_u(\Delta W_u, \Delta x_u)\), and the graph value is
+                updated as,
+                \begin{equation}
+                G_u = G_u + \Delta G_u(\Delta W_u, \Delta x_u)
+                \end{equation}
+            </li>
+        </ol>
+
+        <p>We will soon explore in more detail what the graph value update amount looks like, but first consider one
+            last factor, the reputation score, that will also contribute to the graph value.</p>
+
+        <h3 id="rep">6.4 Reputation Score</h3>
+        <p>Apart from the objective information given in the graph, of the edge weights and the eigenvector centrality
+            (EC), we would like to incorporate a measure of subjective "peer evaluation".</p>
+
+        <p>For this reason, we introduce a Reputation score, \(r_u\) for producers and \(r_v\) for buyers. The principle
+            is that a user's reputation score is given by the peer evaluation of themselves by other <strong>real
+                users</strong> who they interact with.</p>
+
+        <p><strong>Real</strong> is a key word here. The evaluation a user can give another user after completing a
+            transaction is weighted by how confident we are that the user is a real user, which is in turn based on
+            their graph value.</p>
+
+        <p>The outline of the mechanics of the reputation score is as follows:</p>
+        <ol>
+            <li>When producer \(u\) and buyer \(v\) begin participating in the Local Protocol network, they begin with a
+                lowest possible reputation score \(r_{\text{min}}\). Note that it is important that the minimum value is
+                not set to zero, or else as we'll see, this would drive all graph values to zero.</li>
+            <li>Every time each user completes a transaction with another user, they mutually provide a review for each
+                other, within the range \((r_{\text{min}}, r_{\text{max}})\).</li>
+            <li>Suppose producer \(u\) has completed \(N_u\) transactions, and buyer \(v\) has completed \(N_v\)
+                transactions before \(u\) and \(v\) transact with each other. Their current graph values are \(G_u\) and
+                \(G_v\) respectively.</li>
+            <li>Producer \(u\) gives buyer \(v\) a review of \(r_{uv}\), and buyer \(v\) gives the producer a review of
+                \(r_{vu}\).</li>
+            <li>Their reputation scores are updated as follows:
+                <ul>
+                    <li>
+                        \[
+                        r_u = \frac{N_u r_u + G_v r_{uv}}{N_u + 1},
+                        \]
+                    </li>
+                    <li>
+                        \[
+                        r_v = \frac{N_v r_v + G_u r_{vu}}{N_v + 1}.
+                        \]
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <p>The key feature of the reputation update rule is that reviews by other users will only have a high impact if
+            the other users have a large graph value.</p>
+
+        <p>Note that the reputation factor will play a role in the definition of the graph value itself, introducing
+            some recursive nature to the definition.</p>
+
+        <p>The justification for incorporating the reputation score into the graph value is that this adds a layer of
+            social regulation of dishonest and malicious actors. If there is any other malicious behavior that cannot be
+            captured by connectivity metrics, we rely on the peer evaluation of other well-connected and high-reputation
+            users.</p>
+
+        <h3 id="rep">6.5 Mature and Immature Markets</h3>
+        <p>In a mature market, there is already an established set of providers, and it is difficult for a new provider
+            to join the market and climb to the highest rank. This means that for a given producer \(u\), it is already
+            difficult to increase their graph value \(G_u\) by increasing their eigenvector centrality ranking.</p>
+
+        <p>In such a mature market, it is more valuable to the network to focus more on a provider's total edge weights
+            \(W_u\), than on their connectivity, \(x_u\). These established providers have already proven to be real
+            through their connectivity, and incentivizing them to work even more on their connectivity may centralize
+            power even more, since it is harder for competitors to overtake them in terms of connectivity.</p>
+
+        <p>In an immature market, there are no established leaders, and there can be free active competition to try to
+            become the leader. This competition is welcome and beneficial to reach market maturity. It then makes sense
+            in immature markets to incentivize the service providers to increase their connectivity, over increasing
+            their edge weights. At this stage, any producer that dominates could still be overtaken by a competitor, so
+            the risk of excessively concentrating power is not as large as in a mature market.</p>
+
+        <p>Connectivity is difficult to manufacture through fake transactions. If one producer sets up a set of fake
+            buyers that they will transact with, this graph of the producer with its fake buyers will still be
+            disconnected from the rest of the graph. The only way to increase connectivity is to generate transactions
+            from real buyers who themselves also complete transactions with other producers, who themselves complete
+            transactions with other buyers...</p>
+
+        <p>A key element of our graph value function must then be that it is able to distinguish between mature and
+            immature markets, and incentivize users to work on different metrics. This can be achieved by having a graph
+            value formula proportional to \(W_u^{\bar{x}_u} x_u^{(1-\bar{x}_u)}\). Here we can see for new, not
+            established users, which have \(\bar{x}_u\) close to zero, they are incentivized to focus on improving their
+            graph connectivity. For established users dominating the market with \(\bar{x}_u\) close to 1, these users
+            are incentivized to work on increasing their edge weights, while still not completely neglecting their
+            connectivity, as if they do, another user may overtake them.</p>
+
+        <h3 id="implicit-referral">6.6 Centrality as an Implicit Referral Mechanism</h3>
+        <p>Our centrality rankings implicitly capture what other networks attempt to achieve through imprecise
+            mechanisms like referral rewards or marketing incentives. In our graph, "referrals" are not enshrined as a
+            concept; they are just the optimal strategy to maximize personal rewards.</p>
+
+        <p>Users are therefore unknowingly participating in a complex, multi-agent optimization process where the
+            optimal strategy is:</p>
+        <ol>
+            <li>Contribute as much revenue as possible</li>
+            <li>Recruit your neighbors to contribute as much revenue as possible</li>
+        </ol>
+
+        <p>This approach results in a more mathematically precise referral mechanism. The aggregated behavior of
+            countless self-interested actions drives behaviors that tend towards maximizing total network value.</p>
+
+        <p>We hypothesize that this collective action of self-interested agents, each seeking to maximize their
+            individual earnings, will develop more effective solution concepts to maximize network value compared to a
+            single centralized actor. Through this alignment of incentives, we create a system that encourages fast,
+            self-reinforcing network growth, effectively "outsourcing acquisition and retention" to the network
+            participants themselves.</p>
+
+        <p>This brings us to the core of our token distribution mechanism: the graph value update rule. This rule
+            encapsulates how we measure and reward the value each participant adds to the network, taking into account
+            not just their direct contributions, but also their role in expanding and strengthening the network as a
+            whole.</p>
+
+        <h3 id="gvur">6.7 The graph value update rule</h3>
+        <p>Now we have all the elements required to define our graph value update rule.</p>
+
+        <p>Here are some design principles that guide how our update rule is chosen:</p>
+        <ol>
+            <li>New users can't be trusted to be real users. Users build more trust when their transactions form real
+                connections with other real users. Therefore, we want to encourage new users to focus on improving their
+                EC.</li>
+            <li>The highest performing users, regarding EC, have already proven to be a "real" user, and we can
+                encourage them to bring in higher fees.</li>
+            <li>To summarize the above, when user \(u\) completes a transaction that updates their total edge weights
+                and EC by \(\Delta W_u\) and \(\Delta x_u\), respectively, if \(\bar x_u\) is close to 0, the \(\Delta
+                x_u\) should have a higher impact on their graph value update, and if \(\bar x_u\) is close to 1, then
+                \(\Delta W_u\) should have a higher impact.</li>
+            <li>There should be "economic fairness" between new and established users, as long as they are doing what
+                they are supposed to do. That is, new users that are working on improving their EC, should earn
+                comparable rewards, relative to their contributions to the network, to established users who are
+                focusing on improving their edge weights.</li>
+            <li>Getting positive peer evaluations, and high reputation scores should enable users to obtain higher
+                rewards.</li>
+        </ol>
+
+        <p>Before introducing the final form of the graph value update rule, let us elaborate more on the subject of
+            economic fairness.</p>
+
+        <p>If the progress of new users is measured mainly by \(\Delta x_u\), and that of established users by \(\Delta
+            W_u\), these are quantities that scale with different magnitudes, and generally we expect \(\Delta W_u >
+            \Delta x_u\), for the same transaction. Therefore established users would be over-rewarded.</p>
+
+        <p>Suppose user \(u\) has a total sum of edge weights, \(W_u\), eigenvector centrality, \(x_u\) and reputation
+            factor \(r_u\). They perform a transaction that changes these quantities by the amounts \(\Delta W_u\),
+            \(\Delta x_u\) and \(\Delta r_u\), respectively. Let's define the <strong>bare graph value change</strong>
+            as,
+            \begin{equation}
+            \Delta G_u = (W_u + \Delta W_u)^{\bar x_u} (x_u + \Delta x_u)^{(1 - \bar x_u)} (r_u + \Delta r_u) -
+            W_u^{\bar x_u} x_u^{(1 - \bar x_u)} r_u
+            \end{equation}
+        </p>
+
+        <p>Notice that the exponential weights work to enforce principle number 3. Enforcing this principle, however,
+            means that principle 4 is violated. We therefore need another mechanism to ensure both principles are
+            enforced.</p>
+
+        <p>Suppose user \(u_1\) is a new user, with \(\bar x_{u_1}\) close to zero, and \(u_2\) is an established user
+            with \(\bar x_{u_2}\) close to one. User \(u_1\) works on improving their EC, and does a better job at this
+            than its peers, so has an above-average increase in EC. User \(u_2\) also performs above average relative to
+            their peers, by focusing on increasing their edge weights. Both users have performed above average relative
+            to their peers, but user \(u_2\) will get a higher reward under the established formula. Can we fix this?
+        </p>
+
+        <p>To do this, we would need to have some notion of what the average performance is for a given level of \(\bar
+            x_u\), then give rewards based on above or below performance at this level.</p>
+
+        <p>The first step is to gather information on the average performance so we can compare to it. For a given level
+            of \(\bar x_u\) we need to know for an average user, what bare graph value increase \(\Delta G_u\) did they
+            achieve per transaction of cost \(\Delta W_u\). We define this empirical distribution, as a function of
+            \(\bar x_u\) as, \(\overline{\frac{\Delta G_u}{\Delta W_u}}(\bar x_u)\).</p>
+
+        <p>With this empirical distribution, we can now define, for a given transaction, with \(\Delta G_u\) and
+            \(\Delta W_u\), how much this deviates from the average, for instance by computing a percentage of
+            difference:
+            \begin{equation}
+            b_u = 2\frac{\frac{\Delta G_u}{\Delta W_u} - \overline{\frac{\Delta G_u}{\Delta W_u}}(\bar x_u)}{\left\vert
+            \frac{\Delta G_u}{\Delta W_u} \right\vert + \left\vert \overline{\frac{\Delta G_u}{\Delta W_u}}(\bar x_u)
+            \right\vert}.
+            \end{equation}
+        </p>
+        <p>We can then compute a factor \(\alpha_u = \text{Max}(0,1 + b_u)\), which would inform how much better or
+            worse user \(u\) performed than the average, for their level of \(\bar x_u\). We put a lower bound of
+            \(\alpha_u\) at zero, to avoid actually removing graph value from an underperforming user. We can then
+            define a <strong>dressed graph value change</strong> as \(\alpha_u \Delta G_u\).</p>
+
+        <p>We are now ready to fully define the graph value update rule, through the following steps:</p>
+        <ol>
+            <li>User \(u\) has a graph value of \(G_u\), and total sum of edge weights, \(W_u\), EC of \(x_u\), and
+                reputation score of \(r_u\).</li>
+            <li>User \(u\) completes a transaction that changes their graph by \(\Delta W_u\) and \(\Delta x_u\).</li>
+            <li>User \(u\)'s bare graph value change is computed as
+                \begin{equation}
+                \Delta G_u = (W_u + \Delta W_u)^{\bar x_u}(x_u + \Delta x_u)^{(1 - \bar x_u)}(r_u + \Delta r_u) -
+                W_u^{\bar x_u} x_u^{(1 - \bar x_u)} r_u.
+                \end{equation}
+            </li>
+            <li>Their performance against the average user at their level is measured as,
+                \begin{equation}
+                \alpha_u = \text{Max}\left(0,1+2\frac{\frac{\Delta G_u}{\Delta W_u} - \overline{\frac{\Delta G_u}{\Delta
+                W_u}}(\bar x_u)}{\left\vert\frac{\Delta G_u}{\Delta W_u}\right\vert +
+                \left\vert\overline{\frac{\Delta G_u}{\Delta W_u}}(\bar x_u)\right\vert}\right)
+                \end{equation}
+            </li>
+            <li>The user's bare graph value change is used to update the empirical distribution \(\overline{\frac{\Delta
+                G_u}{\Delta W_u}}(\bar x_u)\).</li>
+            <li>The user's graph value is updated as,
+                \begin{equation}
+                G_u = G_u + \alpha_u \Delta G_u.
+                \end{equation}
+            </li>
+        </ol>
+
+        <p>Note that for every user that is performing exactly the same as the average, their graph value update would
+            be of the form \(G_u = G_u + \Delta W_u\), which ensures the economic fairness property between new and
+            established users.</p>
+
+        <p>The final form of the update rule can be visualized in the following diagram. The state of the graph at the
+            next time step is updated using the information from the current graph, including the edge weights and any
+            node attributes (e.g., identity proofs) or edge attributes (e.g., service proofs). Formally, the state
+            transition for the network can be expressed as a function that takes the current graph state, edge weights,
+            node attributes, and edge attributes as inputs and outputs the updated graph state.
+        </p>
+
+        <figure><div id='node-step' style="padding-bottom: 10px;"></div>
+            <figcaption>
+            Hover over a node, to highlight adjacent nodes and visualize the state transition for the network.
+            </figcaption>
+        </figure>        
+
+        <p>A key aspect of the update rule is the influence of adjacent nodes on the state transition of the graph. For
+            a given node, the update rule incorporates information about its own history, as well as the attributes of
+            neighboring nodes and the attributes of connecting edges. By modeling these recursive relationships within
+            the network, the system maintains strong security guarantees. As the connectivity of the network increases,
+            the cost of verifying transactions decreases while the security level increases. This is because with higher
+            connectivity, each node has access to more information from its neighbors.
+        </p>
+
+        <h3 id="generalizing-networks">6.8 Generalizing to Various Networks</h3>
+        <p>Our graph-based approach allows markets to self-optimize token distributions across various commercial
+            contexts. Nodes in the network can fine-tune to dynamically align incentives, eliminating the need for us
+            (network designers) to make naive assumptions about the unpredictable behavior of participants in different
+            economic settings.</p>
+
+        <p>Optimal token distributions are "discovered" based on the pricing power of producers in different
+            sub-networks. This adaptive mechanism ensures that tokens are allocated in a way that reflects the true
+            value of services provided, fostering a competitive and balanced network that reaches a comfortable
+            equilibrium as the network matures.</p>
+
+        <p>In markets with unique, high-demand producers, most of the reward for a given transaction is likely to accrue
+            to the producer. Conversely, in markets where producers sell goods with many substitutes, the reward will be
+            distributed in favor of the buyer (the producer will use their rewards as marketing capital).</p>
+
+        <p>This adaptive incentive system ensures that the token economy remains responsive to changes in dynamic
+            markets, and different networks automatically adapt without manual recalibration, minimizing governance.
+            This more expressive and dynamic design naturally overcomes the demand side challenges present in the last
+            generation of DePIN projects.</p>
+
+
+        <h3 id="gvur">6.9 Incentive alignment and dominant strategies</h3>
+        <p>Given our definition of the graph value update rule, we can then analyze what user behavior this
+            incentivizes, and how it aligns with the network's goals.</p>
+
+        <p>First, we want to examine under which assumptions it is not rational for a producer to fake a transaction.
+            Suppose a producer, \(u\) has normalized EC of \(\bar x_u\).</p>
+
+        <p>The user has an amount \(X\) of funds to spend on a fake transaction. For the average user with the same
+            normalized EC, the amount of graph value they obtain for a transaction of this size is \(\overline{\Delta
+            G_u} = X\), whereas the user will obtain an amount \(\Delta G_u = \alpha_u X\).</p>
+
+        <p>The user should not submit the fake transaction if \(\alpha_u < 1\). This is true under the following
+                assumptions:</p>
+                <ol>
+                    <li>There exists a real and large graph, built from real transactions.</li>
+                    <li>The real island is large enough that it is expensive for a malicious user to build an equally
+                        large fake island graph.</li>
+                    <li>Some of the transactions of other users with the same normalized EC are real, and connect to the
+                        real large graph.</li>
+                    <li>A transaction that connects to the larger island graph increases the user's EC more than one
+                        that connects the user to a smaller island graph.</li>
+                    <li>Since some of the users submit real transactions, the average user performs better than a
+                        malicious user, therefore \(\alpha_u\) would be less than 1 for a malicious fake transaction.
+                    </li>
+                </ol>
+
+                <p>Under these conditions, then, there is no incentive to submit fake transactions. This would mean that
+                    only real transactions are rational to submit, which would in turn build an even stronger real
+                    graph, which would further make it even less rational to submit fake transactions.</p>
+
+                <p>In these conditions, then rational users are incentivized to act in a way that aligns with the
+                    network's goals: to maximize the quantity of <strong>real</strong> transactions.</p>
+
+                <p>We can then define formally the main objective function of the network as:
+                    \begin{equation}
+                    L = \sum_{u \in U} G_u + g_v \sum_{v \in V} G_v.
+                    \end{equation}
+                    That is, the network's goal is to maximize the sum of graph values of all users, which represents
+                    the sum of the value of real transactions. We have included a parameter \(g_v\), which allows us to
+                    weigh service provider and buyer contributions differently. Our formulation of graph value results
+                    in an incentive alignment: the strategy of selfish rational users, seeking to maximize their own
+                    reward, leads to maximizing the network's objectives.</p>
+
+
+                <h2 id="git">7. Graph Interactions with Tokenomics</h2>
+                <p>Many decentralized networks mint tokens based on a simple exponential decay model, generating a large
+                    number of tokens per unit of work early as a bootstrapping incentive, with rewards rapidly
+                    decreasing over time. While this design has been successful at bootstrapping supply, it often leads
+                    to imbalanced services, potential token supply issues, and supply-side churn due to diminishing
+                    returns as the network matures.</p>
+
+                <p>Our graph-based model allows for a more adaptive and dynamical approach to rewards, maximizing
+                    overall utility across the network's adoption lifecycle. Token rewards can scale gracefully based on
+                    the state of the graph and can be recursively re-balanced with consumer demand. This creates a
+                    system that successfully bootstraps both sides of the network without creating undue harm to the
+                    treasury or future earning potential of suppliers.</p>
+
+                <p>By optimizing for connectivity in immature markets and gradually shifting focus to economic output as
+                    the market matures, our approach maintains a healthy balance between growing supply and demand
+                    throughout the network's growth lifecycle.</p>
+
+                <h3 id="git.tv">7.1 Token Valuation Function</h3>
+                <p>So far we have discussed how to measure the value of active users in the Local Protocol network
+                    through the notion of graph value.</p>
+
+                <p>Here we address the questions, what if a user no longer wishes to be an active user and would rather
+                    sell some of the graph value they have accumulated? What if an active user would rather sell a
+                    fraction of their accumulated graph value for immediate liquidity? What if a user wishes to purchase
+                    some additional graph value?</p>
+
+                <p>These features can be enabled by introducing the Local Protocol token, and by having a mapping
+                    between graph value and a Local Protocol token. We want this token to have the following features:
+                </p>
+                <ol>
+                    <li>Graph value can be exchanged for an appropriate amount of Local Protocol tokens.</li>
+                    <li>Local Protocol tokens are fungible and can be freely exchanged and traded.</li>
+                    <li>Local Protocol token can be used to buy an appropriate amount of graph value.</li>
+                </ol>
+
+                <p>We therefore introduce the <strong>Token valuation function</strong>, \(M_t\) for producers, and
+                    \(N_t\) for buyers, which are functions that inform the exchange rate between graph value and Local
+                    Protocol token.</p>
+
+                <h4 id="git.tv">7.1.1 Cashing out and buying in graph value</h4>
+                <p>The token valuation function provides a mapping between the amount of graph value a producer has, and
+                    how much token they could exchange for this.</p>
+
+                <p>The mechanism for cashing out some of this cash value is as follows:</p>
+                <ol>
+                    <li>At time \(t\), the producer \(u\) has a graph value of \(G_u\), and the token valuation function
+                        is \(M_t\).</li>
+                    <li>The producer can extract a given amount of token in the range \(m_u \in (0, M_t \cdot G_u)\).
+                    </li>
+                    <li>Once the producer extracts an amount of tokens \(m_u\), their graph value is updated to,
+                        \begin{equation}
+                        G_u = G_u - \frac{m_u}{M_t}.
+                        \end{equation}
+                    </li>
+                </ol>
+
+                <p>In a similar way, the producer can purchase some amount of tokens, and use them to boost their graph
+                    value:</p>
+                <ol>
+                    <li>At time \(t\), the producer \(u\) has a graph value of \(G_u\), and the token valuation function
+                        is \(M_t\).</li>
+                    <li>The producer buys in the market an amount of tokens \(m_u\).</li>
+                    <li>The producer can use those tokens to boost their graph value, which is updated as
+                        \begin{equation}
+                        G_u = G_u + \frac{m_u}{M_t}.
+                        \end{equation}
+                    </li>
+                </ol>
+
+                <p>The same cashing out and buying in mechanisms apply to buyers as well, but with the token valuation
+                    function \(N_t\).</p>
+
+                <p>We have so far established such a valuation function \(M_t\) must exist, and how this allows a user
+                    to buy or sell graph value. But what principles should govern the monetary policy for \(M_t\)?</p>
+
+                <h3 id="git.if">7.2 Inflationary monetary policy</h3>
+                <p>Given we know how graph value translates to the amount of tokens, our choice of \(M_t\) and \(N_t\)
+                    control the Local Protocol token monetary policy. We then need to address questions such as: should
+                    these functions increase or decrease over time? at what rate? What should be the ratio between
+                    \(M_t\) and \(N_t\)?</p>
+
+                <p>Let us define a few more necessary quantities. We can define the ratio between the valuation for
+                    buyers vs. producers as \(a_t \equiv N_t / M_t\). If \(a_t\) is large, this means the Local Protocol
+                    network values buyers more than it values producers, and if \(a_t\) is smaller, then it values
+                    producers more than buyers. If \(a_t = 0\) this means that only producers are valued by the Local
+                    Protocol network.</p>
+
+                <p>One reason for having a non-zero \(a_t\) is that the network may want to incentivize buyer side
+                    demand. This is similar to offering coupons to consumers to encourage more transactions.</p>
+
+                <p>Next we define the <strong>Total token supply</strong>, \(T_t\) as the amount of tokens that exist in
+                    the market at time \(t\).</p>
+
+                <p>We then define the <strong>Circulating supply</strong>, \(S_t\), as the total token supply, as well
+                    as the token value of all the graph value in the network,
+                    \begin{equation}
+                    S_t = T_t + M_t \left(\sum_{u \in U} G_u + a_t \sum_{v \in V} G_v\right)
+                    \end{equation}
+                </p>
+
+                <p>With this definition of the circulating supply, we can state that <strong>the primary mandate of the
+                        token valuation function \(M_t\) is to target that a certain amount of the circulating supply be
+                        owned by active users, or equivalently target that a certain amount be locked as graph
+                        value.</strong></p>
+
+                <p>Following this principle, if we want the majority of the supply to be owned by active users, then
+                    \(M_t\) should be inflationary, and should increase with time fast enough to ensure this property.
+                </p>
+
+                <h4 id="git.target">7.2.1 Targeting a specific Ownership Ratio</h4>
+                <p>Let us specify a mechanism through which the inflation rate can be fixed.</p>
+
+                <p>This mechanism will be inspired by examining a simple model of network growth, and then applying the
+                    results to the observed levels of growth.</p>
+
+                <p>Suppose the network is launched at time \(t=0\), we can define the effective network size, \(D_t\),
+                    as,
+                    \begin{equation}
+                    D_t = \sum_{u \in U} G_u + a_t \sum_{v \in V} G_v.
+                    \end{equation}
+                    Let's assume a model where this network size grows linearly with a rate of \(d\), but also decreases
+                    through cashing out of tokens at a rate of \(\epsilon\). This means in our model,
+                    \begin{equation}
+                    D_t = D_0 + (d - \epsilon)t,\,\,\,\,\,T_t = \epsilon \int_0^t M_t^\prime dt^\prime
+                    \end{equation}
+                </p>
+
+                <p>Now for instance, we can choose an exponential token valuation function,
+                    \begin{equation}
+                    M_t = M_0 e^{mt},
+                    \end{equation}
+                    such that,
+                    \begin{equation}
+                    \epsilon \int_0^t M_t^\prime dt^\prime = \frac{\epsilon M_0}{m} \left(e^{mt} - 1\right).
+                    \end{equation}
+                </p>
+
+                <p>With these inputs, suppose we want to target at late times a specific ratio \(R = \frac{M_t
+                    D_t}{S_t}\) (fraction of the circulating supply owned by active users). At late times, we obtain,
+                    \begin{equation}
+                    R = \frac{D_t}{D_t + \frac{\epsilon}{m}},
+                    \end{equation}
+                    and we can solve for \(m\) as
+                    \begin{equation}
+                    m = \frac{\epsilon}{\frac{D_t}{R} - D_t}.
+                    \end{equation}
+                    Given we have a target ownership ratio, \(R\), this is a simple model to take in real data on
+                    network growth and expiration rate, and use this to fix the inflation rate.</p>
+
+                <h3 id="git.if">7.3 Distributing Rewards</h3>
+                <p>Once we have defined how to distribute Local Protocol tokens amongst network participants, we can use
+                    this distribution as a guide to distributing rewards.</p>
+
+                <p><strong>Total network revenue:</strong> We define \(W^t\) as the total amount of revenue the network
+                    collected from time \(t-\tau\) to time \(t\). This is given by
+                    \begin{equation}
+                    W^t = \sum_{u \in U, t^\prime \in (t-\tau, t)} W_u
+                    \end{equation}
+                    The period \(\tau\) is some network parameter, which controls how often rewards are given out.</p>
+
+                <p><strong>Producer rewards:</strong> Suppose there is a producer \(u\) who has a graph value of \(G_u\)
+                    and holds \(s_u\) tokens. We define \(z^t_u\) as the rewards the user will receive at time \(t\) for
+                    the period between \(t-\tau\) and \(t\). These rewards are given by,
+                    \begin{equation}
+                    z^t_u = W^t \left(\frac{s_u + M_t G_u}{S_t}\right).
+                    \end{equation}
+                </p>
+
+                <p><strong>Buyer rewards:</strong> A similar formula applies to buyer rewards,
+                    \begin{equation}
+                    z^t_v = W^t \left(\frac{s_v + a_t M_t G_v}{S_t}\right).
+                    \end{equation}
+                </p>
+
+                <h3 id="git.value">7.4 Value of the Local Protocol Token</h3>
+                <p>Holding \(s\) Local Protocol tokens is intrinsically valuable because this entitles you to a
+                    permanent stream of rewards of the form,
+                    \begin{equation}
+                    z^t = W^t \left(\frac{s}{S_t}\right) = W^t \left(\frac{s}{T_t + M_t \left(\sum_{u \in U} G_u + a_t
+                    \sum_{v \in V} G_v\right)}\right)
+                    \end{equation}
+                </p>
+
+                <p>It is important to note that this stream of rewards is set to decay over time for two reasons. First,
+                    the network may keep growing over time, leading to the sum of graph value growing larger over time.
+                    Second, even if the network stays the same size, the valuation function \(M_t\) is set to increase
+                    over time.</p>
+
+                <p>Therefore, while the stream of rewards is permanent, it also decays over time, such that the sum of
+                    rewards given over all time per token may turn out to be finite.</p>
+
+                <p>Furthermore, for a user to understand how valuable this permanent stream of rewards is to them, they
+                    must have an idea of their (annual) discount factor, \(\mu\), which measures the value of money in
+                    the present versus the value of having money in one year from now. The value of money decays by a
+                    factor of \((1 - \mu)\) for every year in the future for which the money is delayed.</p>
+
+                <p>For a given user, then the value of holding \(s\) Local Protocol tokens at time \(t_0\) is given by,
+                    \begin{equation}
+                    Z_{t_0} = \int_{t_0}^\infty (1 - \mu)^{t/1yr} W^t \left(\frac{s}{T_t + M_t \left(\sum_{u \in U} G_u
+                    + a_t \sum_{v \in V} G_v\right)}\right) dt.
+                    \end{equation}
+                </p>
+
+                <p>This principle should dictate a minimum value for which Local Protocol tokens should be traded for
+                    rational token holders.</p>
+
+
+                <h2 id="constraints">8. Constraints on rewards and real usage</h2>
+                <p>In this section we will cover the subject of fake transactions, and how our proposed reward mechanism
+                    works to minimize their risk.</p>
+
+                <p>To simply define the problem, suppose a user completes a transaction, for which they pay a fee to the
+                    network of \(w\). If corresponding to this, the network gives the user a reward that is greater than
+                    \(w\) then this encourages abuse of the network through fake transactions. So how much reward can
+                    Local Protocol actually give to users while avoiding abuse risk?</p>
+
+
+                <h3 id="constraints">8.1 Simple Example \(G_u = W_u\)</h3>
+                <p>Suppose we had chosen the graph value of the producer to be \(G_u=W_u\) and \(G_v=W_v\). How much
+                    rewards can the network give out in this case.</p>
+
+                <p>Suppose the producer and the buyer complete a transaction with a fee \(w_{uv}\). If this was a fake
+                    transaction, it means \(u\) and \(v\) are colluding (or are the same person), and it cost them
+                    \(w_{uv}\) to fake this transaction. The total reward given corresponding to this transaction must
+                    be equal to or lower than \(w_{uv}\).</p>
+
+                <p>This means the highest reward that can be given to the producer corresponding to this transaction is
+                    \(\frac{w_{uv}}{1+a_t}\) and to the buyer, it is \(\frac{w_{uv}a_t}{1+a_t}\).</p>
+
+                <p><strong>Recovery time:</strong> While we have now understood how much rewards can be given
+                    corresponding to a specific transaction, this is not exactly how the Local Protocol network works.
+                    Completing a transaction gives users an amount of graph value. That graph value entitles the user to
+                    a fraction of rewards in perpetuity.</p>
+
+                <p>So the relevant question in matters of disincentivizing fake transactions is, how much time does it
+                    take the user to recover the cost of their fake transaction?</p>
+
+                <p>We define the recovery time \(RT_u\) as the time it takes the user to recover the cost of their fake
+                    transactions through rewards. For this given fake transaction of cost \(w_{uv}\), the recovery time
+                    would be given by,
+                    \begin{equation}
+                    w_{uv} = \int_0^{RT_u} \frac{W_t w_{uv}}{S_t} dt,
+                    \end{equation}
+                    or,
+                    \begin{equation}
+                    1 = \int_0^{RT_u} \frac{W_t}{S_t} dt,
+                    \end{equation}
+                    where we assume the reward period \(\tau\) is short enough that we can represent rewards as a
+                    continuous integral.</p>
+
+                <p>The goal is then to ensure the recovery time for fake transactions is large, this can be addressed
+                    with the following approaches:</p>
+                <ol>
+                    <li>Increasing cost of fake transactions. In the simple case the cost is given by \(w(u,v)\), this
+                        is achieved by requiring fee payments to increase your graph value. If graph connectivity is
+                        taken into account, fake transactions do not help connect the user to other real users in the
+                        graph, such that fake transactions are more expensive.</li>
+                    <li>Alternative proof of real transactions. In some specific cases, some external proofs may be
+                        available that show evidence that the transaction is real. This effectively works by increasing
+                        the cost of a fake transaction, as one would need to manage to forge such a proof.</li>
+                    <li>Controlling inflation rate. A slower \(M_t\) means performing a set of fake transactions doesn't
+                        immediately translate into owning the corresponding fraction of the supply, since previous token
+                        holders still have to be rewarded. Slower inflation can be a tool against fake transactions.
+                    </li>
+                    <li>Redistributing less than the total fees collected. If instead of distributing \(W_t\), a smaller
+                        fraction \(yW_t\), with \(y < 1\) is given out, then recovery time becomes longer. Note that we
+                            are also free to choose \(y> 1\) but this increases the profitability of fake transactions,
+                            but if we address fake transaction through any of the other approaches, this would allow us
+                            to over-incentivize as well.</li>
+                </ol>
+
+                <h3 id="constraints.ec">8.2 Eigenvector centrality as a measure of realness</h3>
+                <p>It would be ideal to have external proofs that transactions are real, that apply to every type of
+                    market. This is, however, not always available. So in general, the only evidence we have available
+                    for whether a transaction is real or not, is how it increases the user's EC.</p>
+
+                <p>How does this actually work, and how does our formulation of graph value increase the cost of fake
+                    transactions?</p>
+
+                <p>Suppose producer \(u\) and buyer \(v\) are relatively new users, with \(\bar x_u\) and \(\bar x_v\)
+                    closer to zero than to one. These users perform a transaction with edge weight \(w_{uv}\). How does
+                    the corresponding reward vary between real and fake transactions?</p>
+
+                <p>If the transaction is fake, meaning that \(u\) and \(v\) are the same entity and are wash trading,
+                    while the cost of the transaction was \(w_{uv}\), the reward for that transaction was an increase in
+                    graph value dictated by the update rule described in previous sections. A fake transaction means
+                    that the new edge weight will not contribute to connecting the user to other real users in the
+                    graph, but will only connect them to themselves.</p>
+
+                <p>A fake user could create a "fake island" in the graph, where they create a set of fake producers and
+                    buyers that all transact with each other, but the island does not connect to a "main island" of
+                    other real users interacting with each other.</p>
+
+                <p>In a real transaction between users \(u\) and \(v\), the assumption is that the two are separate
+                    entities, and that \(v\) also interacts with other producers, and \(u\) also interacts with other
+                    buyers. The real transaction therefore creates a real connection into the "main island" for the
+                    users.</p>
+
+                <p>Therefore, the mechanism works because of the principle that real transactions connect users to real
+                    islands in the graph, and will lead to greater increases in EC per amount of fee \(w_{uv}\), and
+                    fake transactions will lead to lower increases in EC for the same fee. This means that real users
+                    will have a better performance in terms of bare graph value change per amount of fee. <strong>If the
+                        average user is an honest user performing real transactions, then fake transactions will have
+                        below-average performance, and therefore the reward obtained will be lower than the fee
+                        paid</strong>.</p>
+
+                <h3 id="spectrum-of-verifiability">8.3 A Spectrum of Verifiability</h3>
+
+                <p>In real-world applications, different types of services and transactions present varying levels of
+                    verifiability. This spectrum of verifiability presents a significant limitation in the type of
+                    network that can be simaltaneously permissionless and token-incentivized. Typical work-arounds to
+                    limitations in verification require a trusted third-party, expensive service proofs, or strict
+                    permissions to participate in the network. These restrictions are all limitations that limit the
+                    design space available to build truly robust, sustainable, and decentralized networks at a global
+                    scale.</p>
+
+                <p>We might visualize a framework where all projects fall somewhere on this spectrum of proof
+                    availability:</p>
+
+                <pre>
    Hard to Create/Expensive
            |
            |
@@ -660,199 +1045,344 @@ where we assume the reward period \(\tau\) is short enough that we can represent
   Easy to Create/Cheap
 </pre>
 
-<ul>
-  <li><strong>Quadrant I: Easy to Create (weak-guarantee) and Cheap</strong><br>
-  Simple randomized pin exchanges: Users and drivers exchange simple PINs to verify or mutually attest to service completion.</li>
-  
-  <li><strong>Quadrant II: Easy to Create (weak-guarantee) and Expensive</strong><br>
-  Basic location sharing: Sharing the user's location through GPS, which can be easily manipulated but is straightforward to implement.</li>
-  
-  <li><strong>Quadrant III: Hard to Create (strong-guarantee) and Cheap</strong><br>
-  On-chain Reputation-based systems: take a long time to develop but can be cheap and robust at scale.</li>
-  
-  <li><strong>Quadrant IV: Hard to Create (strong-guarantee) and Expensive</strong><br>
-  Advanced location proofs: ZkTLS with cell tower or trusted hardware. Either computationally expensive or requires hardware.</li>
-</ul>
+                <ul>
+                    <li><strong>Quadrant I: Easy to Create (weak-guarantee) and Cheap</strong><br>
+                        Simple randomized pin exchanges: Users and drivers exchange simple PINs to verify or mutually
+                        attest to service completion.</li>
 
-<p>Networks trying to bootstrap adoption often face challenges when relying on verification methods that fall into Quadrant IV (Hard to Create and Expensive). These methods, while robust, can hinder growth due to their complexity and cost. Conversely, using methods from Quadrant I (Easy to Create and Cheap) may lead to increased vulnerability to attacks such as self-dealing and collusion.</p>
+                    <li><strong>Quadrant II: Easy to Create (weak-guarantee) and Expensive</strong><br>
+                        Basic location sharing: Sharing the user's location through GPS, which can be easily manipulated
+                        but is straightforward to implement.</li>
 
-<p>Eigenvector Centrality (EC) rankings can help mitigate issues in each of these networks by propagating trust assumptions through the graph. In networks with weak or expensive service proofs, EC rankings become particularly valuable. The underlying assumption is that collusion becomes increasingly difficult as the number of nodes in the network increases.</p>
+                    <li><strong>Quadrant III: Hard to Create (strong-guarantee) and Cheap</strong><br>
+                        On-chain Reputation-based systems: take a long time to develop but can be cheap and robust at
+                        scale.</li>
 
-<p>For networks bootstrapping trust, EC rankings can help establish trust vectors for nodes through a combination of service proofs and identity proofs. As the network grows and trust is established, the reliance on expensive service-proofs can be gradually reduced with a dampening factor over time.</p>
+                    <li><strong>Quadrant IV: Hard to Create (strong-guarantee) and Expensive</strong><br>
+                        Advanced location proofs: ZkTLS with cell tower or trusted hardware. Either computationally
+                        expensive or requires hardware.</li>
+                </ul>
 
-<p>By leveraging EC rankings, networks can strike a balance between security and costs depending on their needs. As trust propagates through the network, the need for expensive and complex verification methods decreases, enabling the network to scale more efficiently without compromising security.</p>
+                <p>Networks trying to bootstrap adoption often face challenges when relying on verification methods that
+                    fall into Quadrant IV (Hard to Create and Expensive). These methods, while robust, can hinder growth
+                    due to their complexity and cost. Conversely, using methods from Quadrant I (Easy to Create and
+                    Cheap) may lead to increased vulnerability to attacks such as self-dealing and collusion.</p>
 
-<p>While the spectrum of verifiability provides a framework for understanding the challenges in different types of networks, it's important to consider how we can incorporate external proofs when they are available. These proofs not only enhance security but also unlock capital formation mechanisms, expanding the potential of the network to create utility across a broader range of commercial settings.</p>
+                <p>Eigenvector Centrality (EC) rankings can help mitigate issues in each of these networks by
+                    propagating trust assumptions through the graph. In networks with weak or expensive service proofs,
+                    EC rankings become particularly valuable. The underlying assumption is that collusion becomes
+                    increasingly difficult as the number of nodes in the network increases.</p>
+
+                <p>For networks bootstrapping trust, EC rankings can help establish trust vectors for nodes through a
+                    combination of service proofs and identity proofs. As the network grows and trust is established,
+                    the reliance on expensive service-proofs can be gradually reduced with a dampening factor over time.
+                </p>
+
+                <p>By leveraging EC rankings, networks can strike a balance between security and costs depending on
+                    their needs. As trust propagates through the network, the need for expensive and complex
+                    verification methods decreases, enabling the network to scale more efficiently without compromising
+                    security.</p>
+
+                <p>While the spectrum of verifiability provides a framework for understanding the challenges in
+                    different types of networks, it's important to consider how we can incorporate external proofs when
+                    they are available. These proofs not only enhance security but also unlock capital formation
+                    mechanisms, expanding the potential of the network to create utility across a broader range of
+                    commercial settings.</p>
 
 
-<h3 id="constraints.ep">8.4 External proofs and graph value boosts</h3>
-<p>In some particular markets, there may exist external proofs or evidence that users or transactions are real. Here we present two different ways in which external proofs could be incorporated into the current graph value model.</p>
+                <h3 id="constraints.ep">8.4 External proofs and graph value boosts</h3>
+                <p>In some particular markets, there may exist external proofs or evidence that users or transactions
+                    are real. Here we present two different ways in which external proofs could be incorporated into the
+                    current graph value model.</p>
 
-<p><strong>Identity proofs:</strong> We may have external evidence that a given producer or user is a real, identifiable and unique entity. For instance, this can be the case that users verify their identity through submitting government issued IDs.</p>
+                <p><strong>Identity proofs:</strong> We may have external evidence that a given producer or user is a
+                    real, identifiable and unique entity. For instance, this can be the case that users verify their
+                    identity through submitting government issued IDs.</p>
 
-<figure>
-  <div id='node-attributes'></div>
-  <figcaption>
-    Hover over a node to visualize how identity proofs can boost the confidence in a node's realness and affect neighboring nodes. The arrows originating from the hovered node and its neighbors point to the aggregated node information, representing the propagation of the identity proof's effect.
-  </figcaption>
-</figure>
+                <figure>
+                    <div id='node-attributes'></div>
+                    <figcaption>
+                        Hover over a node to visualize how identity proofs can boost the confidence in a node's realness
+                        and affect neighboring nodes. The arrows originating from the hovered node and its neighbors
+                        point to the aggregated node information, representing the propagation of the identity proof's
+                        effect.
+                    </figcaption>
+                </figure>
 
-<p>Suppose we can estimate how much confidence this provides us that this is a unique real user. Our previous measure of unique realness was the EC value for the user. We would then need to have a mapping, where submitting an identity proof is equivalent to a boost of \(b\) in eigenvector centrality for that user.</p>
+                <p>Suppose we can estimate how much confidence this provides us that this is a unique real user. Our
+                    previous measure of unique realness was the EC value for the user. We would then need to have a
+                    mapping, where submitting an identity proof is equivalent to a boost of \(b\) in eigenvector
+                    centrality for that user.</p>
 
-<p>Interestingly, if one user submits an identity proof, this can have effects that spill over to other users that interact with the first user. If a second user interacts with a user that has provided an identity proof, this increases the confidence that the second user is real as well.</p>
+                <p>Interestingly, if one user submits an identity proof, this can have effects that spill over to other
+                    users that interact with the first user. If a second user interacts with a user that has provided an
+                    identity proof, this increases the confidence that the second user is real as well.</p>
 
-<p>This can be captured by modifying the EC formula to become an inhomogeneous eigenvalue problem. Suppose user \(u\) submits an identity proof that translates into a boost of \(b\) in eigenvector centrality. We then define a "doping vector" \(\vec{b}_u = (0,0,\dots,0,b,0,\dots,0)\), where the nonzero element \(b\) appears in the \(u\)-th position. The inhomogeneous eigenvalue problem to solve is then
-\begin{equation}
-    x = \frac{1}{\lambda_{\rm max}} Ax + \vec{b}
-\end{equation}
-The doping vector doesn't only affect \(u\), but it affects neighboring users that interact with them.</p>
+                <p>This can be captured by modifying the EC formula to become an inhomogeneous eigenvalue problem.
+                    Suppose user \(u\) submits an identity proof that translates into a boost of \(b\) in eigenvector
+                    centrality. We then define a "doping vector" \(\vec{b}_u = (0,0,\dots,0,b,0,\dots,0)\), where the
+                    nonzero element \(b\) appears in the \(u\)-th position. The inhomogeneous eigenvalue problem to
+                    solve is then
+                    \begin{equation}
+                    x = \frac{1}{\lambda_{\rm max}} Ax + \vec{b}
+                    \end{equation}
+                    The doping vector doesn't only affect \(u\), but it affects neighboring users that interact with
+                    them.</p>
 
-<p><strong>Transaction proofs:</strong> A different type of proofs may boost confidence that a certain transaction was a real transaction. This could be accounted for by introducing a corresponding boost in the graph, such that the corresponding edge weight is larger, as far as the EC calculation is concerned.</p>
+                <p><strong>Transaction proofs:</strong> A different type of proofs may boost confidence that a certain
+                    transaction was a real transaction. This could be accounted for by introducing a corresponding boost
+                    in the graph, such that the corresponding edge weight is larger, as far as the EC calculation is
+                    concerned.</p>
 
-<figure>
-  <div id='node-step-small'></div>
-  <figcaption>
-    Hover over a node to visualize how transaction proofs can boost the confidence in the realness of a transaction. The arrows originating from the hovered node's edges point to the aggregated edge information, representing the incorporation of the transaction proof into the graph value calculation.
-  </figcaption>
-</figure>
+                <figure>
+                    <div id='node-step-small'></div>
+                    <figcaption>
+                        Hover over a node to visualize how transaction proofs can boost the confidence in the realness
+                        of a transaction. The arrows originating from the hovered node's edges point to the aggregated
+                        edge information, representing the incorporation of the transaction proof into the graph value
+                        calculation.
+                    </figcaption>
+                </figure>
 
-<p>Suppose producer \(u\) and buyer \(v\) complete a transaction of edge weight \(w_{uv}\), and they submit a transaction proof. This proof can be accounted by giving the adjacency matrix for EC calculations a boost of the form,
-\begin{equation}
-    \Delta A_{uv} = w_{uv} + b.
-\end{equation}
-The EC can then be computed by solving the eigenvalue problem.</p>
-<h2 id="service">9. Service guarantees</h2>
-<h3 id="service.pex">9.1 Pin Exchange as proof of agreement of service</h3>
-<p>We have covered how the graph value update rule, and EC allows us to address fake transactions. Fake transactions can be understood as "false positives", where a signal is given from the producer and the buyer that a real transaction has been completed, but a real transaction did not happen.</p>
+                <p>Suppose producer \(u\) and buyer \(v\) complete a transaction of edge weight \(w_{uv}\), and they
+                    submit a transaction proof. This proof can be accounted by giving the adjacency matrix for EC
+                    calculations a boost of the form,
+                    \begin{equation}
+                    \Delta A_{uv} = w_{uv} + b.
+                    \end{equation}
+                    The EC can then be computed by solving the eigenvalue problem.</p>
+                <h2 id="service">9. Service guarantees</h2>
+                <h3 id="service.pex">9.1 Pin Exchange as proof of agreement of service</h3>
+                <p>We have covered how the graph value update rule, and EC allows us to address fake transactions. Fake
+                    transactions can be understood as "false positives", where a signal is given from the producer and
+                    the buyer that a real transaction has been completed, but a real transaction did not happen.</p>
 
-<p>In this section, we will address the issue of "false negatives". A false negative corresponds to when a signal is given that a transaction was not completed, when in reality the transaction was actually completed.</p>
+                <p>In this section, we will address the issue of "false negatives". A false negative corresponds to when
+                    a signal is given that a transaction was not completed, when in reality the transaction was actually
+                    completed.</p>
 
-<p>Our objective measure for whether a transaction has been completed is the proof of PIN exchange, which proves that the provider and the buyer agree the transaction has been completed. A <strong>dispute</strong> arises when the buyer refuses to exchange the PIN, claiming the service was not provided, but the provider disagrees and claims the service was provided.</p>
+                <p>Our objective measure for whether a transaction has been completed is the proof of PIN exchange,
+                    which proves that the provider and the buyer agree the transaction has been completed. A
+                    <strong>dispute</strong> arises when the buyer refuses to exchange the PIN, claiming the service was
+                    not provided, but the provider disagrees and claims the service was provided.</p>
 
-<h3 id="service.collateral">9.2 Provider collateral as a service guarantee</h3>
-<p>When a buyer requests a service from a producer, what guarantees do they have that the service will actually be provided?</p>
+                <h3 id="service.collateral">9.2 Provider collateral as a service guarantee</h3>
+                <p>When a buyer requests a service from a producer, what guarantees do they have that the service will
+                    actually be provided?</p>
 
-<p>In a centralized market, this guarantee can be based on the trust that the buyer places on the provider. However, in Local Protocol's decentralized platform, we want to allow small providers to be able to participate, and still be able to provide a guarantee to buyers that their service will be provided.</p>
+                <p>In a centralized market, this guarantee can be based on the trust that the buyer places on the
+                    provider. However, in Local Protocol's decentralized platform, we want to allow small providers to
+                    be able to participate, and still be able to provide a guarantee to buyers that their service will
+                    be provided.</p>
 
-<p>For this reason, every transaction between provider \(u\) and buyer \(v\) will require a <strong>provider collateral</strong>, \(l_{uv}\), to be locked in a contract which has the following flow:</p>
-<ol>
-    <li>Buyer \(v\) requests a service from provider \(u\), for which a payment \(p_{uv}\) will be made, and a fee of \(w_{uv}\) will be paid to the network.</li>
-    <li>The provider locks a collateral \(l_{uv}\) which will be locked in the contract, along with the payment \(p_{uv}\) until the transaction is completed.</li>
-    <li>If the PIN is exchanged, signalling that buyer and producer agree the service was provided, then both \(l_{uv}\) and \(p_{uv}\) are sent to the provider.</li>
-    <li>If the buyer refuses to provide their PIN, signalling that their statement that the service was not provided, then \(p_{uv}\) is returned to the buyer, and \(l_{uv}\) is burnt.</li>
-</ol>
+                <p>For this reason, every transaction between provider \(u\) and buyer \(v\) will require a
+                    <strong>provider collateral</strong>, \(l_{uv}\), to be locked in a contract which has the following
+                    flow:</p>
+                <ol>
+                    <li>Buyer \(v\) requests a service from provider \(u\), for which a payment \(p_{uv}\) will be made,
+                        and a fee of \(w_{uv}\) will be paid to the network.</li>
+                    <li>The provider locks a collateral \(l_{uv}\) which will be locked in the contract, along with the
+                        payment \(p_{uv}\) until the transaction is completed.</li>
+                    <li>If the PIN is exchanged, signalling that buyer and producer agree the service was provided, then
+                        both \(l_{uv}\) and \(p_{uv}\) are sent to the provider.</li>
+                    <li>If the buyer refuses to provide their PIN, signalling that their statement that the service was
+                        not provided, then \(p_{uv}\) is returned to the buyer, and \(l_{uv}\) is burnt.</li>
+                </ol>
 
-<p>This mechanism ensures that there is both a positive incentive on the provider to complete the transaction, and a negative incentive if they fail to do so.</p>
+                <p>This mechanism ensures that there is both a positive incentive on the provider to complete the
+                    transaction, and a negative incentive if they fail to do so.</p>
 
-<p>Note that this contract is by design biased towards the buyer, in that while it has the potential of having a negative cost to the provider, there is no immediate economic penalty on the buyer if a dispute arises, where the buyer claims service was not provided, but the provider disagrees. While it is therefore not profitable for a rational buyer to create false negatives, since there is nothing to gain, it is still low cost for a malicious buyer to do so.</p>
+                <p>Note that this contract is by design biased towards the buyer, in that while it has the potential of
+                    having a negative cost to the provider, there is no immediate economic penalty on the buyer if a
+                    dispute arises, where the buyer claims service was not provided, but the provider disagrees. While
+                    it is therefore not profitable for a rational buyer to create false negatives, since there is
+                    nothing to gain, it is still low cost for a malicious buyer to do so.</p>
 
-<p>While there is no immediate economic consequence on a malicious buyer, given a dispute, they would still presumably lose reputation, as the provider would give them a poor review. We haven't yet specified how to fix the collateral amount, \(l_{uv}\), but both the buyer and provider reputations must be incorporated, in a way that a malicious buyer who repeatedly claims false negatives, will lose their power to demand high collaterals.</p>
+                <p>While there is no immediate economic consequence on a malicious buyer, given a dispute, they would
+                    still presumably lose reputation, as the provider would give them a poor review. We haven't yet
+                    specified how to fix the collateral amount, \(l_{uv}\), but both the buyer and provider reputations
+                    must be incorporated, in a way that a malicious buyer who repeatedly claims false negatives, will
+                    lose their power to demand high collaterals.</p>
 
-<h3 id="service.colform">9.3 Provider collateral formula</h3>
-<p>The provider collateral is a function \(l_{uv}(p_{uv}, G_u, r_u, G_v, r_v)\), which depends on the size of the transaction fee, as well as the contributions to the network (graph value), and separately the reputation scores, of both the buyer and provider.</p>
+                <h3 id="service.colform">9.3 Provider collateral formula</h3>
+                <p>The provider collateral is a function \(l_{uv}(p_{uv}, G_u, r_u, G_v, r_v)\), which depends on the
+                    size of the transaction fee, as well as the contributions to the network (graph value), and
+                    separately the reputation scores, of both the buyer and provider.</p>
 
-<p>The general principle is that for a well-established and reputable provider, they can already be trusted by buyers, and do not need to provide large collateral. Similarly, well-established and reputable users are able to demand larger collateral from their service providers.</p>
+                <p>The general principle is that for a well-established and reputable provider, they can already be
+                    trusted by buyers, and do not need to provide large collateral. Similarly, well-established and
+                    reputable users are able to demand larger collateral from their service providers.</p>
 
-<p>Generally, then the provider collateral formula takes the form,
-\begin{equation}
-    l_{uv} = p_{uv} f\left(\frac{(r_v - r_{\rm min}) G_v}{(r_u - r_{\rm min}) G_u}\right),
-\end{equation}
-where \(f(x)\) is a monotonically increasing function of \(x\).</p>
+                <p>Generally, then the provider collateral formula takes the form,
+                    \begin{equation}
+                    l_{uv} = p_{uv} f\left(\frac{(r_v - r_{\rm min}) G_v}{(r_u - r_{\rm min}) G_u}\right),
+                    \end{equation}
+                    where \(f(x)\) is a monotonically increasing function of \(x\).</p>
 
-<p>We can refine this function further, by demanding that \(f(1) = 1\), and we can place lower and upper bounds, \(f(0) = 0\) and \(\lim_{x \to \infty} f(x) = f_{\rm max}\). These properties can be achieved, for instance, with a Sigmoid function.</p>
+                <p>We can refine this function further, by demanding that \(f(1) = 1\), and we can place lower and upper
+                    bounds, \(f(0) = 0\) and \(\lim_{x \to \infty} f(x) = f_{\rm max}\). These properties can be
+                    achieved, for instance, with a Sigmoid function.</p>
 
-<p>While a malicious buyer may be able to occasionally produce a false negative and cause harm to a provider, this formula ensures that a malicious buyer cannot repeatedly do so. Once a buyer repeatedly causes disputes, their reputation score will drop, and this will consequently drive their provider collaterals they can demand close to zero. In a similar way, a new buyer who has just joined the network, cannot be trusted and may be malicious, so they cannot demand provider collateral until they gain some reputation.</p>
+                <p>While a malicious buyer may be able to occasionally produce a false negative and cause harm to a
+                    provider, this formula ensures that a malicious buyer cannot repeatedly do so. Once a buyer
+                    repeatedly causes disputes, their reputation score will drop, and this will consequently drive their
+                    provider collaterals they can demand close to zero. In a similar way, a new buyer who has just
+                    joined the network, cannot be trusted and may be malicious, so they cannot demand provider
+                    collateral until they gain some reputation.</p>
 
-<h2 id="em">10. Emergent Markets on Local Protocol</h2>
-<p>Local Protocol is in essence a decentralized marketplace that connects producers and buyers without a need for trusted third parties. Despite this narrow definition, given the mechanisms we have presented, there exists an opportunity for different kinds of markets and services to emerge on top of the fundamental Local Protocol economy. Here we present a few examples.</p>
+                <h2 id="em">10. Emergent Markets on Local Protocol</h2>
+                <p>Local Protocol is in essence a decentralized marketplace that connects producers and buyers without a
+                    need for trusted third parties. Despite this narrow definition, given the mechanisms we have
+                    presented, there exists an opportunity for different kinds of markets and services to emerge on top
+                    of the fundamental Local Protocol economy. Here we present a few examples.</p>
 
-<h3 id="em.auim">10.1 Active user investment markets</h3>
-<p>To be an owner of the Local Protocol network, and be entitled to any rewards given, one must either hold Local Protocol token, or have some amount of active graph value.</p>
+                <h3 id="em.auim">10.1 Active user investment markets</h3>
+                <p>To be an owner of the Local Protocol network, and be entitled to any rewards given, one must either
+                    hold Local Protocol token, or have some amount of active graph value.</p>
 
-<p>We have stated, however, that Local Protocol can implement an inflationary policy, which would bias the ownership towards active producers and buyers.</p>
+                <p>We have stated, however, that Local Protocol can implement an inflationary policy, which would bias
+                    the ownership towards active producers and buyers.</p>
 
-<p>This means that if one simply holds Local Protocol token, there is a significant opportunity cost over investing that token in active graph value.</p>
+                <p>This means that if one simply holds Local Protocol token, there is a significant opportunity cost
+                    over investing that token in active graph value.</p>
 
-<p>Given that Local Protocol allows the option to use Local Protocol token to purchase graph value, a liquidity providing market can emerge that is mutually beneficial to Local Protocol token holders and active producers.</p>
+                <p>Given that Local Protocol allows the option to use Local Protocol token to purchase graph value, a
+                    liquidity providing market can emerge that is mutually beneficial to Local Protocol token holders
+                    and active producers.</p>
 
-<p>This market would connect token holders, who would lend their token to active users, who would then incorporate this into their graph value. This would make the tokens no longer subject to inflation, and thus accrue rewards at a higher rate. The rewards can be split between the token provider and the active users. When the token provider wishes to retrieve their liquidity, the active user can extract the corresponding amount from their graph value, which will have now grown according to the growth of the token valuation function.</p>
+                <p>This market would connect token holders, who would lend their token to active users, who would then
+                    incorporate this into their graph value. This would make the tokens no longer subject to inflation,
+                    and thus accrue rewards at a higher rate. The rewards can be split between the token provider and
+                    the active users. When the token provider wishes to retrieve their liquidity, the active user can
+                    extract the corresponding amount from their graph value, which will have now grown according to the
+                    growth of the token valuation function.</p>
 
-<h3 id="em.cim">10.2 Collateral insurance market</h3>
-<p>Given the provider collateral structure we have defined, every time a provider accepts to deliver a service, they are taking on some risk that their collateral will be slashed.</p>
+                <h3 id="em.cim">10.2 Collateral insurance market</h3>
+                <p>Given the provider collateral structure we have defined, every time a provider accepts to deliver a
+                    service, they are taking on some risk that their collateral will be slashed.</p>
 
-<p>It is possible that some providers would rather pay for an insurance provider to take on that risk instead. This means that there is room for a market of insurance providers to emerge.</p>
+                <p>It is possible that some providers would rather pay for an insurance provider to take on that risk
+                    instead. This means that there is room for a market of insurance providers to emerge.</p>
 
-<p>The task of an insurance provider is to figure out a correct price they would be willing to charge the provider, to accept taking on the risk of being slashed.</p>
+                <p>The task of an insurance provider is to figure out a correct price they would be willing to charge
+                    the provider, to accept taking on the risk of being slashed.</p>
 
-<p>Given the insurance provider has a risk model, where they can compute the probability of the collateral being slashed, \(p_{\rm slash}\), they can compute their expected cost per transaction, as,
-\begin{equation}
-    {\rm Cost} = l_{uv} p_{\rm slash}.
-\end{equation}
-To make a profit, the insurance provider must charge a fee that is greater than this cost.</p>
+                <p>Given the insurance provider has a risk model, where they can compute the probability of the
+                    collateral being slashed, \(p_{\rm slash}\), they can compute their expected cost per transaction,
+                    as,
+                    \begin{equation}
+                    {\rm Cost} = l_{uv} p_{\rm slash}.
+                    \end{equation}
+                    To make a profit, the insurance provider must charge a fee that is greater than this cost.</p>
 
-<h3 id="em.ex">10.3 Example insurance market: Insurance automated market maker</h3>
+                <h3 id="em.ex">10.3 Example insurance market: Insurance automated market maker</h3>
 
-<p>The key to establishing a profitable insurance service is having an accurate risk model, such that the fees for taking on the risk can be correctly priced.</p>
+                <p>The key to establishing a profitable insurance service is having an accurate risk model, such that
+                    the fees for taking on the risk can be correctly priced.</p>
 
-<p>While different insurance providers can come up with many ways to model this, and a variety of insurance provider models would benefit the Local Protocol economy, we discuss here a possible service that can be established to connect token holders who wish to provide liquidity to use as insurance, and providers who need to externalize their risk.</p>
+                <p>While different insurance providers can come up with many ways to model this, and a variety of
+                    insurance provider models would benefit the Local Protocol economy, we discuss here a possible
+                    service that can be established to connect token holders who wish to provide liquidity to use as
+                    insurance, and providers who need to externalize their risk.</p>
 
-<p>We call this model an <strong>insurance automatic market maker (IAMM)</strong>, in analogy to automated market makers for decentralized exchanges, who work with a similar underlying mechanism.</p>
+                <p>We call this model an <strong>insurance automatic market maker (IAMM)</strong>, in analogy to
+                    automated market makers for decentralized exchanges, who work with a similar underlying mechanism.
+                </p>
 
-<h4 id="em.ex1">10.3.1 Simple single price model</h4>
-<p>Suppose in the simplest case, there is a set of insurance providers, \(I\). A given insurance provider, \(i \in I\) provides insurance by staking an amount \(q_i\) of tokens into the insurance pool. There is a total \(Q = \sum_{i \in I} q_i\) tokens in the insurance pool.</p>
+                <h4 id="em.ex1">10.3.1 Simple single price model</h4>
+                <p>Suppose in the simplest case, there is a set of insurance providers, \(I\). A given insurance
+                    provider, \(i \in I\) provides insurance by staking an amount \(q_i\) of tokens into the insurance
+                    pool. There is a total \(Q = \sum_{i \in I} q_i\) tokens in the insurance pool.</p>
 
-<p>We split time into discrete periods of duration \(\tau\). Let's label different periods as \(t_0, t_1, t_d, \dots\), where \(t_n = n\tau\). The insurance pricing at \(t_n\) is determined by the insurance demand and supply in the previous period \(t_{n-1}\).</p>
+                <p>We split time into discrete periods of duration \(\tau\). Let's label different periods as \(t_0,
+                    t_1, t_d, \dots\), where \(t_n = n\tau\). The insurance pricing at \(t_n\) is determined by the
+                    insurance demand and supply in the previous period \(t_{n-1}\).</p>
 
-<p>If in the period of time from \(t_{n-1}\) to \(t_n\), a number of providers, \(u \in U\) place a set of transactions, with collaterals \(l_u^{n-1}\), such that the total collateral for that period is \(L^{n-1} \equiv \sum_{u \in U} l_u^{n-1}\).</p>
+                <p>If in the period of time from \(t_{n-1}\) to \(t_n\), a number of providers, \(u \in U\) place a set
+                    of transactions, with collaterals \(l_u^{n-1}\), such that the total collateral for that period is
+                    \(L^{n-1} \equiv \sum_{u \in U} l_u^{n-1}\).</p>
 
-<p>With this information we can define a mechanism to determine the price of insurance at the next epoch, \(t_n\) to \(t_{n+1}\). If a provider is completing a transaction with collateral \(l_u^n\), they would need to pay a fee \(F_u^n \equiv \hat F^n l_u^n\), where the pricing constant \(\hat F^n\) is given by,
-\begin{equation}
-    \hat F^n = \frac{L^{n-1}}{Q^{n-1}}.
-\end{equation}
-</p>
+                <p>With this information we can define a mechanism to determine the price of insurance at the next
+                    epoch, \(t_n\) to \(t_{n+1}\). If a provider is completing a transaction with collateral \(l_u^n\),
+                    they would need to pay a fee \(F_u^n \equiv \hat F^n l_u^n\), where the pricing constant \(\hat
+                    F^n\) is given by,
+                    \begin{equation}
+                    \hat F^n = \frac{L^{n-1}}{Q^{n-1}}.
+                    \end{equation}
+                </p>
 
-<p>In this case, the pricing depends on what is the demand for insurance from the provider side (\(L^{n-1}\)) vs what is the supply from the insurance provider side, \(Q^{n-1}\).</p>
+                <p>In this case, the pricing depends on what is the demand for insurance from the provider side
+                    (\(L^{n-1}\)) vs what is the supply from the insurance provider side, \(Q^{n-1}\).</p>
 
-<p>The collateral for the transactions will be taken from the pool \(Q_n\). After the transaction period, some of this collateral will be slashed, due to transactions not getting completed.</p>
+                <p>The collateral for the transactions will be taken from the pool \(Q_n\). After the transaction
+                    period, some of this collateral will be slashed, due to transactions not getting completed.</p>
 
-<p>After completion of the period \(t_n\) to \(t_{n+1}\), some of the pool will have either made a profit or a loss. This depends on whether the amount of fees collected exceeds the amount of capital that was slashed in that same period.</p>
+                <p>After completion of the period \(t_n\) to \(t_{n+1}\), some of the pool will have either made a
+                    profit or a loss. This depends on whether the amount of fees collected exceeds the amount of capital
+                    that was slashed in that same period.</p>
 
-<p>This mechanism leads to self-correcting market dynamics. If at current conditions the insurance pool is having a loss rather than profit, that means insurance is underpriced. This will lead to some insurance providers abandoning the pool, reducing the pool \(Q_n\). This then reduces the supply of insurance, therefore raises the price, this will happen until the price is found where the pool actually makes enough profit to satisfy the insurance providers.</p>
+                <p>This mechanism leads to self-correcting market dynamics. If at current conditions the insurance pool
+                    is having a loss rather than profit, that means insurance is underpriced. This will lead to some
+                    insurance providers abandoning the pool, reducing the pool \(Q_n\). This then reduces the supply of
+                    insurance, therefore raises the price, this will happen until the price is found where the pool
+                    actually makes enough profit to satisfy the insurance providers.</p>
 
-<p>In the same way, if the pool is making very large profits, it will attract more insurance providers to join the pool, this will increase the supply \(Q_n\) which will result in a reduction of fees, until a more appropriate market price is found.</p>
+                <p>In the same way, if the pool is making very large profits, it will attract more insurance providers
+                    to join the pool, this will increase the supply \(Q_n\) which will result in a reduction of fees,
+                    until a more appropriate market price is found.</p>
 
-<h4 id="em.ex2">10.3.2 Concentrated liquidity and granular insurance pricing</h4>
-<p>Given our previous considerations that the risk of collateral slashing actually depends on quantities like \(r_vG_v, r_uG_u\), it is likely unfair to charge the same fee, \(\hat F_n\) across all risk profiles. A more sophisticated insurance provider would have different pricing depending on the level of risk.</p>
+                <h4 id="em.ex2">10.3.2 Concentrated liquidity and granular insurance pricing</h4>
+                <p>Given our previous considerations that the risk of collateral slashing actually depends on quantities
+                    like \(r_vG_v, r_uG_u\), it is likely unfair to charge the same fee, \(\hat F_n\) across all risk
+                    profiles. A more sophisticated insurance provider would have different pricing depending on the
+                    level of risk.</p>
 
-<p>One simple model is to consider the risk to be proportional to \(r_vr_uG_vG_u\). We should therefore allow our mechanism to offer different pricing for different values of \(r_vr_uG_vG_u\). Our approach is inspired by Uniswap v3, where there are different liquidity pools for different exchange rate values.</p>
+                <p>One simple model is to consider the risk to be proportional to \(r_vr_uG_vG_u\). We should therefore
+                    allow our mechanism to offer different pricing for different values of \(r_vr_uG_vG_u\). Our
+                    approach is inspired by Uniswap v3, where there are different liquidity pools for different exchange
+                    rate values.</p>
 
-<p>The mechanism consists of splitting the interval \(r_vr_uG_vG_u\) into a set of \(N\) discrete ticks labeled by \(j = 1, \dots, J\). Insurance providers can now choose to deposit liquidity into any one of these \(J\) pools across different values of \(r_vr_uG_vG_u\).</p>
+                <p>The mechanism consists of splitting the interval \(r_vr_uG_vG_u\) into a set of \(N\) discrete ticks
+                    labeled by \(j = 1, \dots, J\). Insurance providers can now choose to deposit liquidity into any one
+                    of these \(J\) pools across different values of \(r_vr_uG_vG_u\).</p>
 
-<p>Each of these pools now has an amount of liquidity \(Q^n_j\). The same logic as before applies, where the pricing for each pool is given by,
-\begin{equation}
-    F^n_j = \frac{L_{n-1}^j}{Q_{n-1}^j},
-\end{equation}
-where all quantities now have a "j" label, one for each tick. This allows us to provide different pricing for each level of risk.</p>
+                <p>Each of these pools now has an amount of liquidity \(Q^n_j\). The same logic as before applies, where
+                    the pricing for each pool is given by,
+                    \begin{equation}
+                    F^n_j = \frac{L_{n-1}^j}{Q_{n-1}^j},
+                    \end{equation}
+                    where all quantities now have a "j" label, one for each tick. This allows us to provide different
+                    pricing for each level of risk.</p>
 
-<p>This mechanism allows for more sophisticated self-correcting dynamics. If a particular risk level is currently under or overpriced, insurance providers will move their capital from one liquidity pool to another, allowing the mechanism to find the correct market price for each risk level.</p>
+                <p>This mechanism allows for more sophisticated self-correcting dynamics. If a particular risk level is
+                    currently under or overpriced, insurance providers will move their capital from one liquidity pool
+                    to another, allowing the mechanism to find the correct market price for each risk level.</p>
 
-<h2 id="con">11. Conclusion</h2>
-<p>By modeling commercial networks as a bipartite graph, we create a self-optimizing network that aligns individual incentives with network objectives, resists manipulation, adapts to heterogeneous market conditions, and strengthens network effects.</p>
+                <h2 id="con">11. Conclusion</h2>
+                <p>By modeling commercial networks as a bipartite graph, we create a self-optimizing network that aligns
+                    individual incentives with network objectives, resists manipulation, adapts to heterogeneous market
+                    conditions, and strengthens network effects.</p>
 
-<p>A modified eigenvector centrality ranking offers a dynamical method for incentive alignment across various markets, without relying on prior assumptions or external oracles. This approach not only optimizes token distribution but also provides a security guarantee against self-dealing and collusion.</p>
+                <p>A modified eigenvector centrality ranking offers a dynamical method for incentive alignment across
+                    various markets, without relying on prior assumptions or external oracles. This approach not only
+                    optimizes token distribution but also provides a security guarantee against self-dealing and
+                    collusion.</p>
 
-<p>Our verification model offers a solution to the fundamental challenge of physical infrastructure networks that have weak or non-existent proof-of-service mechanisms.</p>
+                <p>Our verification model offers a solution to the fundamental challenge of physical infrastructure
+                    networks that have weak or non-existent proof-of-service mechanisms.</p>
 
-<p>Eigenvector-centrality based cryptonetworks offer a unique set of generalizable properties that can be tuned to support a wide range of cryptonetworks. The models outlined in this paper serve as a strong foundation to unlock a new generation of cryptonetworks.</p>
+                <p>Eigenvector-centrality based cryptonetworks offer a unique set of generalizable properties that can
+                    be tuned to support a wide range of cryptonetworks. The models outlined in this paper serve as a
+                    strong foundation to unlock a new generation of cryptonetworks.</p>
 
-</d-article>
+    </d-article>
 
-<d-appendix>
-<h3 id="acknowledgments">Acknowledgments</h3>
-<p>We are deeply grateful to all of the people who provided feedback on this paper.</p>
-<h3 id="author-contributions">Author Contributions</h3>
-<p>All authors contributed to writing.</p>
-</d-appendix>
+    <d-appendix>
+        <h3 id="acknowledgments">Acknowledgments</h3>
+        <p>We are deeply grateful to all of the people who provided feedback on this paper.</p>
+        <h3 id="author-contributions">Author Contributions</h3>
+        <p>All authors contributed to writing.</p>
+    </d-appendix>
 
 </body>
 <script src="./index.ts"></script>
