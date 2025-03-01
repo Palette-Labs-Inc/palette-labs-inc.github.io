@@ -21,6 +21,7 @@ import * as d3_jp from 'd3-jetpack'
 import * as _ from 'underscore'
 import {swoopyDrag} from '../third_party/swoopy-drag'
 import { random } from '../utils';
+import { createBipartiteGraph } from './graph-helpers'
 
 export function nodeStepSmall() {
   var width = 150
@@ -30,35 +31,14 @@ export function nodeStepSmall() {
   var numEmbed = 8
   var sel = d3.select('#node-step-small').html('')
 
-  // Alternative palette
-  // var colorsV = ["#b5d9ea", "#c1d5e0", "#86bfe2", "#8facc6", "#76b6d6", "#c5e9f9", "#b5d9ea", "#c1d5e0", "#86bfe2", "#8facc6", "#76b6d6", "#c5e9f9", "#b5d9ea", "#c1d5e0", "#86bfe2", "#8facc6", "#76b6d6", "#c5e9f9", "#b5d9ea", "#c1d5e0", "#86bfe2", "#8facc6", "#76b6d6", "#c5e9f9"]
-  var colorsN = ["#f2b200", "#c69700", "#ffeaa9", "#ffd255", "#d19f00", "#edc949"]
-  var colorsV = ["#f2b200", "#c69700", "#ffeaa9", "#ffd255", "#d19f00", "#edc949", "#f2b200", "#c69700", "#ffeaa9", "#ffd255", "#d19f00", "#edc949", "#f2b200", "#c69700", "#ffeaa9", "#ffd255", "#d19f00", "#edc949"]
-  var nodes = window.stepNodesSm = window.stepNodesSm || d3.range(5).map((v, i) => {
+  var { nodes, links } = window.stepNodesSm = window.stepNodesSm ||
+    createBipartiteGraph(3, 2, {
+      numEmbed: numEmbed
+    });
 
-    var rv = {v, i, isNode: true, color: d3.color(colorsN[i]), neighbors: []}
-    rv.embed = d3.range(numEmbed).map(d => .05 + Math.random()*.95).map((v, i) => ({node: rv, v, i}))
-    rv.outembed = d3.range(numEmbed).map(d => .05 + Math.random()*.95).map((v, i) => ({node: rv, v, i}))
-    return rv
-  })
-
+  window.stepLinksSm = window.stepLinksSm || links;
 
   var n = nodes.length
-
-  var links = window.stepLinksSm = window.stepLinksSm || d3.cross(nodes, nodes)
-    .map(([a, b]) => {
-      var [i, j] = [a.i, b.i]
-      if (i <= j) return
-      var color = colorsV[i+j] // this will have repeats, that's ok.
-      var linkId = i + ' ' + j
-      var v = random[i] < .3 ? 1 : 0
-      if (v){
-        nodes[i].neighbors.push(nodes[j])
-        nodes[j].neighbors.push(nodes[i])
-        return {a, b, linkId, v, color: d3.color(color)}
-      }
-    })
-    .filter(d => d)
 
   var renderFns = []
   function render(){
@@ -85,7 +65,7 @@ export function nodeStepSmall() {
       d.pathStr = 'M' + [d.a, d.b].map(d => d.pos).join('L')
     })
 
-    var linkSel = g.append('g').appendMany('path.link', links.filter(d => d.a.i > d.b.i))
+    var linkSel = g.append('g').appendMany('path.link', links)
       .at({
         d: d => d.pathStr,
         strokeWidth: 2,
@@ -210,11 +190,7 @@ const annotations = [
   {
     "path": "M 63,18 A 78.02 78.02 0 0 1 219,14",
     "srcIndex": 5
-  },
-  {
-    "path": "M 95,-21 A 70.374 70.374 0 0 1 204,26",
-    "srcIndex": 6
-  },
+  }
 ]
   var swoopy = swoopyDrag()
       .x(d => 0)

@@ -68,6 +68,67 @@ export function makeGraph(numNodes, expNumEdges, addSelfLoops = true) {
   return [nodes, links]
 }
 
+/**
+ * Make a complete bipartite graph Km,n where:
+ * - m = number of nodes in the first partition (producers)
+ * - n = number of nodes in the second partition (consumers)
+ * 
+ * Returns an array of [nodes, links].
+ * Self-loops enable the layerwise trace animation by maintaining
+ * the neighboring connections from the previous layer.
+ */
+export function makeBipartiteGraph(m = 3, n = 2, addSelfLoops = true) {
+  const totalNodes = m + n;
+  const idxs = range(totalNodes);
+
+  const nodes = idxs.map(i => {
+    // Nodes are split into two partitions: producers (0 to m-1) and consumers (m to totalNodes-1)
+    const isProducer = i < m;
+
+    return {
+      i: i,
+      x: Math.cos(i / totalNodes * 2 * Math.PI) / 2,
+      y: Math.sin(i / totalNodes * 2 * Math.PI) / 2,
+      neighbors: [],
+      color: isProducer ? d3.schemeDark2[0] : d3.schemeDark2[1]
+    }
+  });
+
+  const links = [];
+
+  // Add a link between two nodes
+  const addNeighbor = (i, j) => {
+    const a = nodes[i];
+    const b = nodes[j];
+
+    // Don't duplicate, but do add 1 edge for each direction.
+    if (!a.neighbors.includes(b)) {
+      a.neighbors.push(b);
+      links.push({ a: a, b: b });
+    }
+    if (!b.neighbors.includes(a)) {
+      b.neighbors.push(a);
+      links.push({ a: b, b: a });
+    }
+  }
+
+  // Add self-loops if requested
+  if (addSelfLoops) {
+    for (let i = 0; i < totalNodes; i++) {
+      addNeighbor(i, i);
+    }
+  }
+
+  // Connect all producers to all consumers (creating a complete bipartite graph Km,n)
+  for (let producer_idx = 0; producer_idx < m; producer_idx++) {
+    for (let consumer_idx = m; consumer_idx < totalNodes; consumer_idx++) {
+      addNeighbor(producer_idx, consumer_idx);
+    }
+  }
+
+  return [nodes, links];
+}
+
 export function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
