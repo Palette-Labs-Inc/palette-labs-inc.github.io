@@ -156,47 +156,65 @@ export function nodeStepSmall() {
   }
 
   function addAnnotations(){
-  var isDrag = 0
+    var isDrag = 0
 
-const annotations = [
-  {
-    "text": "Aggregate information from adjacent edges",
-    "textOffset": [
-      189,
-      228
+    const annotations = [
+      {
+        "text": "Aggregate information from adjacent edges",
+        "textOffset": [
+          189,
+          228
+        ]
+      },
+      {
+        "path": "M 114,60 A 35.044 35.044 0 0 0 160,109",
+        "srcIndex": 0
+      },
+      {
+        "path": "M 52,51 A 80.808 80.808 0 0 0 183,145",
+        "srcIndex": 1
+      },
+      {
+        "path": "M 22,13 A 114.114 114.114 0 0 0 190,161",
+        "srcIndex": 2
+      },
+
+      {
+        "path": "M 140,32 A 43.963 43.963 0 0 1 189,35",
+        "srcIndex": 3
+      },
+      {
+        "path": "M 84,72 A 58.95 58.95 0 0 0 175,129",
+        "srcIndex": 4
+      },
+      {
+        "path": "M 63,18 A 78.02 78.02 0 0 1 219,14",
+        "srcIndex": 5
+      }
     ]
-  },
-  {
-    "path": "M 114,60 A 35.044 35.044 0 0 0 160,109",
-    "srcIndex": 0
-  },
-  {
-    "path": "M 52,51 A 80.808 80.808 0 0 0 183,145",
-    "srcIndex": 1
-  },
-  {
-    "path": "M 22,13 A 114.114 114.114 0 0 0 190,161",
-    "srcIndex": 2
-  },
+    // Calculate graph translation offset (using initial xOffset = 0)
+    const gTranslate = [width/2, height/2 - 60];
 
-  {
-    "path": "M 140,32 A 43.963 43.963 0 0 1 189,35",
-    "srcIndex": 3
-  },
-  {
-    "path": "M 84,72 A 58.95 58.95 0 0 0 175,129",
-    "srcIndex": 4
-  },
-  {
-    "path": "M 63,18 A 78.02 78.02 0 0 1 219,14",
-    "srcIndex": 5
-  }
-]
-  var swoopy = swoopyDrag()
-      .x(d => 0)
-      .y(d => 0)
-      .draggable(isDrag)
-      .annotations(annotations)
+    // Update annotation paths to originate from link midpoints
+    annotations.forEach(d => {
+      if (d.srcIndex !== undefined && d.path) {
+        const link = links[d.srcIndex];
+        if (link && link.a && link.b && link.a.pos && link.b.pos) {
+          const midX = (link.a.pos[0] + link.b.pos[0]) / 2 + gTranslate[0];
+          const midY = (link.a.pos[1] + link.b.pos[1]) / 2 + gTranslate[1];
+          // Replace the M x,y part of the path string
+          d.path = d.path.replace(/^M\s*[^\s,]+[\s,]+[^\sA]+/, `M ${midX.toFixed(1)},${midY.toFixed(1)}`);
+        } else {
+           console.warn(`Skipping annotation path update for srcIndex ${d.srcIndex}: Link or positions missing`);
+        }
+      }
+    });
+
+    var swoopy = swoopyDrag()
+        .x(d => 0)
+        .y(d => 0)
+        .draggable(isDrag)
+        .annotations(annotations)
 
     var swoopySel = c.svg.append('g.annotations').call(swoopy)
 
