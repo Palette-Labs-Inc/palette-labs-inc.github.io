@@ -17,7 +17,7 @@
 
 
 import * as d3 from 'd3';
-import {makeGraph, sleep} from '../utils';
+import {makeBipartiteGraph, sleep} from '../utils';
 
 const hexColor = ["#f2b200", "#c69700", "#ffeaa9", "#ffd255", "#d19f00", "#edc949", "#f2b200", "#c69700", "#ffeaa9", "#ffd255", "#d19f00", "#edc949", "#f2b200", "#c69700", "#ffeaa9", "#ffd255", "#d19f00", "#edc949"]
 const color = hexColor.map(c => d3.color(c))
@@ -25,11 +25,12 @@ const color = hexColor.map(c => d3.color(c))
 export class LayerwiseTrace {
   parent = d3.select('#layerwise-trace');
   numLayers = 4;
-  numNodes = 5;
+  numProducers = 3;
+  numConsumers = 2;
   highlightCancelled = false;
   zIdxCounter = 0;
   constructor() {
-    const [nodes, links] = makeGraph(this.numNodes, this.numNodes*2);
+    const [nodes, links] = makeBipartiteGraph(this.numProducers, this.numConsumers);
     for (let layer=this.numLayers-1; layer>-1; layer--){
       this.showGraph(nodes, links, layer);
     }

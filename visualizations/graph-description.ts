@@ -17,15 +17,16 @@
 
 
 import * as d3 from 'd3';
-import { makeGraph, sleep } from '../utils';
+import { makeBipartiteGraph, sleep } from '../utils';
 
 
 export class GraphDescription {
   parent = d3.select('#graph-description');
   svg = this.parent.append('svg');
-  numNodes = 5;
+  numProducers = 3;
+  numConsumers = 2;
   constructor() {
-    const [nodes, links] = makeGraph(this.numNodes, this.numNodes * 2);
+    const [nodes, links] = makeBipartiteGraph(this.numProducers, this.numConsumers);
     this.showGraph(nodes, links);
     this.showText();
   }

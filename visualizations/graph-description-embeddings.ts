@@ -16,21 +16,22 @@
  */
 
 import * as d3 from 'd3';
-import { makeGraph, sleep } from '../utils';
+import { makeBipartiteGraph, sleep } from '../utils';
 
 
 export class GraphDescriptionEmbeddings {
   parent = d3.select('#graph-description-embeddings');
   svg = this.parent.append('svg');
   textHolder = this.parent.append('div').classed('lines', true);
-  numNodes = 5;
+  numProducers = 3;
+  numConsumers = 2;
   selectedEdgeIdx = 1;
   selectedNodeIdx = 1;
   nodes;
   links;
   global;
   constructor() {
-    const [nodes, links] = makeGraph(this.numNodes, this.numNodes * 2);
+    const [nodes, links] = makeBipartiteGraph(this.numProducers, this.numConsumers);
     this.nodes = nodes;
     this.links = links;
     const numEdgeEmbed = 8;

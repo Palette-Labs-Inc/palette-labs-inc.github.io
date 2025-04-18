@@ -21,6 +21,7 @@ import * as d3_jp from 'd3-jetpack'
 import * as _ from 'underscore'
 import {swoopyDrag} from '../third_party/swoopy-drag'
 import { random } from '../utils';
+import { createBipartiteGraph } from './graph-helpers'
 
 export function nodeAttributes() {
   var width = 150
@@ -31,33 +32,14 @@ export function nodeAttributes() {
   var numEmbed = 8
   var sel = d3.select('#node-attributes').html('')
 
-  var nodes = window.stepNodes = window.stepNodes || d3.range(5).map((v, i) => {
+  var { nodes, links } = window.stepNodes = window.stepNodes ||
+    createBipartiteGraph(3, 2, {
+      numEmbed: numEmbed
+    });
 
-    var color = ["#f2b200", "#c69700", "#ffeaa9", "#ffd255", "#d19f00", "#edc949", "#af7aa1", "#ff9da7", "#9c755f", "#bab0ab"][i]
-    var rv = {v, i, isNode: true, color: d3.color(color), neighbors: []}
-    rv.embed = d3.range(numEmbed).map(d => .05 + Math.random()*.95).map((v, i) => ({node: rv, v, i}))
-    rv.outembed = d3.range(numEmbed).map(d => .05 + Math.random()*.95).map((v, i) => ({node: rv, v, i}))
-    
-    return rv
-  })
-
+  window.stepLinks = window.stepLinks || links;
 
   var n = nodes.length
-
-  var links = window.stepLinks = window.stepLinks || d3.cross(nodes, nodes)
-    .map(([a, b]) => {
-      var [i, j] = [a.i, b.i]
-      if (i <= j) return 
-
-      var linkId = i + ' ' + j
-      var v = random[i] < .3 ? 1 : 0
-      if (v){
-        nodes[i].neighbors.push(nodes[j])
-        nodes[j].neighbors.push(nodes[i])
-      }
-      return {a, b, linkId, v}
-    })
-    .filter(d => d)
 
   var renderFns = []
   function render(){
@@ -84,7 +66,7 @@ export function nodeAttributes() {
       d.pathStr = 'M' + [d.a, d.b].map(d => d.pos).join('L')
     })
 
-    var linkSel = g.append('g').appendMany('path.link', links.filter(d => d.a.i > d.b.i))
+    var linkSel = g.append('g').appendMany('path.link', links)
       .at({
         d: d => d.pathStr,
         strokeWidth: 2,
